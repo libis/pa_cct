@@ -11,30 +11,87 @@
 	
 	<div class='advancedContainer'>
 		<div class="advancedSearchField">
-			Title:<br/>
-			{{{ca_objects.preferred_labels.name%width=220px}}}
+			Free Text:<br/>
+			{{{_fulltext%width=210px&height=25px}}}
 		</div>
 		<div class="advancedSearchField">
-			Accession number:<br/>
+			Authors (all):<br/>
+			{{{ca_entities.preferred_labels%restrictToRelationshipTypes=aut,clb,edt,edc,imp,trl,oth,ppf,com,ctb&width=210px}}}
+		</div>
+		<div class="advancedSearchField">
+			Author(aut):<br/>
+			{{{ca_entities.preferred_labels%restrictToRelationshipTypes=aut&width=210px}}}
+		</div>
+		<div class="advancedSearchField">
+			Author(trl):<br/>
+			{{{ca_entities.preferred_labels%restrictToRelationshipTypes=trl&width=210px}}}
+		</div>
+		<div class="advancedSearchField">
+			Author(trl):<br/>
+			{{{ca_entities.preferred_labels%restrictToRelationshipTypes=clb&width=210px}}}
+		</div>
+		<div class="advancedSearchField">
+			Title:<br/>
+			{{{ca_objects.preferred_labels.name%width=210px}}}
+		</div>
+		<div class="advancedSearchField">
+			Title (Series):<br/>
+		</div>
+		<div class="advancedSearchField">
+			Periodical:<br/>
+			{{{ca_objects.marc773.marc773a%width=210px&height=25px}}}
+		</div>
+		<div class="advancedSearchField">
+			Impressum (date):<br/>
+			{{{ca_objects.marc260c%width=210px&height=25px}}}
+		</div>
+		<div class="advancedSearchField">
+			Impressum (place):<br/>
+			{{{ca_places.preferred_labels%restrictToRelationshipTypes=printedIn&width=210px}}}
+		</div>
+		<div class="advancedSearchField">
+			Imprimatur*:<br/>
+			{{{ca_objects.link_part_of.link_partOf_llrl%width=210px&height=25px}}}
+		</div>
+		<div class="advancedSearchField">
+			Contents:<br/>
+			{{{ca_objects.marc520a_cont%width=210px&height=25px}}}
+		</div>
+		<div class="advancedSearchField">
+			Ancient List*:<br/>
+			{{{ca_objects.marc532_al.marc532a_al%width=210px&height=25px}}}
+		</div>
+		<div class="advancedSearchField">
+			Modern List*:<br/>
+			{{{ca_objects.marc532_ml.marc532b_ml%width=210px&height=25px}}}
+		</div>
+		<div class="advancedSearchField">
+			Reviews*:<br/>
+			{{{ca_entities.preferred_labels%restrictToRelationshipTypes=reviewer&width=210px}}}
+		</div>
+		<div class="advancedSearchField">
+			Identifier:<br/>
 			{{{ca_objects.idno%width=210px}}}
 		</div>
 		<div class="advancedSearchField">
-			Keyword<br/>
-			{{{_fulltext%width=200px&height=25px}}}
-			{{{_fulltext:boolean}}}
+			Category:<br/>
+			{{{ca_list_items.preferred_labels%restrictToTypes=category_list&width=210px}}}
+		</div>
+		<div class="advancedSearchField">
+			Source:<br/>
+			{{{ca_objects.marc900a%width=210px}}}
 		</div>
 		<div class="advancedSearchField">
 			Type:<br/>
-			{{{ca_objects.type_id}}}
+			{{{ca_objects.type_id%width=210px}}}
 		</div>
 		<div class="advancedSearchField">
-			Date range <i>(e.g. 1970-1979)</i><br/>
-			{{{ca_objects.dates.dates_value%width=200px&height=40px&useDatePicker=0}}}
+			Document Type:<br/>
+			{{{ca_objects.marc655a%width=210px}}}
 		</div>
-		
 		<div class="advancedSearchField">
-			Collection <br/>
-			{{{ca_collections.preferred_labels%restrictToTypes=collection%width=200px&height=40px}}}
+			Date range: <i>(e.g. 1970-1979)</i><br/>
+			{{{ca_objects.yearOfPrinting_sort%width=210px&height=40px&useDatePicker=0}}}
 		</div>
 	</div>	
 	
