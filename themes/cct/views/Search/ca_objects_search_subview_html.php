@@ -93,7 +93,6 @@
 						$vs_image = $vs_default_placeholder_tag;
 					}
 				}
-				print $qr_results->getWithTemplate('<l>'.$vs_image.'</l>', array("checkAccess" => $va_access_values));
 ?>
 				<br/><?php print $qr_results->get('ca_objects.preferred_labels.name', array('returnAsLink' => true)); ?>
 				<?php print $qr_results->get('ca_entities.preferred_labels.displayname', array('returnAsLink' => true)); ?>
