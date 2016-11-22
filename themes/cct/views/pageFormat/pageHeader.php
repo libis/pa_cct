@@ -143,7 +143,29 @@
 					<li <?php print ($this->request->getController() == "Contact") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Contact"), "", "", "Contact", "Form"); ?></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
+			<!--libis_start-->
+			<!--Font increase decrease functionality-->
+			<?php
+			$va_tmp = explode("/", str_replace("\\", "/", $_SERVER['SCRIPT_NAME']));
+			array_pop($va_tmp);
+			$vs_path = join("/", $va_tmp);
+			?>
+			<img id="plustext" alt="Increase text size" src="<?php print $vs_path ?>/themes/cct/assets/pawtucket/graphics/font_increase.png" onclick="resizeText(1)" />
+			<img id="minustext" alt="Decrease text size" src="<?php print $vs_path ?>/themes/cct/assets/pawtucket/graphics/font_decrease.png" onclick="resizeText(-1)" />
+			<!--libis_end-->			
 		</div><!-- end container -->
 	</nav>
 	<div class="container"><div class="row"><div class="col-xs-12">
 		<div id="pageArea" <?php print caGetPageCSSClasses(); ?>>
+
+	<!--libis_start-->
+	<!--javascript for font increase decrease-->
+	<script type="text/javascript">
+		function resizeText(multiplier) {
+			if (document.body.style.fontSize == "") {
+				document.body.style.fontSize = "1.0em";
+			}
+			document.body.style.fontSize = parseFloat(document.body.style.fontSize) + (multiplier * 0.2) + "em";
+		}
+	</script>
+	<!--libis_end-->		
