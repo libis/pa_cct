@@ -15,16 +15,16 @@
 					{{{_fulltext%width=210px&height=25px}}}
 				</div>
 				<div class="advancedSearchField">
-					Authors:<br/>
-					{{{ca_entities.preferred_labels%restrictToRelationshipTypes=aut,clb,edt,edc,imp,trl,oth,ppf,com,ctb&width=210px}}}
-				</div>
-				<div class="advancedSearchField">
 					Title:<br/>
 					{{{ca_objects.preferred_labels.name%width=210px}}}
 				</div>
 				<div class="advancedSearchField">
 					Identifier:<br/>
 					{{{ca_objects.idno%width=210px}}}
+				</div>
+				<div class="advancedSearchField">
+					Authors:<br/>
+					{{{ca_entities.preferred_labels%restrictToRelationshipTypes=aut,clb,edt,edc,imp,trl,oth,ppf,com,ctb&width=210px}}}
 				</div>
 				<div class="advancedSearchField">
 					Category:<br/>
@@ -41,6 +41,10 @@
 				<div class="advancedSearchField">
 					Document Type:<br/>
 					{{{ca_objects.marc655a%width=210px}}}
+				</div>
+				<div class="advancedSearchField">
+					Translations:<br/>
+					{{{ca_objects_x_objects.link_translation_lkrr%excludeRelationshipTypes=r77301,r77302,r77300,r77301,r77500,r77501&width=210px}}}
 				</div>
 				<div class="advancedSearchField">
 					Date range: <i>(e.g. 1970-1979)</i><br/>
