@@ -1756,16 +1756,10 @@ a.readmore-js-toggle{
 	margin-top:20px;
 }
 .bResultItemCol{
-	/*temp_start_nm*/
-	/*height:190px;*/
-	height:100px;
-	/*temp_end_nm*/
+	height:290px;
 }
 .bResultItemContent {
-	/*temp_start_nm*/
-	/*height:240px;*/
-	height:40px;
-	/*temp_start_nm*/
+	height:240px;
 	overflow:hidden;
 }
 .bResultItem {
@@ -1773,7 +1767,7 @@ a.readmore-js-toggle{
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     line-height: 1em;
-    padding: 5px;
+    padding: 10px;
 }
 .bSetsSelectMultiple{
 	display:none;	
@@ -1804,11 +1798,7 @@ a.readmore-js-toggle{
     margin:-20px -8px 0px -8px;
     /*margin: -40px;*/
     /*min-height: 320px;*/
-
-	/*temp_start_nm*/
-    min-height:100px;
-	/*temp_end_nm*/
-
+    min-height:300px;
     /*padding: 20px;*/
     position: relative;
     z-index: 100;
@@ -1816,10 +1806,7 @@ a.readmore-js-toggle{
 .bResultItem:hover .bResultItemContent {
     height: auto;
     /*max-height: 600px;*/
-    /*temp_nm_start*/
-	/*min-height: 240px;*/
-    min-height: 40px;
-	/*temp_nm_end*/
+    min-height: 240px;
 }
 .bResultItem:hover .bResultItemImg {
     height: auto;
@@ -1966,13 +1953,10 @@ a.readmore-js-toggle{
 /* search/browse results: list mode */
 
 .bResultListItemCol{
-	/*height:122px;*/
-	/*temp_nm_start*/
-	height:70px;
-	/*temp_nm_end*/
+	height:122px;
 }
 .bResultListItemContent {
-	height:32px;
+	height:72px;
 	overflow:hidden;
 }
 .bResultListItem{
@@ -1980,7 +1964,7 @@ a.readmore-js-toggle{
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 	background-color:#FFFFFF;
 	line-height:1em;
-	padding:1px; /*had commented this out*/
+	padding:10px; /*had commented this out*/
 }
 .bResultListItem:hover{
 -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
@@ -1992,7 +1976,7 @@ a.readmore-js-toggle{
 
 }
 .bResultListItem .bResultListItemImg{
-	max-height:20px;
+	max-height:72px;
 	min-height:10px;
 	overflow:hidden;
 	margin:0 5px 0 0; /*had commented this out*/
@@ -2010,10 +1994,7 @@ a.readmore-js-toggle{
 	color:#666;
 }
 .bResultListItem .bResultListItemText{
-	/*temp_nm_start*/
-	/*line-height:1.2em;*/
-	/*temp_nm_end*/
-	line-height:1.3em;
+	line-height:1.2em;
 	font-size:12px;
 }
 .bResultListItem .bResultListItemText small, .bResultListItem .bResultListItemText small a{
@@ -2748,23 +2729,11 @@ div.caMediaOverlayRepThumbs a.selectedRep img{
 
 
 /* Advanced Search */
-/*tem_start_nm*/
-div.advancedSearchField {
-	/*float: left;*/
-	float: none;
 
+div.advancedSearchField {
+	float: left;
 	width: 250px;
 }
-
-.cct_div_bkg{
-	background:#d6eaf8;
-	padding-bottom: 20px;
-}
-
-.cct_result_div_bkg{
-	background: #f8f9f9;
-}
-/*tem_end_nm*/
 
 /* Finding Aid */
 
