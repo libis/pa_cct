@@ -33,15 +33,13 @@
 				<li><i class="fa fa-facebook-square"></i></li>
 				<li><i class="fa fa-youtube-play"></i></li>
 			</ul>
-			<div>
-				Footer text here
+			<div style="text-align: center; text-justify: inter-word;">
+				When quoting this database, refer to it as follows:
+				Ad Dudink & Nicolas Standaert, Chinese Christian Texts Database (CCT-Database) (<a href="http://www.arts.kuleuven.be/sinology/cct" target="_blank">http://www.arts.kuleuven.be/sinology/cct</a>)
+				<br>
+				COPY © 2016 CCT
 			</div>
-			<ul class="list-inline">
-				<li><a href="#">Link 1</a></li>
-				<li><a href="#">Link 2</a></li>
-				<li><a href="#">Link 3</a></li>
-			</ul>
-			<div><small>powered by <a href="http://www.collectiveaccess.org">CollectiveAccess 2015</a></small></div>
+			<!--<div><div><small>powered by <a href="http://www.collectiveaccess.org">CollectiveAccess 2015</a></small></div></div>-->
 		</div><!-- end footer -->
 <?php
 	//
