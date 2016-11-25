@@ -56,22 +56,15 @@
 	}
 	$vs_default_placeholder_tag = "<div class='bResultItemImgPlaceholder'>".$vs_default_placeholder."</div>";
 
-	
 	$va_add_to_set_link_info = caGetAddToSetInfo($this->request);
-
-		/*tem_start_nm*/
-		/*$vn_col_span = 4;*/
-		$vn_col_span = 3;
-		/*tem_end_nm*/
+	
+		$vn_col_span = 4;
 		$vn_col_span_sm = 4;
 		$vn_col_span_xs = 12;
 		$vb_refine = false;
 		if(is_array($va_facets) && sizeof($va_facets)){
 			$vb_refine = true;
-			/*tem_start_nm*/
-			/*$vn_col_span = 4;*/
-			$vn_col_span = 3;
-			/*tem_end_nm*/
+			$vn_col_span = 6;
 			$vn_col_span_sm = 6;
 			$vn_col_span_xs = 12;
 		}
@@ -96,24 +89,33 @@
 				$vn_id 					= $qr_res->get("{$vs_table}.{$vs_pk}");
 				$vs_idno_detail_link 	= caDetailLink($this->request, $qr_res->get("{$vs_table}.idno"), '', $vs_table, $vn_id);
 				$vs_label_detail_link 	= caDetailLink($this->request, $qr_res->get("{$vs_table}.preferred_labels"), '', $vs_table, $vn_id);
+				//libis_start
+				$vs_source_type = $qr_res->get("{$vs_table}.marc900a", array('convertCodesToDisplayText' => true));
+				$vs_printing_year = $qr_res->get("{$vs_table}.yearOfPrinting_sort");
+
+				$vs_alternative_title = $qr_res->get("{$vs_table}.marc242a");
+
+				$author_types = "aut,clb,edt,edc,imp,trl,oth,ppf,com,ctb";
+				$vs_author_template = "<unit relativeTo=\"ca_entities\" restrictToRelationshipTypes=\"$author_types\" delimiter=\" / \">^ca_entities.preferred_labels.displayname</unit>";
+				$vs_authors = $qr_res->getWithTemplate($vs_author_template);
+				//libis_end
 				$vs_thumbnail = "";
 				$vs_type_placeholder = "";
 				$vs_typecode = "";
+				$vs_image = ($vs_table === 'ca_objects') ? $qr_res->getMediaTag("ca_object_representations.media", 'small', array("checkAccess" => $va_access_values)) : $va_images[$vn_id];
 
 				//temp_nm_start
 				$test = new ca_objects();
 				$test->load($vn_id);
-				$relationship_type = 96;
+				$relationship_type = 100;
 				$temp_author =$test->getRelatedItems('ca_entities', array('restrictToRelationshipTypes' => $relationship_type));
 				$authors = array();
 				foreach($temp_author as $auth_array){
 					$authors [] = $auth_array['displayname'];
 				}
-				$auth_names = implode(", ", $authors);
+				$auth_names = implode(" / ", $authors);
 				//temp_nm_end
 
-				$vs_image = ($vs_table === 'ca_objects') ? $qr_res->getMediaTag("ca_object_representations.media", 'small', array("checkAccess" => $va_access_values)) : $va_images[$vn_id];
-				
 				if(!$vs_image){
 					if ($vs_table == 'ca_objects') {
 						$t_list_item->load($qr_res->get("type_id"));
@@ -127,10 +129,8 @@
 						$vs_image = $vs_default_placeholder_tag;
 					}
 				}
-				//temp_start_nm
-				//$vs_rep_detail_link 	= caDetailLink($this->request, $vs_image, '', $vs_table, $vn_id);
-				$vs_rep_detail_link 	= null;
-				//temp_end_nm
+				$vs_rep_detail_link 	= caDetailLink($this->request, $vs_image, '', $vs_table, $vn_id);
+
 
 				$vs_add_to_set_link = "";
 				if(is_array($va_add_to_set_link_info) && sizeof($va_add_to_set_link_info)){
@@ -139,18 +139,25 @@
 				
 				$vs_expanded_info = $qr_res->getWithTemplate($vs_extended_info_template);
 
+				//lisib: remove $vs_rep_detail_link from the following print statement to remove image
+
 				print "
-	<div class='bResultListItemCol col-xs-{$vn_col_span_xs} col-sm-{$vn_col_span_sm} col-md-{$vn_col_span} cct_result_div_bkg'>
+	<div class='bResultListItemCol col-xs-{$vn_col_span_xs} col-sm-{$vn_col_span_sm} col-md-{$vn_col_span}'>
 		<div class='bResultListItem' onmouseover='jQuery(\"#bResultListItemExpandedInfo{$vn_id}\").show();'  onmouseout='jQuery(\"#bResultListItemExpandedInfo{$vn_id}\").hide();'>
 			<div class='bSetsSelectMultiple'><input type='checkbox' name='object_ids[]' value='{$vn_id}'></div>
-			<div class='bResultListItemContent'><div class='text-center bResultListItemImg'>{$vs_rep_detail_link}</div>
+			<div class='bResultListItemContent'>
 				<div class='bResultListItemText'>
-					<small>{$vs_idno_detail_link}</small><br/>{$vs_label_detail_link}
+					<small>{$vs_idno_detail_link}</small><br/>
+					{$vs_authors}<br>
+					<b>{$vs_label_detail_link}</b><br>
+					$vs_printing_year<br>
+					{$vs_source_type}<br>
+					{$vs_expanded_info}{$vs_add_to_set_link}
 				</div><!-- end bResultListItemText -->
 			</div><!-- end bResultListItemContent -->
 			<div class='bResultListItemExpandedInfo' id='bResultListItemExpandedInfo{$vn_id}'>
 				<hr>
-				{$auth_names}  ||  {$vs_expanded_info}{$vs_add_to_set_link}
+				{$vs_expanded_info}{$vs_add_to_set_link}
 			</div><!-- bResultListItemExpandedInfo -->
 		</div><!-- end bResultListItem -->
 	</div><!-- end col -->";
