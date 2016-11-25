@@ -34,11 +34,14 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8">
-			<H1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, orci quis vehicula eleifend, metus elit laoreet elit.</H1>
+			<p>The Chinese Christian Texts Database (CCT-Database) is a research database of primary and secondary sources concerning the cultural contacts between China and Europe in the seventeenth and eighteenth centuries (from 1582 to ca. 1840). The cultural contacts comprise documents in the various fields of cultural interaction: religion, philosophy, science, art, etc.</p>
 		</div><!--end col-sm-8-->
 		<div class="col-sm-4">
 <?php
-		print $this->render("Front/gallery_set_links_html.php");
+		//libis_start
+		// remove gallery from the front page
+		//print $this->render("Front/gallery_set_links_html.php");
+		//libis_end
 ?>
 		</div> <!--end col-sm-4-->	
 	</div><!-- end row -->
