@@ -51,18 +51,24 @@
 				<H4>{{{<unit relativeTo="ca_collections" delimiter="<br/>"><l>^ca_collections.preferred_labels.name</l></unit><ifcount min="1" code="ca_collections"> ➔ </ifcount>}}}{{{ca_objects.preferred_labels.name}}}</H4>
 				<H6>{{{<unit>^ca_objects.type_id</unit>}}}</H6>
 				<HR>
-				
-				{{{<ifdef code="ca_objects.measurementSet.measurements">^ca_objects.measurementSet.measurements (^ca_objects.measurementSet.measurementsType)</ifdef><ifdef code="ca_objects.measurementSet.measurements,ca_objects.measurementSet.measurements"> x </ifdef><ifdef code="ca_objects.measurementSet.measurements2">^ca_objects.measurementSet.measurements2 (^ca_objects.measurementSet.measurementsType2)</ifdef>}}}
 
-
-				{{{<ifdef code="ca_objects.preferred_labels"><H6>Title:</H6>^ca_objects.preferred_labels<br/></ifdef>}}}
-				{{{<ifdef code="ca_objects.marc242a"><H6>Title:</H6>^ca_objects.marc242a<br/></ifdef>}}}
-				{{{<ifdef code="ca_objects.non_preferred_labels">^ca_objects.non_preferred_labels<br/></ifdef>}}}
 				{{{<ifdef code="ca_objects.idno"><H6>Identifer:</H6>^ca_objects.idno<br/></ifdef>}}}
 
 				{{{<ifcount code="ca_entities" min="1" max="1"><H6>Author</H6></ifcount>}}}
 				{{{<ifcount code="ca_entities" min="2"><H6>Authors</H6></ifcount>}}}
-				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="Author" delimiter="<br/>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
+				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="aut,edt,edc,trl,oth,com" delimiter="<br/>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
+
+				{{{<ifcount code="ca_entities"><H6>Collaborators</H6></ifcount>}}}
+				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="clb" delimiter="<br/>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
+
+				{{{<ifcount code="ca_entities"><H6>Nihil Obstat</H6></ifcount>}}}
+				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="nio" delimiter="<br/>"><l>^ca_entitiess.preferred_labels.displayname</l></unit>}}}
+
+				{{{<ifcount code="ca_entities"><H6>Imprimatur</H6></ifcount>}}}
+				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="imp" delimiter="<br/>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
+
+				{{{<ifcount code="ca_entities"><H6>Pre/Post Faces</H6></ifcount>}}}
+				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="ppf" delimiter="<br/>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
 
 				{{{<ifdef code="ca_objects.marc520a_cont"><H6>Contents:</H6>^ca_objects.marc520a_cont<br/></ifdef>}}}
 				{{{<ifdef code="ca_objects.marc529a"><H6>Notes on Contents:</H6>^ca_objects.marc529a<br/></ifdef>}}}
@@ -72,8 +78,12 @@
 
 				{{{<ifdef code="ca_objects.marc529a"><H6>Document Type:</H6>^ca_objects.marc655a<br/></ifdef>}}}
 				{{{<ifdef code="ca_objects.marc529a"><H6>Type of Source:</H6>^ca_objects.marc900a<br/></ifdef>}}}
-				 	
-				
+
+				{{{<ifcount code="ca_objects.related.preferred_labels" min="1" max="1"><H6>Link</H6></ifcount>}}}
+				{{{<ifcount code="ca_objects.related.preferred_labels" min="2"><H6>Links</H6></ifcount>}}}
+				{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="r77300" delimiter="<br/>">^relationship_typename: <l>^ca_objects.related.preferred_labels</l></unit>}}}
+
+
 				<hr></hr>
 					<div class="row">
 						<div class="col-sm-6">
