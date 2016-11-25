@@ -122,12 +122,13 @@
 					$vs_add_to_set_link = "<a href='#' onclick='caMediaPanel.showPanel(\"".caNavUrl($this->request, '', $va_add_to_set_link_info["controller"], 'addItemForm', array($vs_pk => $vn_id))."\"); return false;' title='".$va_add_to_set_link_info["link_text"]."'>".$va_add_to_set_link_info["icon"]."</a>";
 				}
 				$vs_expanded_info = $qr_res->getWithTemplate($vs_extended_info_template);
+				//lisib: remove $vs_rep_detail_link from the following print statement to remove image
 
 				print "
 	<div class='bResultItemCol col-xs-{$vn_col_span_xs} col-sm-{$vn_col_span_sm} col-md-{$vn_col_span}'>
 		<div class='bResultItem' onmouseover='jQuery(\"#bResultItemExpandedInfo{$vn_id}\").show();'  onmouseout='jQuery(\"#bResultItemExpandedInfo{$vn_id}\").hide();'>
 			<div class='bSetsSelectMultiple'><input type='checkbox' name='object_ids' value='{$vn_id}'></div>
-			<div class='bResultItemContent'><div class='text-center bResultItemImg'>{$vs_rep_detail_link}</div>
+			<div class='bResultItemContent'>
 				<div class='bResultItemText'>
 					<small>{$vs_idno_detail_link}</small><br/>{$vs_label_detail_link}{$vs_date}
 				</div><!-- end bResultItemText -->

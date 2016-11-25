@@ -27,8 +27,6 @@
  */
  
 	$va_facets 			= $this->getVar('facets');				// array of available browse facets
-	$va_facets = null;	//start_nm_temp
-	//unset($va_facets['place_facet']); //start_nm_temp
 	$va_criteria 		= $this->getVar('criteria');			// array of browse criteria
 	$vs_key 			= $this->getVar('key');					// cache key for current browse
 	$va_access_values 	= $this->getVar('access_values');		// list of access values for this user

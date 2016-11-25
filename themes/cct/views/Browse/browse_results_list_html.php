@@ -104,18 +104,6 @@
 				$vs_typecode = "";
 				$vs_image = ($vs_table === 'ca_objects') ? $qr_res->getMediaTag("ca_object_representations.media", 'small', array("checkAccess" => $va_access_values)) : $va_images[$vn_id];
 
-				//temp_nm_start
-				$test = new ca_objects();
-				$test->load($vn_id);
-				$relationship_type = 100;
-				$temp_author =$test->getRelatedItems('ca_entities', array('restrictToRelationshipTypes' => $relationship_type));
-				$authors = array();
-				foreach($temp_author as $auth_array){
-					$authors [] = $auth_array['displayname'];
-				}
-				$auth_names = implode(" / ", $authors);
-				//temp_nm_end
-
 				if(!$vs_image){
 					if ($vs_table == 'ca_objects') {
 						$t_list_item->load($qr_res->get("type_id"));
