@@ -76,13 +76,13 @@
 				{{{<ifcount code="ca_list_items" min="1"><H6>Category</H6></ifcount>}}}
 				{{{<unit relativeTo="ca_list_items" restrictToRelationshipTypes="category" delimiter="<br/>">^ca_list_items.preferred_labels.name_plural</unit>}}}
 
-				{{{<ifdef code="ca_objects.marc529a"><H6>Document Type:</H6>^ca_objects.marc655a<br/></ifdef>}}}
-				{{{<ifdef code="ca_objects.marc529a"><H6>Type of Source:</H6>^ca_objects.marc900a<br/></ifdef>}}}
+				{{{<ifdef code="ca_objects.marc655a"><H6>Document Type:</H6>^ca_objects.marc655a<br/></ifdef>}}}
+				{{{<ifdef code="ca_objects.marc900a"><H6>Type of Source:</H6>^ca_objects.marc900a<br/></ifdef>}}}
+
 
 				{{{<ifcount code="ca_objects.related.preferred_labels" min="1" max="1"><H6>Link</H6></ifcount>}}}
 				{{{<ifcount code="ca_objects.related.preferred_labels" min="2"><H6>Links</H6></ifcount>}}}
 				{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="r77300" delimiter="<br/>">^relationship_typename: <l>^ca_objects.related.preferred_labels</l></unit>}}}
-
 
 				<hr></hr>
 					<div class="row">
