@@ -91,6 +91,17 @@
 				$vn_id 					= $qr_res->get("{$vs_table}.{$vs_pk}");
 				$vs_idno_detail_link 	= caDetailLink($this->request, $qr_res->get("{$vs_table}.idno"), '', $vs_table, $vn_id);
 				$vs_label_detail_link 	= caDetailLink($this->request, $qr_res->get("{$vs_table}.preferred_labels.name"), '', $vs_table, $vn_id);
+
+				/*libis_start*/
+				//entities do not have 'ca_entities.preferred_labels.name', instead they have 'ca_entities.preferred_labels.displayname'
+                if ($vs_table == 'ca_entities') {
+                    $vs_label_detail_link = caDetailLink($this->request, $qr_res->get("{$vs_table}.preferred_labels.displayname"), '', $vs_table, $vn_id);
+                    $vs_entity_type_link = caDetailLink($this->request, $qr_res->get("{$vs_table}.type_id"), '', $vs_table, $vn_id);
+                    $vs_entity_type = $qr_res->getWithTemplate("^{$vs_table}.type_id");
+                    $vs_label_detail_link = $vs_entity_type . "<br>" . $vs_label_detail_link;
+                }
+                /*libis_end*/
+
 				$vs_thumbnail = "";
 				$vs_type_placeholder = "";
 				$vs_typecode = "";
