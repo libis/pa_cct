@@ -21,8 +21,13 @@
 					<H6>{{{^ca_entities.type_id}}}</H6>
 					{{{<ifdef code="ca_entities.idno"><H6>Identifer:</H6>^ca_entities.idno</ifdef>}}}
 
-		                        <H6>{{{<ifdef code="ca_entities.marc700d"><H6>Birth and Death Date</H6></ifdef>}}}</H6>
-			                {{{<unit relativeTo="ca_entities" delimiter="<br/>">^ca_entities.marc700d</unit>}}}
+                    {{{<ifdef code="ca_entities.nonpreferred_labels.displayname"><H6>Alternative Name</H6></ifdef>}}}
+                    {{{<unit relativeTo="ca_entities" delimiter="<br/>">
+                        <ifdef code="ca_entities.nonpreferred_labels.displayname">^ca_entities.nonpreferred_labels.displayname</ifdef>
+                    </unit>}}}					
+					
+		            {{{<ifdef code="ca_entities.marc700d"><H6>Birth and Death Date</H6></ifdef>}}}
+			        {{{<unit relativeTo="ca_entities" delimiter="<br/>">^ca_entities.marc700d</unit>}}}
 				</div><!-- end col -->
 			</div><!-- end row -->
 			<div class="row">			
