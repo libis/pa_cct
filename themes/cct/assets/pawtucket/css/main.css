@@ -2130,6 +2130,9 @@ a.readmore-js-toggle {
     margin-top: 5px;
 }
 
+.detail-metadata{
+  display: block !important;
+}
 
 /* --------------------------------- */
 

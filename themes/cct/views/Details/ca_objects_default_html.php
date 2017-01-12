@@ -1,6 +1,6 @@
 <?php
 /* ----------------------------------------------------------------------
- * themes/default/views/bundles/ca_objects_default_html.php : 
+ * themes/default/views/bundles/ca_objects_default_html.php :
  * ----------------------------------------------------------------------
  * CollectiveAccess
  * Open-source collections management software
@@ -15,17 +15,17 @@
  * the terms of the provided license as published by Whirl-i-Gig
  *
  * CollectiveAccess is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTIES whatsoever, including any implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * WITHOUT ANY WARRANTIES whatsoever, including any implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * This source code is free and modifiable under the terms of 
+ * This source code is free and modifiable under the terms of
  * GNU General Public License. (http://www.gnu.org/copyleft/gpl.html). See
  * the "license.txt" file for details, or visit the CollectiveAccess web site at
  * http://www.CollectiveAccess.org
  *
  * ----------------------------------------------------------------------
  */
- 
+
 	$t_object = 			$this->getVar("item");
 	$va_comments = 			$this->getVar("comments");
 	$vn_comments_enabled = 	$this->getVar("commentsEnabled");
@@ -46,8 +46,8 @@
 			<div class='col-sm-6 col-md-6 col-lg-5 col-lg-offset-1'>
 				<div id="detailAnnotations"></div>
 			</div><!-- end col -->
-			
-			<div class='col-sm-6 col-md-6 col-lg-5'>
+
+			<div class='col-sm-6 col-md-6 col-lg-5 detail-metadata'>
 				<H4>{{{<unit relativeTo="ca_collections" delimiter=" | "><l>^ca_collections.preferred_labels.name</l></unit>
                     <ifcount min="1" code="ca_collections"> ➔ </ifcount>}}}{{{ca_objects.preferred_labels.name}}}</H4>
 				<HR>
@@ -271,7 +271,7 @@
 								print '</div><!-- end detailTools -->';
 							}
 							?>
-						</div><!-- end col -->				
+						</div><!-- end col -->
 						<div class="col-sm-6 colBorderLeft">
 							{{{map}}}
 						</div>
