@@ -17,25 +17,21 @@
 		<div class="container">
 			<div class="row">
 				<div class='col-md-12 col-lg-12'>
-					<H4>{{{^ca_entities.preferred_labels.displayname}}}</H4>
-					<H6>{{{^ca_entities.type_id}}}</H6>
-					{{{<ifdef code="ca_entities.idno"><H6>Identifer:</H6>^ca_entities.idno</ifdef>}}}
-
-                    {{{<ifdef code="ca_entities.nonpreferred_labels.displayname"><H6>Alternative Name</H6></ifdef>}}}
-                    {{{<unit relativeTo="ca_entities" delimiter="<br/>">
+                    <H4>{{{^ca_entities.preferred_labels.displayname}}}</H4>
+                    {{{<ifdef code="ca_entities.nonpreferred_labels.displayname"><br><H6 style="display: inline">Alternative Name: </H6></ifdef>}}}
+                    {{{<unit relativeTo="ca_entities" delimiter=" | ">
                         <ifdef code="ca_entities.nonpreferred_labels.displayname">^ca_entities.nonpreferred_labels.displayname</ifdef>
-                    </unit>}}}					
-					
-		            {{{<ifdef code="ca_entities.marc700d"><H6>Birth and Death Date</H6></ifdef>}}}
-			        {{{<unit relativeTo="ca_entities" delimiter="<br/>">^ca_entities.marc700d</unit>}}}
+                    </unit>}}}
+
+                    {{{<ifdef code="ca_entities.marc700d"><br><H6 style="display: inline">Birth and Death Date: </H6></ifdef>}}}
+                    {{{<unit relativeTo="ca_entities" delimiter=" | ">^ca_entities.marc700d</unit>}}}
 				</div><!-- end col -->
 			</div><!-- end row -->
 			<div class="row">			
 				<div class='col-md-6 col-lg-6'>
-					{{{<ifdef code="ca_entities.notes"><H6>About</H6>^ca_entities.notes<br/></ifdef>}}}
-					{{{<ifcount code="ca_objects" min="1"><H6>Related objects</H6>
-                                         <unit relativeTo="ca_objects" delimiter=" "><l>^ca_objects.preferred_labels.name</l><br/></unit>
-                                        </ifcount>}}}
+					{{{<ifcount code="ca_objects" min="1"><H6 style="display: inline">Related objects: </H6>
+                        <unit relativeTo="ca_objects" delimiter=" |  "><l>^ca_objects.preferred_labels.name</l></unit>
+                    </ifcount>}}}
 <?php
 				# Comment and Share Tools
 				if ($vn_comments_enabled | $vn_share_enabled) {
@@ -53,7 +49,7 @@
 					print '</div><!-- end detailTools -->';
 				}				
 ?>
-					
+
 				</div><!-- end col -->
 				<div class='col-md-6 col-lg-6'>
 				</div><!-- end col -->
