@@ -75,7 +75,18 @@
 		$vb_div_open = false;
 		while($qr_results->nextHit()) {
 			if ($vn_i == 0) { print "<div class='{{{block}}}Set authoritySet'>\n"; $vb_div_open = true;}
-				print "<div class='entitiesResult authorityResult'>".$qr_results->get('ca_entities.preferred_labels.displayname', array('returnAsLink' => true))."</div>";
+
+			/*libis_start*/
+			// add additional information for entities in quick search list.
+                $vs_entity_identifier = $qr_results->getWithTemplate("^ca_entities.idno");
+                $vs_entity_type = $qr_results->getWithTemplate("^ca_entities.type_id");
+				/*print "<div class='entitiesResult authorityResult'>".$qr_results->get('ca_entities.preferred_labels.displayname', array('returnAsLink' => true))."</div>";*/
+				print "<div class='entitiesResult authorityResult'>".
+                    $vs_entity_identifier. "<br>". $vs_entity_type."<br>".
+                    $qr_results->get('ca_entities.preferred_labels.displayname', array('returnAsLink' => true))
+                    ."</div>";
+            /*libis_end*/
+
 			$vn_count++;
 			$vn_i++;
 			if ($vn_i >= $vn_items_per_column) {
