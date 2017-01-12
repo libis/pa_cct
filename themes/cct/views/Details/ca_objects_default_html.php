@@ -44,7 +44,7 @@
 	<div class='col-xs-12 col-sm-10 col-md-10 col-lg-10'>
 		<div class="container"><div class="row">
 
-			<div class='col-sm-12 col-md-12 col-lg-12'>
+			<div class='col-sm-12 col-md-12 col-lg-12 detail-metadata'>
 				<H4>{{{<unit relativeTo="ca_collections" delimiter=" | "><l>^ca_collections.preferred_labels.name</l></unit>
                     <ifcount min="1" code="ca_collections"> ➔ </ifcount>}}}{{{ca_objects.preferred_labels.name}}}</H4>
 				<HR>
