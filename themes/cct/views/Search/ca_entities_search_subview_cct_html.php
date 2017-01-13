@@ -34,8 +34,8 @@
     if ($qr_results->numHits() > 0) {
 
         $qr_results->seek($vn_start);
-        $vn_col_span = 4;
-        $vn_col_span_sm = 4;
+        $vn_col_span = 12;
+        $vn_col_span_sm = 12;
         $vn_col_span_xs = 12;
         $vs_table = "ca_entities";
         $vs_pk = "entity_id";
@@ -59,14 +59,14 @@
 
             print "
         <div class='bResultListItemCol col-xs-{$vn_col_span_xs} col-sm-{$vn_col_span_sm} col-md-{$vn_col_span}'>
-            <div class='bResultListItem' onmouseover='jQuery(\"#bResultListItemExpandedInfo{$vn_id}\").show();'  onmouseout='jQuery(\"#bResultListItemExpandedInfo{$vn_id}\").hide();'>
+            <div class='bResultListItem' >            
                 <div class='bSetsSelectMultiple'><input type='checkbox' name='object_ids[]' value='{$vn_id}'></div>
                 <div class='bResultListItemContent'>
                     <div class='bResultListItemText'>
-                        <small>{$vs_idno_detail_link}</small><br/>
-                        {$vs_entity_type}<br>
-                        <b>{$vs_entity_label}</b>
-                    </div><!-- end bResultListItemText -->
+                        <div class='idno'>{$vs_idno_detail_link}</div>
+                        <div class='label_link'>{$vs_entity_label}</div>
+                        <div class='idno'>{$vs_entity_type}</div>
+                    </div><!-- end bResultListItemText -->                
                 </div><!-- end bResultListItemContent -->
                 <div class='bResultListItemExpandedInfo' id='bResultListItemExpandedInfo{$vn_id}'>
                     <hr>
