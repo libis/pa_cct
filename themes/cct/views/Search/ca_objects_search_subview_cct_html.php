@@ -1,6 +1,6 @@
 <?php
 /* ----------------------------------------------------------------------
- * themes/default/views/Search/ca_objects_search_subview_html.php : 
+ * themes/default/views/Search/ca_objects_search_subview_html.php :
  * ----------------------------------------------------------------------
  * CollectiveAccess
  * Open-source collections management software
@@ -15,17 +15,17 @@
  * the terms of the provided license as published by Whirl-i-Gig
  *
  * CollectiveAccess is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTIES whatsoever, including any implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * WITHOUT ANY WARRANTIES whatsoever, including any implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * This source code is free and modifiable under the terms of 
+ * This source code is free and modifiable under the terms of
  * GNU General Public License. (http://www.gnu.org/copyleft/gpl.html). See
  * the "license.txt" file for details, or visit the CollectiveAccess web site at
  * http://www.CollectiveAccess.org
  *
  * ----------------------------------------------------------------------
  */
- 
+
 	$qr_results 		= $this->getVar('result');
     $va_block_info 		= $this->getVar('blockInfo');
     $vs_search 			= (string)$this->getVar('search');
@@ -67,8 +67,7 @@
             $vs_authors = $qr_results->getWithTemplate($vs_author_template);
 
             print "
-	<div class='bResultListItemCol col-xs-{$vn_col_span_xs} col-sm-{$vn_col_span_sm} col-md-{$vn_col_span}'>
-		<div class='bResultListItem' >
+	<div class='bResultListItem' >
 			<div class='bSetsSelectMultiple'><input type='checkbox' name='object_ids[]' value='{$vn_id}'></div>
 			<div class='bResultListItemContent'>
 				<div class='bResultListItemText'>
@@ -77,14 +76,13 @@
 					<div class='label_link'>{$vs_label_detail_link}</div>
 					<div class='idno'>{$vs_printing_year}</div>
 					<div class='idno'>{$vs_source_type}</div>
-					<div class='add_link'>{$vs_expanded_info}{$vs_add_to_set_link}</div>				
+					<div class='add_link'>{$vs_expanded_info}{$vs_add_to_set_link}</div>
 				</div><!-- end bResultListItemText -->
 			</div><!-- end bResultListItemContent -->
 			<div class='bResultListItemExpandedInfo' id='bResultListItemExpandedInfo{$vn_id}'>
-				<hr>
+			
 			</div><!-- bResultListItemExpandedInfo -->
-		</div><!-- end bResultListItem -->
-	</div><!-- end col -->";
+		</div><!-- end bResultListItem -->";
 
 
             $vn_count++;

@@ -2467,12 +2467,8 @@ a.readmore-js-toggle {
     border-bottom:1px solid #eee;
 }
 
-.bResultListItemCol:last-child.bResultListItem{
+.bResultListItem:last-child{
   border:none;
-}
-
-.bResultListItem:hover {
-
 }
 
 .bResultListItem .bResultListItemImg {
@@ -2632,6 +2628,7 @@ a.readmore-js-toggle {
 .multisearchFullResults a {
     text-transform: uppercase;
     color: #858585;
+    text-decoration: none;
 }
 
 .multisearchFullResults a:hover {
@@ -2692,6 +2689,7 @@ a.readmore-js-toggle {
     width: 100%;
     overflow-y: hidden;
     position: relative;
+    margin-bottom:2rem;
 }
 
 .multisearch .multiSearchResults {
