@@ -176,7 +176,14 @@
 			unset($pa_attributes['size']);
 			unset($pa_attributes['value']);
 			$vs_attr_string = _caHTMLMakeAttributeString($pa_attributes, $pa_options);
-			$vs_element = "<textarea name='{$ps_name}' wrap='soft' {$vs_attr_string}>".$vs_value."</textarea>\n";
+			//$vs_element = "<textarea name='{$ps_name}' wrap='soft' {$vs_attr_string}>".$vs_value."</textarea>\n";
+			//libis_start
+            //support for placeholder for textarea field (used for full text search)
+            if(isset($pa_options{'placeholder'}))
+                $vs_element = "<textarea name='{$ps_name}' placeholder={$pa_options{'placeholder'}} wrap='soft' {$vs_attr_string}>".$vs_value."</textarea>\n";
+            else
+                $vs_element = "<textarea name='{$ps_name}' wrap='soft' {$vs_attr_string}>".$vs_value." </textarea>\n";
+            ////libis_end			
 		} else {
 			$pa_attributes['size']  = !$pa_attributes['size'] ?  $pa_attributes['width'] : $pa_attributes['size'];
 			$vs_attr_string = _caHTMLMakeAttributeString($pa_attributes, $pa_options);
