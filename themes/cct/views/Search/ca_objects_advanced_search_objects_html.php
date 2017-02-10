@@ -8,6 +8,10 @@
 ?>
 
 {{{form}}}
+
+    <div style="float: right; margin-left: 20px; margin-right: 20px;">{{{reset%label=Reset}}}</div>
+    <div style="float: right;">{{{submit%label=Search}}}</div>
+    <br style="clear: both;"/>
 	
 	<div class='advancedContainer'>
 		<div class="advancedSearchField">
