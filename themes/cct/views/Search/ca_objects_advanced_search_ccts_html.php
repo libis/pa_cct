@@ -12,7 +12,7 @@
 			<div class='advancedContainer'>
 				<div class="advancedSearchField">
 					Free Text:<br/>
-					{{{_fulltext%width=210px&height=25px&placeholder='Type word or phrase and click Search'}}}
+					{{{_fulltext%width=210px&height=50px&placeholder='Type word or phrase and click Search'}}}
 				</div>
 				<div class="advancedSearchField">
 					Title:<br/>
