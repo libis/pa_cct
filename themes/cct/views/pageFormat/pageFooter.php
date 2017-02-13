@@ -103,20 +103,20 @@
 
 
 	<div style="clear:both; height:1px;"><!-- empty --></div>
-	<div id="footer">
+	<!--<div id="footer">
 		<!--<ul class="list-inline pull-right social">
 			<li><i class="fa fa-twitter"></i></li>
 			<li><i class="fa fa-facebook-square"></i></li>
 			<li><i class="fa fa-youtube-play"></i></li>
 		</ul>-->
-		<div style="text-align: center; text-justify: inter-word;">
+		<!--<div style="text-align: center; text-justify: inter-word;">
 			When quoting this database, refer to it as follows:
 			Ad Dudink & Nicolas Standaert, Chinese Christian Texts Database (CCT-Database) (<a href="http://www.arts.kuleuven.be/sinology/cct" target="_blank">http://www.arts.kuleuven.be/sinology/cct</a>)
 			<br>
 			COPY © 2016 CCT
-		</div>
+		</div>-->
 		<!--<div><div><small>powered by <a href="http://www.collectiveaccess.org">CollectiveAccess 2015</a></small></div></div>-->
-	</div><!-- end footer -->
+	<!--</div> end footer -->
 <?php
 //
 // Output HTML for debug bar

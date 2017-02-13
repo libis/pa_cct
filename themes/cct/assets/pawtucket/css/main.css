@@ -3392,6 +3392,18 @@ div.advancedSearchField {
     width: 250px;
 }
 
+.advancedContainer .row{
+  padding:10px 0;
+}
+
+.advancedContainer .row i{
+  font-size:80%;
+}
+
+.advancedContainer .attributeListItem{
+  border:none;
+}
+
 
 /* Finding Aid */
 
