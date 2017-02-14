@@ -45,8 +45,8 @@
 		<div class="container"><div class="row">
 
 			<div class='col-sm-12 col-md-12 col-lg-12 detail-metadata'>
-				<H4>{{{<unit relativeTo="ca_collections" delimiter=" | "><l>^ca_collections.preferred_labels.name</l></unit>
-                    <ifcount min="1" code="ca_collections"> ➔ </ifcount>}}}{{{ca_objects.preferred_labels.name}}}</H4>
+				<H3>{{{<unit relativeTo="ca_collections" delimiter=" | "><l>^ca_collections.preferred_labels.name</l></unit>
+                    <ifcount min="1" code="ca_collections"> ➔ </ifcount>}}}{{{ca_objects.preferred_labels.name}}}</H3>
 				<HR>
 
 				{{{<ifdef code="ca_objects.idno"><br><H6 style="display: inline">Identifer: </H6>^ca_objects.idno</ifdef>}}}
