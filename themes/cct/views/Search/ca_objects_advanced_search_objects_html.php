@@ -110,10 +110,6 @@
             Reviews:<br/>
             {{{ca_entities.preferred_labels%restrictToRelationshipTypes=reviewer&width=100%}}}
         </div>
-        <div class="advancedSearchField">
-            Notes:<br/>
-            {{{ca_objects.marc529a%width=100%&height=25px}}}
-        </div>
 	</div>	
 	
 	<br style="clear: both;"/>
