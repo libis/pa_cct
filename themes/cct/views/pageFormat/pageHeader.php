@@ -139,9 +139,9 @@
             <nav class="nav-tabs nav-more collapse pull-lg-left" id="local-header">
                 <ul>
 									<li <?php echo ($this->request->getController() == 'About') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('About'), '', '', 'About', 'Index'); ?></li>
-									<?php echo $this->render('pageFormat/browseMenu.php'); ?>
 									<li <?php echo (($this->request->getController() == 'Search') && ($this->request->getAction() == 'advanced')) ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Basic Search'), '', '', 'Search', 'advanced/ccts'); ?></li>
 									<li <?php echo (($this->request->getController() == 'Search') && ($this->request->getAction() == 'advanced')) ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Advanced Search'), '', '', 'Search', 'advanced/objects'); ?></li>
+									<?php echo $this->render('pageFormat/browseMenu.php'); ?>
 									<li <?php echo ($this->request->getController() == 'Contact') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Contact'), '', '', 'Contact', 'Form'); ?></li>
 								</ul>
 					  </nav>
