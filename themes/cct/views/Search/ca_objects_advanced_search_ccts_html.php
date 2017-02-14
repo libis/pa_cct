@@ -33,7 +33,7 @@
             </div>
             <div class="col-sm-4">
                 Authors (all):<br/>
-                {{{ca_entities.preferred_labels%restrictToRelationshipTypes=aut,clb,edt,edc,imp,trl,oth,ppf,com,ctb&width=100%}}}
+                {{{ca_entities.preferred_labels%restrictToRelationshipTypes=aut,clb,com,ctb,edt,edc,imp,oth,ppf,trl,nio&width=100%}}}
             </div>
             <div class="col-sm-4">
                 Category:<br/>
