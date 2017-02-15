@@ -92,13 +92,17 @@
 				//libis_start
                 if ($vs_table == 'ca_objects'){
                     $vs_source_type = $qr_res->get("{$vs_table}.marc900a", array('convertCodesToDisplayText' => true));
-                    $vs_printing_year = $qr_res->get("{$vs_table}.yearOfPrinting_sort");
-                    $vs_alternative_title = $qr_res->get("{$vs_table}.marc242a");
+                    $vs_printing_year = $qr_res->get("{$vs_table}.yearOfPrinting_sort");                    
+					$vs_alternative_title = $qr_res->getWithTemplate("<unit relativeTo=\"ca_objects\" delimiter=\" / \">^{$vs_table}.nonpreferred_labels</unit>");
+					
                     $author_types = "aut";
                     $vs_author_template = "<unit relativeTo=\"ca_entities\" restrictToRelationshipTypes=\"$author_types\" delimiter=\" / \">^ca_entities.preferred_labels.displayname</unit>";
                     $vs_authors = $qr_res->getWithTemplate($vs_author_template);
 
                     $vs_label_detail_link = "<b>{$vs_label_detail_link}</b>";
+					if(!empty($vs_alternative_title))
+                        $vs_label_detail_link = $vs_label_detail_link . "<br>" . $vs_alternative_title;
+					
                     if(!empty($vs_authors))
                         $vs_label_detail_link = $vs_authors . "<br>" . $vs_label_detail_link;
 
