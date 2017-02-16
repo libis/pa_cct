@@ -15,7 +15,7 @@
 
 			<div class='advancedContainer'>
 				<div class="row">
-					<div class="col-sm-12">
+					<div class="col-sm-12 advancedSearchField">
 						Free Text:<br/>
 						{{{_fulltext%width=100%&height=50px&placeholder='Type word or phrase and click Search'}}}
 					</div>
@@ -27,29 +27,29 @@
 					</div>
 				</div>
 				<div class="row">
-          	<div class="col-sm-4">
+          	<div class="col-sm-4 advancedSearchField">
                 Source Type:<br/>
-                {{{ca_objects.marc900a%width=200px}}}
+                {{{ca_objects.marc900a%width=220px}}}
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 advancedSearchField">
                 Authors (all):<br/>
                 {{{ca_entities.preferred_labels%restrictToRelationshipTypes=aut,clb,edt,edc,imp,trl,oth,ppf,com,ctb&width=100%}}}
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 advancedSearchField">
                 Category:<br/>
                 {{{ca_list_items.preferred_labels.name_plural%restrictToTypes=category_list&width=100%}}}
             </div>
 					</div>
 					<div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-4 advancedSearchField">
                 Document Type:<br/>
-                {{{ca_objects.marc655a%width=200px}}}
+                {{{ca_objects.marc655a%width=220px}}}
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 advancedSearchField">
                 Translations:<br/>
-                {{{ca_objects_x_objects.link_translation_lkrr%excludeRelationshipTypes=r77301,r77302,r77300,r77301,r77500,r77501&width=200px}}}
+                {{{ca_objects_x_objects.link_translation_lkrr%excludeRelationshipTypes=r77301,r77302,r77300,r77301,r77500,r77501&width=220px}}}
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 advancedSearchField">
                 Year From -To (e.g. 1970-1979)<br/>
                 {{{ca_objects.yearOfPrinting_sort%width=100%&height=40px&useDatePicker=0}}}
             </div>

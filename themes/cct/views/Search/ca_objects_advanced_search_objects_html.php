@@ -15,7 +15,7 @@
 
 	<div class='advancedContainer'>
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-12 advancedSearchField">
 				Free Text:<br/>
 				{{{_fulltext%width=100%&height=50px&placeholder='Type word or phrase and click Search'}}}
 			</div>
@@ -29,7 +29,7 @@
 		<div class="row">
         <div class="col-sm-4 advancedSearchField">
             Source:<br/>
-            {{{ca_objects.marc900a%width=200px}}}
+            {{{ca_objects.marc900a%width=220px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Authors (all):<br/>
@@ -43,11 +43,11 @@
 		<div class="row">
         <div class="col-sm-4 advancedSearchField">
             Document Type:<br/>
-            {{{ca_objects.marc655a%width=200px}}}
+            {{{ca_objects.marc655a%width=220px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Translations:<br/>
-            {{{ca_objects_x_objects.link_translation_lkrr%excludeRelationshipTypes=r77301,r77302,r77300,r77301,r77500,r77501&width=200px}}}
+            {{{ca_objects_x_objects.link_translation_lkrr%excludeRelationshipTypes=r77301,r77302,r77300,r77301,r77500,r77501&width=220px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Year From - To: (e.g. 1970-1979)<br/>
@@ -61,7 +61,7 @@
         </div>
         <div class="col-sm-4 advancedSearchField">
             Periodical:<br/>
-            {{{ca_objects.marc773.marc773a%width=200px&height=25px}}}
+            {{{ca_objects.marc773.marc773a%width=220px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Impressum - Place of Printing:<br/>
@@ -75,7 +75,7 @@
         </div>
         <div class="col-sm-4 advancedSearchField">
             Impressum - Date of Printing:<br/>
-            {{{ca_objects.marc260c%width=200px&height=25px}}}
+            {{{ca_objects.marc260c%width=220px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Description based on Title:<br/>
@@ -85,11 +85,11 @@
 		<div class="row">
         <div class="col-sm-4 advancedSearchField">
             Contents:<br/>
-            {{{ca_objects.marc520a_cont%width=200px&height=25px}}}
+            {{{ca_objects.marc520a_cont%width=220px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Adaptations from West:<br/>
-            {{{ca_objects.marc795.marc795a%width=200px&height=25px}}}
+            {{{ca_objects.marc795.marc795a%width=220px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Facsimile editions:<br/>
@@ -107,7 +107,7 @@
         </div>
         <div class="col-sm-4 advancedSearchField">
             Ancients Translations:<br/>
-            {{{ca_objects_x_objects.link_translation_lkrr%excludeRelationshipTypes=r77301,r77302,r77300,r77301,r77500,r77501&width=200px}}}
+            {{{ca_objects_x_objects.link_translation_lkrr%excludeRelationshipTypes=r77301,r77302,r77300,r77301,r77500,r77501&width=220px}}}
         </div>
 			</div>
 			<div class="row">
@@ -131,7 +131,7 @@
         </div>
         <div class="col-sm-4 advancedSearchField">
             Notes:<br/>
-            {{{ca_objects.marc529a%width=200px&height=25px}}}
+            {{{ca_objects.marc529a%width=220px&height=42px}}}
         </div>
 			</div>
 	</div>

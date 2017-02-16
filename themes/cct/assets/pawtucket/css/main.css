@@ -3392,6 +3392,22 @@ div.advancedSearchField {
     width: 250px;
 }
 
+.attributeListItem{
+  padding:0;
+}
+
+div.advancedSearchField select{
+  padding: 9px 16px;
+  border-radius: 2px;
+  border: 1px solid #d8d9da;
+}
+
+div.advancedSearchField textarea{
+    padding:5px;
+    border-radius: 2px;
+    border: 1px solid #d8d9da;
+}
+
 .advancedContainer .row{
   padding:10px 0;
 }
