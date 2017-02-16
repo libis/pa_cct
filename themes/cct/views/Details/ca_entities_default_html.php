@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="row">
 				<div class='col-md-12 col-lg-12 detail-metadata'>
-                    <H4>{{{^ca_entities.preferred_labels.displayname}}}</H4>
+                    <H3>{{{^ca_entities.preferred_labels.displayname}}}</H3>
                     {{{<ifdef code="ca_entities.nonpreferred_labels.displayname"><br><H6 style="display: inline">Alternative Name: </H6></ifdef>}}}
                     {{{<unit relativeTo="ca_entities" delimiter=" | ">
                         <ifdef code="ca_entities.nonpreferred_labels.displayname">^ca_entities.nonpreferred_labels.displayname</ifdef>

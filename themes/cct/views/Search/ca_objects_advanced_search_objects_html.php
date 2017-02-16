@@ -33,7 +33,7 @@
         </div>
         <div class="col-sm-4 advancedSearchField">
             Authors (all):<br/>
-            {{{ca_entities.preferred_labels%restrictToRelationshipTypes=aut,clb,edt,edc,imp,trl,oth,ppf,com,ctb&width=100%}}}
+            {{{ca_entities.preferred_labels%restrictToRelationshipTypes=aut,clb,com,ctb,edt,edc,imp,oth,ppf,trl,nio&width=100%}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Category:<br/>
@@ -129,6 +129,7 @@
             Reviews:<br/>
             {{{ca_entities.preferred_labels%restrictToRelationshipTypes=reviewer&width=100%}}}
         </div>
+<<<<<<< HEAD
         <div class="col-sm-4 advancedSearchField">
             Notes:<br/>
             {{{ca_objects.marc529a%width=220px&height=42px}}}
@@ -136,6 +137,10 @@
 			</div>
 	</div>
 
+=======
+	</div>	
+	
+>>>>>>> 94d70cf9e3db55fbe88587c3ce72f4bee6942c86
 	<br style="clear: both;"/>
 
 	<div style="float: left ;margin-right: 20px;">{{{reset%label=Reset}}}</div>
