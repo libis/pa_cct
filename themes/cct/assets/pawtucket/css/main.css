@@ -1792,28 +1792,38 @@ a.browseRemoveFacet img {
 }
 
 .detail a {
-    color: #999;
     text-decoration: none;
 }
 
 .detail a:hover {
-    color: #737373;
     text-decoration: underline;
+}
+
+.detail_field{
+  clear:both;
+  overflow:auto;
+}
+
+.detail_field p{
+  overflow:hidden;
 }
 
 .detail H4 {
     padding: 0px 0px 10px 0;
     margin: 0px;
+    text-transform: uppercase;
 }
 
 .detail h6 {
   font-size:0.8rem;
-  padding: 12px 0 5px 0;
+  padding: 0 0 10px 0;
   margin:0;
+  text-transform: capitalize;
+  width:200px;
+  float:left;
 }
 
 .detail H6 a {
-    color: #19bed1;
     font-size: 10px !important;
     padding: 2px 0px 0px 10px;
     text-decoration: none;
