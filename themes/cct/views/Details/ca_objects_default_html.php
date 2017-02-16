@@ -51,9 +51,7 @@
 
 				{{{<ifdef code="ca_objects.idno"><br><H6 style="display: inline">Identifer: </H6>^ca_objects.idno</ifdef>}}}
 
-                {{{<ifdef code="ca_objects.nonpreferred_labels"><br><H6 style="display: inline">Alternative title: </H6></ifdef>}}}
-                {{{<unit delimiter=" | ">^ca_objects.nonpreferred_labels</unit>}}}
-				
+
                 {{{<ifcount code="ca_objects.marc210a" min="1"><br><H6 style="display: inline">Abbreviated Title: </H6></ifcount>}}}
                 {{{<unit delimiter=" | ">^ca_objects.marc210a</unit>}}}
 
@@ -62,6 +60,9 @@
 
 				{{{<ifcount code="ca_entities" restrictToRelationshipTypes="clb"><br><H6 style="display: inline">Collaborator: </H6></ifcount>}}}
 				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="clb" delimiter=" | "><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
+
+                {{{<ifdef code="ca_objects.nonpreferred_labels"><br><H6 style="display: inline">Alternative title: </H6></ifdef>}}}
+                {{{<unit delimiter=" | ">^ca_objects.nonpreferred_labels</unit>}}}
 
 				{{{<ifcount code="ca_entities" restrictToRelationshipTypes="nio"><br><H6 style="display: inline">Nihil Obstat: </H6></ifcount>}}}
                 {{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="nio" delimiter=" | "><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
