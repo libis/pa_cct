@@ -291,7 +291,7 @@
 						<div class="col-sm-6">
 							<?php
 							# Comment and Share Tools
-							if ($vn_comments_enabled<br>$vn_share_enabled) {
+							if ($vn_comments_enabled || $vn_share_enabled) {
 
 								print '<div id="detailTools">';
 								if ($vn_comments_enabled) {
