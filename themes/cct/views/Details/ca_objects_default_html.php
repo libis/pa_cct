@@ -45,7 +45,7 @@
 		<div class="container"><div class="row">
 
 			<div class='col-sm-12 col-md-12 col-lg-12 detail-metadata'>
-				<H3>{{{<unit relativeTo="ca_collections" delimiter=" | "><l>^ca_collections.preferred_labels.name</l></unit>
+				<H3>{{{<unit relativeTo="ca_collections" delimiter="<br>"><l>^ca_collections.preferred_labels.name</l></unit>
                     <ifcount min="1" code="ca_collections"> ➔ </ifcount>}}}{{{ca_objects.preferred_labels.name}}}</H3>
 				<HR>
 
@@ -53,74 +53,74 @@
 
 
                 {{{<ifcount code="ca_objects.marc210a" min="1"><br><H6 style="display: inline">Abbreviated Title: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">^ca_objects.marc210a</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.marc210a</unit>}}}
 
 				{{{<ifcount code="ca_entities" restrictToRelationshipTypes="aut" min="1"><br><H6 style="display: inline">Author: </H6></ifcount>}}}
-				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="aut" delimiter=" | "><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
+				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="aut" delimiter="<br>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
 
 				{{{<ifcount code="ca_entities" restrictToRelationshipTypes="clb"><br><H6 style="display: inline">Collaborator: </H6></ifcount>}}}
-				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="clb" delimiter=" | "><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
+				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="clb" delimiter="<br>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
 
                 {{{<ifdef code="ca_objects.nonpreferred_labels"><br><H6 style="display: inline">Alternative title: </H6></ifdef>}}}
-                {{{<unit delimiter=" | ">^ca_objects.nonpreferred_labels</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.nonpreferred_labels</unit>}}}
 
 				{{{<ifcount code="ca_entities" restrictToRelationshipTypes="nio"><br><H6 style="display: inline">Nihil Obstat: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="nio" delimiter=" | "><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
+                {{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="nio" delimiter="<br>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
 
 				{{{<ifcount code="ca_entities" restrictToRelationshipTypes="imp"><br><H6 style="display: inline">Imprimatur: </H6></ifcount>}}}
-				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="imp" delimiter=" | "><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
+				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="imp" delimiter="<br>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
 
 				{{{<ifcount code="ca_entities" restrictToRelationshipTypes="ppf"><br><H6 style="display: inline">Pre/Post Faces: </H6></ifcount>}}}
-				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="ppf" delimiter=" | "><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
+				{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="ppf" delimiter="<br>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
 
                 {{{<ifdef code="ca_objects.marc260c"><br><H6 style="display: inline">Date: </H6></ifdef>}}}
-                {{{<unit delimiter=" | ">^ca_objects.marc260c</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.marc260c</unit>}}}
 
                 {{{<ifcount code="ca_places.preferred_labels" restrictToRelationshipTypes="printedIn" min = "1"><br><H6 style="display: inline">Impressum - Place: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_places" restrictToRelationshipTypes="printedIn" delimiter=" | "><l>^ca_places.preferred_labels</l></unit>}}}
+                {{{<unit relativeTo="ca_places" restrictToRelationshipTypes="printedIn" delimiter="<br>"><l>^ca_places.preferred_labels</l></unit>}}}
 
                 {{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printer" min = "1"><br><H6 style="display: inline">Impressum - Printer: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printer" delimiter=" | "><l>^ca_entities.preferred_labels</l></unit>}}}
+                {{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printer" delimiter="<br>"><l>^ca_entities.preferred_labels</l></unit>}}}
 
                 {{{<ifcount code="ca_objects.marc300" min = "1"><br><H6 style="display: inline">Physical Description: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">^ca_objects.marc300.marc300a</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.marc300.marc300a</unit>}}}
 
                 {{{<ifcount code="ca_objects.marc520a_cont"  min = "1"><br><H6 style="display: inline">Contents: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">^ca_objects.marc520a_cont</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.marc520a_cont</unit>}}}
 
                 {{{<ifcount code="ca_objects.marc529a"  min = "1"><br><H6 style="display: inline">Notes on Contents: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">^ca_objects.marc529a</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.marc529a</unit>}}}
 
                 {{{<ifcount code="ca_objects.marc530a"  min = "1"><br><H6 style="display: inline">Notes on text History: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">^ca_objects.marc530a</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.marc530a</unit>}}}
 
                 {{{<ifcount code="ca_list_items" restrictToRelationshipTypes="category" min="1"><br><H6 style="display: inline">Category: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_list_items" restrictToRelationshipTypes="category" delimiter=" | ">^ca_list_items.preferred_labels</unit>}}}
+                {{{<unit relativeTo="ca_list_items" restrictToRelationshipTypes="category" delimiter="<br>">^ca_list_items.preferred_labels</unit>}}}
 
                 {{{<ifdef code="ca_objects.marc655a"><br><H6 style="display: inline">Document Type: </H6>^ca_objects.marc655a</ifdef>}}}
 
                 {{{<ifdef code="ca_objects.marc900a"><br><H6 style="display: inline">Type of Source: </H6>^ca_objects.marc900a</ifdef>}}}
 
                 {{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printerReprint" min = "1"><br><H6 style="display: inline">Reprints: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printerReprint" delimiter=" | "><l>^ca_entities.preferred_labels</l></unit>}}}
+                {{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printerReprint" delimiter="<br>"><l>^ca_entities.preferred_labels</l></unit>}}}
 
                 {{{<ifcount code="ca_objects.marc794.marc794a" min = "1"><br><H6 style="display: inline">Ancient Translations: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">^ca_objects.marc794.marc794a</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.marc794.marc794a</unit>}}}
 
 				{{{<ifdef code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501"><br><H6 style="display: inline">Link Other: </H6></ifdef>}}}
-                {{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501" delimiter=" | ">^relationship_typename: <l>^ca_objects_x_objects.link_part_of.link_partOf_llr</l></unit>}}}
+                {{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501" delimiter="<br>">^relationship_typename: <l>^ca_objects_x_objects.link_part_of.link_partOf_llr</l></unit>}}}
                 {{{<unit relativeTo="ca_objects_x_objects">
                     ^relationship_typename : ^ca_objects_x_objects.link_part_of.link_partOf_llr
                 </unit>}}}
 
                 {{{<ifcount code="ca_objects.marc020a" min = "1"><br><H6 style="display: inline">ISBN: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">^ca_objects.marc020a</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.marc020a</unit>}}}
 
                 {{{<ifcount code="ca_objects.marc022a" min = "1"><br><H6 style="display: inline">ISSN: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">^ca_objects.marc022a</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.marc022a</unit>}}}
 
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="partOfSeries" min="1"><br><H6 style="display: inline">Series: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="partOfSeries" delimiter=" | ">
+                {{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="partOfSeries" delimiter="<br>">
                     <l>^ca_objects.preferred_labels</l>
                     <unit>
                         <ifdef code="ca_objects_x_objects.marc440.marc440b">^ca_objects_x_objects.marc440.marc440b</ifdef>
@@ -129,37 +129,37 @@
                 </unit>}}}
 
                 {{{<ifcount code="ca_objects.marc773" min="1"><br><H6 style="display: inline">Periodical: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">
+                {{{<unit delimiter="<br>">
                         <ifdef code="ca_objects.marc773.marc773a">^ca_objects.marc773.marc773a</ifdef>
                         <ifdef code="ca_objects.marc773.marc773g">^ca_objects.marc773.marc773g</ifdef>
                 </unit>}}}
 
                 {{{<ifcount code="ca_objects.marc269" min="1"><br><H6 style="display: inline">Impressum - Date of Printing (Chinese Date): </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">
+                {{{<unit delimiter="<br>">
                     <ifdef code="ca_objects.marc269.marc269a">^ca_objects.marc269.marc269a</ifdef>
                     <ifdef code="ca_objects.marc269.marc269b">^ca_objects.marc269.marc269b</ifdef>
                     <ifdef code="ca_objects.marc269.marc269c">^ca_objects.marc269.marc269c</ifdef>
                 </unit>}}}
 
                 {{{<ifcount code="ca_objects.marc852_vrij" min="1"><br><H6 style="display: inline">Library Copies (Enkel Vrije Tekst): </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">
+                {{{<unit delimiter="<br>">
                     <ifdef code="ca_objects.marc852_vrij">^ca_objects.marc852_vrij</ifdef>
                 </unit>}}}
 
                 {{{<ifdef code="ca_objects.marc795" ><br><H6 style="display: inline">Adaptations from West: </H6></ifdef>}}}
-                {{{<unit delimiter=" | ">
+                {{{<unit delimiter="<br>">
                     <ifdef code="ca_objects.marc795.marc795a">^ca_objects.marc795.marc795a</ifdef>
                     <ifdef code="ca_objects.marc795.marc7959">(^ca_objects.marc795.marc7959)</ifdef>
                 </unit>}}}
 
                 {{{<ifcount code="ca_objects.marc539a" min="1"><br><H6 style="display: inline">Authors Note: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">^ca_objects.marc539a</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.marc539a</unit>}}}
 
                 {{{<ifcount code="ca_objects.marc500a" min="1"><br><H6 style="display: inline">General Note: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">^ca_objects.marc500a</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.marc500a</unit>}}}
 
                 {{{<ifcount code="ca_objects.marc599a" min="1"><br><H6 style="display: inline">Internal Remark: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">^ca_objects.marc599a</unit>}}}
+                {{{<unit delimiter="<br>">^ca_objects.marc599a</unit>}}}
 
                 {{{<ifcount code="ca_objects.marc856" min="1"><br><H6 style="display: inline">URL-link: </H6></ifcount>}}}
 		        {{{<unit delimiter="<br>">
@@ -169,10 +169,10 @@
                 </unit>}}}
 
                 {{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="libraryCopy" min = "1"><br><H6 style="display: inline">Library copies: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="libraryCopy" delimiter=" | "><l>^ca_entities.preferred_labels</l></unit>}}}
+                {{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="libraryCopy" delimiter="<br>"><l>^ca_entities.preferred_labels</l></unit>}}}
 
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="ancientList" min="1"><br><H6 style="display: inline">Ancient Lists: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="ancientList" delimiter=" | ">
+                {{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="ancientList" delimiter="<br>">
                     <l>^ca_objects.preferred_labels</l>
                     <unit delimiter="; ">
                         <ifdef code="ca_objects_x_objects.marc532_al.marc532a_al">^ca_objects_x_objects.marc532_al.marc532a_al</ifdef>
@@ -183,7 +183,7 @@
                 </unit>}}}
 
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="modernList" min="1"><br><H6 style="display: inline">Modern Lists: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="modernList" delimiter=" | ">
+                {{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="modernList" delimiter="<br>">
                     <l>^ca_objects.preferred_labels</l>
                     <unit delimiter="; ">
                         <ifdef code="ca_objects_x_objects.marc532_ml.marc532b_m">^ca_objects_x_objects.marc532_ml.marc532b_m</ifdef>
@@ -192,7 +192,7 @@
                 </unit>}}}
 
                 {{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="reviewer" min = "1"><br><H6 style="display: inline">Reviews: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="reviewer" delimiter=" | ">
+                {{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="reviewer" delimiter="<br>">
                     <l>^ca_entities.preferred_labels</l>:
                     <unit delimiter="; ">
                         <ifdef code="ca_objects_x_entities.marc520.marc520a">^ca_objects_x_entities.marc520.marc520a</ifdef>
@@ -203,7 +203,7 @@
                 </unit>}}}
 
                 {{{<ifcount code="ca_objects.related.preferred_labels" excludeRelationshipTypes="r77301,r77302,r77300,r77301,r77500,r77501,ancientList,modernList,partOfSeries,descriptionTitle,facsimile,reprintSeries" min="1"><br><H6 style="display: inline">Link Translation: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_objects.related.link_translation" excludeRelationshipTypes="r77301,r77302,r77300,r77301,r77500,r77501,ancientList,modernList,partOfSeries,descriptionTitle,facsimile,reprintSeries" delimiter=" | ">
+                {{{<unit relativeTo="ca_objects.related.link_translation" excludeRelationshipTypes="r77301,r77302,r77300,r77301,r77500,r77501,ancientList,modernList,partOfSeries,descriptionTitle,facsimile,reprintSeries" delimiter="<br>">
                     <l>^ca_objects.preferred_labels</l>
                     <unit delimiter="; ">
                         <ifdef code="ca_objects_x_objects.link_translation.link_translation_lkrl">^ca_objects_x_objects.link_translation.link_translation_lkrl</ifdef>
@@ -214,7 +214,7 @@
                 </unit>}}}
 
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="descriptionTitle" min="1"><br><H6 style="display: inline">Description Based On: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="descriptionTitle" delimiter=" | ">
+                {{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="descriptionTitle" delimiter="<br>">
                     <l>^ca_objects.preferred_labels</l>
                     <unit>
                         <ifdef code="ca_objects_x_objects.marc250Title.marc2509">^ca_objects_x_objects.marc250Title.marc2509</ifdef>
@@ -223,7 +223,7 @@
                 </unit>}}}
 
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="facsimile" min="1"><br><H6 style="display: inline">Facsimile editions: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="facsimile" delimiter=" | ">
+                {{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="facsimile" delimiter="<br>">
                     <l>^ca_objects.preferred_labels</l>
                     <unit>
                         <ifdef code="ca_objects_x_objects.marc793.marc793b">, ^ca_objects_x_objects.marc793.marc793b </ifdef>
@@ -235,7 +235,7 @@
                 </unit>}}}
 
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="reprintSeries" min="1"><br><H6 style="display: inline">Reprints in series: </H6></ifcount>}}}
-                {{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="reprintSeries" delimiter=" | ">
+                {{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="reprintSeries" delimiter="<br>">
                     <l>^ca_objects.preferred_labels</l>
                     <unit>
                         <ifdef code="ca_objects_x_objects.marc791.marc791b">, ^ca_objects_x_objects.marc791.marc791b </ifdef>
