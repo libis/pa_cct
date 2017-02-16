@@ -51,10 +51,9 @@
 
 				{{{<ifdef code="ca_objects.idno"><br><H6 style="display: inline">Identifer: </H6>^ca_objects.idno</ifdef>}}}
 
-
                 {{{<ifdef code="ca_objects.nonpreferred_labels"><br><H6 style="display: inline">Alternative title: </H6></ifdef>}}}
                 {{{<unit delimiter=" | ">^ca_objects.nonpreferred_labels</unit>}}}
-
+				
                 {{{<ifcount code="ca_objects.marc210a" min="1"><br><H6 style="display: inline">Abbreviated Title: </H6></ifcount>}}}
                 {{{<unit delimiter=" | ">^ca_objects.marc210a</unit>}}}
 
@@ -162,8 +161,8 @@
                 {{{<unit delimiter=" | ">^ca_objects.marc599a</unit>}}}
 
                 {{{<ifcount code="ca_objects.marc856" min="1"><br><H6 style="display: inline">URL-link: </H6></ifcount>}}}
-                {{{<unit delimiter=" | ">
-                    <ifdef code="ca_objects.marc856.marc856u">^ca_objects.marc856.marc856u</ifdef>
+		        {{{<unit delimiter="<br>">
+		            <ifdef code="ca_objects.marc856.marc856u"><a href="^ca_objects.marc856.marc856u" target="_blank">^ca_objects.marc856.marc856u</a></ifdef>
                     <ifdef code="ca_objects.marc856.marc856y">^ca_objects.marc856.marc856y</ifdef>
                     <ifdef code="ca_objects.marc856.marc856z">^ca_objects.marc856.marc856z</ifdef>
                 </unit>}}}
