@@ -17,10 +17,17 @@
 		<div class="container">
 			<div class="row">
 				<div class='col-md-12 col-lg-12 detail-metadata'>
-                    <H3>{{{^ca_entities.preferred_labels.displayname}}}</H3>
+                    <H3>{{{^ca_entities.preferred_labels.displayname
+                        <ifdef code="ca_entities.preferred_labels.suffix">[^ca_entities.preferred_labels.suffix]</ifdef>
+                        ^ca_entities.preferred_labels.prefix
+                        }}}
+                    </H3>
+
                     {{{<ifdef code="ca_entities.nonpreferred_labels.displayname"><br><H6 style="display: inline">Alternative Name: </H6></ifdef>}}}
                     {{{<unit relativeTo="ca_entities" delimiter="<br>">
                         <ifdef code="ca_entities.nonpreferred_labels.displayname">^ca_entities.nonpreferred_labels.displayname</ifdef>
+                        <ifdef code="ca_entities.nonpreferred_labels.suffix">[^ca_entities.nonpreferred_labels.suffix]</ifdef>
+                        ^ca_entities.nonpreferred_labels.prefix
                     </unit>}}}
 
                     {{{<ifdef code="ca_entities.marc700d"><br><H6 style="display: inline">Birth and Death Date: </H6></ifdef>}}}
@@ -29,9 +36,13 @@
 			</div><!-- end row -->
 			<div class="row">
 				<div class='col-md-6 col-lg-6 detail-metadata'>
-					{{{<ifcount code="ca_objects" min="1"><H6 style="display: inline">Related objects: </H6>
-                        <unit relativeTo="ca_objects" delimiter="<br>"><l>^ca_objects.preferred_labels.name</l></unit>
+					{{{<ifcount code="ca_objects" min="1"><H6 style="display: inline">Related sources: </H6>
+                        <unit relativeTo="ca_objects" delimiter="<br>">
+                            <l>^ca_objects.preferred_labels.name</l>
+                            <ifdef code="ca_objects.nonpreferred_labels">(^ca_objects.nonpreferred_labels%delimiter=_-_)</ifdef>
+                        </unit>
                     </ifcount>}}}
+
 <?php
 				# Comment and Share Tools
 				if ($vn_comments_enabled | $vn_share_enabled) {
