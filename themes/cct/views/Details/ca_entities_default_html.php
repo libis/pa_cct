@@ -23,26 +23,36 @@
                         }}}
                     </H3>
 
-                    {{{<ifdef code="ca_entities.nonpreferred_labels.displayname"><br><H6 style="display: inline">Alternative Name: </H6></ifdef>}}}
-                    {{{<unit relativeTo="ca_entities" delimiter="<br>">
-                        <ifdef code="ca_entities.nonpreferred_labels.displayname">^ca_entities.nonpreferred_labels.displayname</ifdef>
-                        <ifdef code="ca_entities.nonpreferred_labels.suffix">[^ca_entities.nonpreferred_labels.suffix]</ifdef>
-                        ^ca_entities.nonpreferred_labels.prefix
-                    </unit>}}}
-
-                    {{{<ifdef code="ca_entities.marc700d"><br><H6 style="display: inline">Birth and Death Date: </H6></ifdef>}}}
-                    {{{<unit relativeTo="ca_entities" delimiter="<br>">^ca_entities.marc700d</unit>}}}
+                    <div class="detail_field">
+											{{{<ifdef code="ca_entities.nonpreferred_labels.displayname">
+												<H6>Alternative Name: </H6>
+											</ifdef>}}}
+											<p>
+	                    	{{{<unit relativeTo="ca_entities" delimiter="<br>">
+	                        <ifdef code="ca_entities.nonpreferred_labels.displayname">^ca_entities.nonpreferred_labels.displayname</ifdef>
+	                        <ifdef code="ca_entities.nonpreferred_labels.suffix">[^ca_entities.nonpreferred_labels.suffix]</ifdef>
+	                        ^ca_entities.nonpreferred_labels.prefix
+	                    </unit>}}}
+											</p>
+										</div>
+										<div class="detail_field">
+                    {{{<ifdef code="ca_entities.marc700d"><H6>Birth and Death Date: </H6></ifdef>}}}
+                    <p>{{{<unit relativeTo="ca_entities" delimiter="<br>">^ca_entities.marc700d</unit>}}}</p>
+										</div>
 				</div><!-- end col -->
 			</div><!-- end row -->
 			<div class="row">
-				<div class='col-md-6 col-lg-6 detail-metadata'>
-					{{{<ifcount code="ca_objects" min="1"><H6 style="display: inline">Related sources: </H6>
-                        <unit relativeTo="ca_objects" delimiter="<br>">
-                            <l>^ca_objects.preferred_labels.name</l>
-                            <ifdef code="ca_objects.nonpreferred_labels">(^ca_objects.nonpreferred_labels%delimiter=_-_)</ifdef>
-                        </unit>
-                    </ifcount>}}}
-
+				<div class='col-md-12 col-lg-12 detail-metadata'>
+					<div class="detail_field">
+						{{{<ifcount code="ca_objects" min="1">
+							<H6>Related sources: </H6>
+              <p>
+								<unit relativeTo="ca_objects" delimiter="<br>">
+                  <l>^ca_objects.preferred_labels.name</l>
+                  <ifdef code="ca_objects.nonpreferred_labels">(^ca_objects.nonpreferred_labels%delimiter=_-_)</ifdef>
+                </unit>
+            </ifcount>}}}
+					</div>
 <?php
 				# Comment and Share Tools
 				if ($vn_comments_enabled | $vn_share_enabled) {

@@ -88,13 +88,13 @@
         {{{<unit delimiter="<br>">^ca_objects.marc300.marc300a</unit>}}}
         </div>
         <div class="detail_field">{{{<ifcount code="ca_objects.marc520a_cont"  min = "1"><H6>Contents: </H6></ifcount>}}}
-        {{{<unit delimiter="<br>">^ca_objects.marc520a_cont</unit>}}}
+        <p>{{{<unit delimiter="<br>">^ca_objects.marc520a_cont</unit>}}}</p>
         </div>
         <div class="detail_field">{{{<ifcount code="ca_objects.marc529a"  min = "1"><H6>Notes on Contents: </H6></ifcount>}}}
-        {{{<unit delimiter="<br>">^ca_objects.marc529a</unit>}}}
+        <p>{{{<unit delimiter="<br>">^ca_objects.marc529a</unit>}}}</p>
         </div>
         <div class="detail_field">{{{<ifcount code="ca_objects.marc530a"  min = "1"><H6>Notes on text History: </H6></ifcount>}}}
-        {{{<unit delimiter="<br>">^ca_objects.marc530a</unit>}}}
+        <p>{{{<unit delimiter="<br>">^ca_objects.marc530a</unit>}}}</p>
         </div>
         <div class="detail_field">{{{<ifcount code="ca_list_items" restrictToRelationshipTypes="category" min="1"><H6>Category: </H6></ifcount>}}}
         {{{<unit relativeTo="ca_list_items" restrictToRelationshipTypes="category" delimiter="<br>">^ca_list_items.preferred_labels</unit>}}}
@@ -107,7 +107,7 @@
         {{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printerReprint" delimiter="<br>"><l>^ca_entities.preferred_labels</l></unit>}}}
         </div>
         <div class="detail_field">{{{<ifcount code="ca_objects.marc794.marc794a" min = "1"><H6>Ancient Translations: </H6></ifcount>}}}
-        {{{<unit delimiter="<br>">^ca_objects.marc794.marc794a</unit>}}}
+        <p>{{{<unit delimiter="<br>">^ca_objects.marc794.marc794a</unit>}}}</p>
         </div>
         <div class="detail_field">
 				{{{<ifdef code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501"><H6>Link Other: </H6></ifdef>}}}
