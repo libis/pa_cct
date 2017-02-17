@@ -164,7 +164,7 @@
             </div>
 
             <div class="detail_field">
-                <p>{{{<ifdef code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501"><H6>Link Other: </H6></ifdef>}}}
+                <p>{{{<ifdef code="ca_objects.related.preferred_labels%restrictToRelationshipTypes=r77300,r77301,r77302,r77501,r77500,r77501"><H6>Link Other: </H6></ifdef>}}}
                     {{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501" delimiter="<br>">^relationship_typename: <l>^ca_objects_x_objects.link_part_of.link_partOf_llr</l></unit>}}}
                     {{{<unit relativeTo="ca_objects_x_objects">
                         ^relationship_typename : ^ca_objects_x_objects.link_part_of.link_partOf_llr
