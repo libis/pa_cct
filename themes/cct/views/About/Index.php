@@ -28,16 +28,16 @@
 	<div class="col-sm-8">
 		<p>
 			<b><H6>Access</H6></b>
-			The access to the database is free. You may also freely use its content, but on condition that you acknowledge it in the following way:
-			Ad Dudink & Nicolas Standaert, Chinese Christian Texts Database (CCT-Database) (<a href="http://www.arts.kuleuven.be/sinology/cct" target="_blank" style="border-bottom-width: 1px; border-bottom-style: dotted; border-bottom-color: rgb(12, 120, 139); color: rgb(114, 170, 190); text-decoration: none;">http://www.arts.kuleuven.be/sinology/cct</a>).
+			<p>The access to the database is free. You may also freely use its content, but on condition that you acknowledge it in the following way:
+			Ad Dudink & Nicolas Standaert, Chinese Christian Texts Database (CCT-Database) (<a href="http://www.arts.kuleuven.be/sinology/cct" target="_blank" style="border-bottom-width: 1px; border-bottom-style: dotted; border-bottom-color: rgb(12, 120, 139); color: rgb(114, 170, 190); text-decoration: none;">http://www.arts.kuleuven.be/sinology/cct</a>).</p>
 		</p>
 	</div>
 	<div class="col-sm-8">
 		<p>
 			<b><H6>Additions and mistakes</H6></b>
-			The description of sources, especially primary sources, is still incomplete and therefore the authors will continuously insert further details and update existing descriptions. If you want to propose additions or point out mistakes, please send us a mail at:
+			<p>The description of sources, especially primary sources, is still incomplete and therefore the authors will continuously insert further details and update existing descriptions. If you want to propose additions or point out mistakes, please send us a mail at:
 			<a href="mailto:cct.database@arts.kuleuven.be" style="border-bottom-width: 1px; border-bottom-style: dotted; border-bottom-color: rgb(12, 120, 139); color: rgb(114, 170, 190); text-decoration: none;">cct.database@arts.kuleuven.be</a>.
-			Substantial addenda or corrigenda will be acknowledged in the 'notes on author', 'notes on contents' or 'notes on text history'.
+			Substantial addenda or corrigenda will be acknowledged in the 'notes on author', 'notes on contents' or 'notes on text history'.</p>
 		</p>
 	</div>
 	<div class="col-sm-8">
