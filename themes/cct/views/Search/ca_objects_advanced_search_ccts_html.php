@@ -23,7 +23,7 @@
 				<div class="row">
 					<div class="col-sm-12">
 					Title:<br/>
-					{{{ca_objects.preferred_labels.name%width=100%}}}
+					{{{multi_label_search%width=100%}}}
 					</div>
 				</div>
 				<div class="row">
