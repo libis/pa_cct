@@ -30,7 +30,7 @@
 	$va_comments = 			$this->getVar("comments");
 	$vn_comments_enabled = 	$this->getVar("commentsEnabled");
 	$vn_share_enabled = 	$this->getVar("shareEnabled");
-
+	
 ?>
 <div class="row">
 	<div class='col-xs-12 navTop'><!--- only shown at small screen size -->
@@ -51,12 +51,34 @@
 
 			<div class="detail_field">{{{<ifdef code="ca_objects.idno"><H6>Identifer: </H6>^ca_objects.idno</ifdef>}}}</div>
 
-            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="aut" min="1"><H6>Author: </H6></ifcount>}}}
-				<p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="aut" delimiter="<br>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}</p>
+            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="aut" min="1"><H6>Author</H6></ifcount>}}}
+                <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="aut" delimiter="<br>">
+                        ^ca_entities.preferred_labels.displayname
+                        <ifdef code="ca_entities.preferred_labels.suffix">[^ca_entities.preferred_labels.suffix]</ifdef>
+                        ^ca_entities.preferred_labels.prefix
+                        <case>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="1" max="1">^ca_entities.nonpreferred_labels.displayname</ifcount>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="2">(^ca_entities.nonpreferred_labels.displayname%delimiter=_-_) </ifcount>
+                        </case>
+                        <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
+                        <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+                 </unit>}}}</p>
             </div>
 
-			<div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="clb" min="1"><H6>Collaborator: </H6></ifcount>}}}
-				<p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="clb" delimiter="<br>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}</p>
+            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="clb" min="1"><H6>Collaborator: </H6></ifcount>}}}
+				<p>{{{
+                    <unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="clb" delimiter="<br>">
+                        ^ca_entities.preferred_labels.displayname
+                        <ifdef code="ca_entities.preferred_labels.suffix">[^ca_entities.preferred_labels.suffix]</ifdef>
+                        ^ca_entities.preferred_labels.prefix
+                        <case>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="1" max="1">^ca_entities.nonpreferred_labels.displayname</ifcount>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="2">(^ca_entities.nonpreferred_labels.displayname%delimiter=_-_)</ifcount>
+                        </case>
+                        <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
+                        <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+                    </unit>
+                    }}}</p>
             </div>
 
 			<div class="detail_field">{{{<ifdef code="ca_objects.nonpreferred_labels"><H6>Alternative Title: </H6></ifdef>}}}
@@ -68,17 +90,17 @@
             </div>
 
             <div class="detail_field">{{{<ifcount code="ca_places.preferred_labels" restrictToRelationshipTypes="printedIn" min = "1"><H6>Impressum - Place: </H6></ifcount>}}}
-                 <p>{{{<unit relativeTo="ca_places" restrictToRelationshipTypes="printedIn" delimiter="<br>"><l>^ca_places.preferred_labels</l></unit>}}}</p>
+                <p>{{{<unit relativeTo="ca_places" restrictToRelationshipTypes="printedIn" delimiter="<br>">
+                        <l>^ca_places.preferred_labels</l><ifdef code="ca_places.nonpreferred_labels"> (^ca_places.nonpreferred_labels)</ifdef>
+                    </unit>}}}</p>
             </div>
 
             <div class="detail_field">
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="descriptionTitle" min="1"><H6>Description Based On: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="descriptionTitle" delimiter="<br>">
-                        <l>^ca_objects.preferred_labels</l>
-                        <unit>
-                            <ifdef code="ca_objects_x_objects.marc250Title.marc2509">^ca_objects_x_objects.marc250Title.marc2509</ifdef>
-                            <ifdef code="ca_objects_x_objects.marc250Title.marc250z">(^ca_objects_x_objects.marc250Title.marc250z)</ifdef>
-                        </unit>
+                <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="descriptionTitle" delimiter="<br>">
+                        ^ca_objects.related.marc210a
+                        <ifdef code="ca_objects_x_objects.marc250Title.marc2509">, ^ca_objects_x_objects.marc250Title.marc2509</ifdef>
+                        <ifdef code="ca_objects_x_objects.marc250Title.marc250z">Remark: ^ca_objects_x_objects.marc250Title.marc250z</ifdef>
                     </unit>}}}</p>
             </div>
 
@@ -87,16 +109,71 @@
             </div>
 
             <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="nio" min="1"><H6>Nihil Obstat: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="nio" delimiter="<br>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}</p>
+                <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="nio" delimiter="<br>">
+                        <l>^ca_entities.preferred_labels.displayname</l>
+                        <ifdef code="ca_entities.preferred_labels.suffix">[^ca_entities.preferred_labels.suffix]</ifdef>
+                        ^ca_entities.preferred_labels.prefix
+                        <case>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="1" max="1">^ca_entities.nonpreferred_labels.displayname</ifcount>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="2">^ca_entities.nonpreferred_labels.displayname%delimiter=, </ifcount>
+                        </case>
+                        <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
+                        <ifcount code="ca_objects_x_entities.marc700.marc7009,ca_objects_x_entities.marc700.marc700e,ca_objects_x_entities.marc700.marc700f,ca_objects_x_entities.marc700.marc700t" min="1">[</ifcount>
+                        <unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="nio" delimiter=" - ">
+                            <ifdef code="ca_objects_x_entities.marc700.marc7009">^ca_objects_x_entities.marc700.marc7009</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc700.marc700e">^ca_objects_x_entities.marc700.marc700e</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc700.marc700f">^ca_objects_x_entities.marc700.marc700f</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">^ca_objects_x_entities.marc700.marc700t</ifdef>
+                        </unit>
+                        <ifcount code="ca_objects_x_entities.marc700.marc7009,ca_objects_x_entities.marc700.marc700e,ca_objects_x_entities.marc700.marc700f,ca_objects_x_entities.marc700.marc700t" min="1">]</ifcount>
+                    </unit>
+                    }}}</p>
             </div>
 
             <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="imp" min="1"><H6>Imprimatur: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="imp" delimiter="<br>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}</p>
+                <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="imp" delimiter="<br>">
+                        <l>^ca_entities.preferred_labels.displayname</l>
+                        <ifdef code="ca_entities.preferred_labels.suffix">[^ca_entities.preferred_labels.suffix]</ifdef>
+                        ^ca_entities.preferred_labels.prefix
+                        <case>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="1" max="1">^ca_entities.nonpreferred_labels.displayname</ifcount>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="2">^ca_entities.nonpreferred_labels.displayname%delimiter=, </ifcount>
+                        </case>
+                        <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
+                        <ifcount code="ca_objects_x_entities.marc700.marc7009,ca_objects_x_entities.marc700.marc700e,ca_objects_x_entities.marc700.marc700f,ca_objects_x_entities.marc700.marc700t" min="1">[</ifcount>
+                        <unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="imp" delimiter=" - ">
+                            <ifdef code="ca_objects_x_entities.marc700.marc7009">^ca_objects_x_entities.marc700.marc7009</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc700.marc700e">^ca_objects_x_entities.marc700.marc700e</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc700.marc700f">^ca_objects_x_entities.marc700.marc700f</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">^ca_objects_x_entities.marc700.marc700t</ifdef>
+                        </unit>
+                        <ifcount code="ca_objects_x_entities.marc700.marc7009,ca_objects_x_entities.marc700.marc700e,ca_objects_x_entities.marc700.marc700f,ca_objects_x_entities.marc700.marc700t" min="1">]</ifcount>
+                    </unit>
+                    }}}</p>
             </div>
 
             <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="ppf" min="1"><H6>Pre/Post Faces: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="ppf" delimiter="<br>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}</p>
+                <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="ppf" delimiter="<br>">
+                        <l>^ca_entities.preferred_labels.displayname</l>
+                        <ifdef code="ca_entities.preferred_labels.suffix">[^ca_entities.preferred_labels.suffix]</ifdef>
+                        ^ca_entities.preferred_labels.prefix
+                        <case>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="1" max="1">^ca_entities.nonpreferred_labels.displayname</ifcount>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="2">^ca_entities.nonpreferred_labels.displayname%delimiter=, </ifcount>
+                        </case>
+                        <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
+                        <ifcount code="ca_objects_x_entities.marc700.marc7009,ca_objects_x_entities.marc700.marc700e,ca_objects_x_entities.marc700.marc700f,ca_objects_x_entities.marc700.marc700t" min="1">[</ifcount>
+                        <unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="ppf" delimiter=" - ">
+                            <ifdef code="ca_objects_x_entities.marc700.marc7009">^ca_objects_x_entities.marc700.marc7009</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc700.marc700e">^ca_objects_x_entities.marc700.marc700e</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc700.marc700f">^ca_objects_x_entities.marc700.marc700f</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">^ca_objects_x_entities.marc700.marc700t</ifdef>
+                        </unit>
+                        <ifcount code="ca_objects_x_entities.marc700.marc7009,ca_objects_x_entities.marc700.marc700e,ca_objects_x_entities.marc700.marc700f,ca_objects_x_entities.marc700.marc700t" min="1">]</ifcount>
+                    </unit>
+                    }}}</p>
             </div>
+
 
             <div class="detail_field">{{{<ifcount code="ca_objects.marc520a_cont"  min = "1"><H6>Contents: </H6></ifcount>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc520a_cont</unit>}}}</p>
@@ -104,15 +181,15 @@
 
             <div class="detail_field">
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="facsimile" min="1"><H6>Facsimile editions: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="facsimile" delimiter="<br>">
-                        <l>^ca_objects.preferred_labels</l>
-                        <unit>
-                            <ifdef code="ca_objects_x_objects.marc793.marc793b">, ^ca_objects_x_objects.marc793.marc793b </ifdef>
-                            <ifdef code="ca_objects_x_objects.marc793.marc7939">(^ca_objects_x_objects.marc793.marc7939)</ifdef>
-                            <ifdef code="ca_objects_x_objects.marc793.marc793w">^ca_objects_x_objects.marc793.marc793w </ifdef>
-                            <ifdef code="ca_objects_x_objects.marc793.marc793x">Shelf: ^ca_objects_x_objects.marc793.marc793x</ifdef>
-                            <ifdef code="ca_objects_x_objects.marc793.marc793y">, ^ca_objects_x_objects.marc793.marc793y</ifdef>
-                        </unit>
+                <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="facsimile" delimiter="<br>">
+                        ^ca_objects.related.marc210a
+                        <ifdef code="ca_objects_x_objects.marc793.marc793b">, ^ca_objects_x_objects.marc793.marc793b </ifdef>
+                        <ifdef code="ca_objects_x_objects.marc793.marc7939">(^ca_objects_x_objects.marc793.marc7939)</ifdef>
+                        <more>[</more
+                        <ifdef code="ca_objects_x_objects.marc793.marc793w">^ca_objects_x_objects.marc793.marc793w </ifdef>
+                        <ifdef code="ca_objects_x_objects.marc793.marc793x">Shelf: ^ca_objects_x_objects.marc793.marc793x</ifdef>
+                        <ifdef code="ca_objects_x_objects.marc793.marc793y">, ^ca_objects_x_objects.marc793.marc793y
+                            ]</ifdef>
                     </unit>}}}</p>
             </div>
 
@@ -122,16 +199,15 @@
 
             <div class="detail_field">
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="reprintSeries" min="1"><H6>Reprints in series: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="reprintSeries" delimiter="<br>">
-                        <l>^ca_objects.preferred_labels</l>
-                        <unit>
-                            <ifdef code="ca_objects_x_objects.marc791.marc791b">, ^ca_objects_x_objects.marc791.marc791b </ifdef>
-                            <ifdef code="ca_objects_x_objects.marc791.marc7919">(^ca_objects_x_objects.marc791.marc7919) </ifdef>
-                            <ifdef code="ca_objects_x_objects.marc791.marc791t">^ca_objects_x_objects.marc791.marc791t </ifdef>
-                            <ifdef code="ca_objects_x_objects.marc791.marc791w">^ca_objects_x_objects.marc791.marc791w </ifdef>
-                            <ifdef code="ca_objects_x_objects.marc791.marc791x">,Shelf:^ca_objects_x_objects.marc791.marc791x </ifdef>
-                            <ifdef code="ca_objects_x_objects.marc791.marc791y">, ^ca_objects_x_objects.marc791.marc791y</ifdef>
-                        </unit>
+                <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="reprintSeries" delimiter="<br>">
+                        ^ca_objects.related.marc210a
+                        <ifdef code="ca_objects_x_objects.marc791.marc791b">, ^ca_objects_x_objects.marc791.marc791b </ifdef>
+                        <ifdef code="ca_objects_x_objects.marc791.marc7919">(^ca_objects_x_objects.marc791.marc7919) </ifdef>
+                        <ifdef code="ca_objects_x_objects.marc791.marc791t">^ca_objects_x_objects.marc791.marc791t </ifdef>
+                        <more>[</more
+                        <ifdef code="ca_objects_x_objects.marc791.marc791w">^ca_objects_x_objects.marc791.marc791w </ifdef>
+                        <ifdef code="ca_objects_x_objects.marc791.marc791x">,Shelf:^ca_objects_x_objects.marc791.marc791x </ifdef>
+                        <ifdef code="ca_objects_x_objects.marc791.marc791y">, ^ca_objects_x_objects.marc791.marc791y]</ifdef>
                     </unit>}}}</p>
             </div>
 
@@ -146,11 +222,13 @@
 
             <div class="detail_field">
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="modernList" min="1"><H6>Modern Lists: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_objects.related" restrictToRelationshipTypes="modernList" delimiter="<br>">
-                        <l>^ca_objects.preferred_labels</l>
-                        <unit delimiter="; ">
-                            <ifdef code="ca_objects_x_objects.marc532_ml.marc532b_m">^ca_objects_x_objects.marc532_ml.marc532b_m</ifdef>
-                            <ifdef code="ca_objects_x_objects.marc532_ml.marc532c_ml">(^ca_objects_x_objects.marc532_ml.marc532c_ml) </ifdef>
+                <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="modernList" delimiter="<br>">
+                        ^ca_objects.related.marc210a
+                        <unit delimiter=", ">
+                            <ifcount code="ca_objects_x_objects.marc532_ml.marc532c_ml, ca_objects_x_objects.marc532_ml.marc532b_ml" min="1">[</ifcount>
+                                <ifdef code="ca_objects_x_objects.marc532_ml.marc532b_ml">^ca_objects_x_objects.marc532_ml.marc532b_ml</ifdef>
+                                <ifdef code="ca_objects_x_objects.marc532_ml.marc532c_ml">(^ca_objects_x_objects.marc532_ml.marc532c_ml) </ifdef>
+                            <ifcount code="ca_objects_x_objects.marc532_ml.marc532c_ml, ca_objects_x_objects.marc532_ml.marc532b_ml" min="1">]</ifcount>
                         </unit>
                     </unit>}}}</p>
             </div>
@@ -164,9 +242,8 @@
             </div>
 
             <div class="detail_field">
-                <p>{{{<ifdef code="ca_objects.related.preferred_labels%restrictToRelationshipTypes=r77300,r77301,r77302,r77501,r77500,r77501"><H6>Link Other: </H6></ifdef>}}}
-                    {{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501" delimiter="<br>">^relationship_typename: <l>^ca_objects_x_objects.link_part_of.link_partOf_llr</l></unit>}}}
-                    {{{<unit relativeTo="ca_objects_x_objects">
+                {{{<ifdef code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501"><H6>Link Other: </H6></ifdef>}}}
+                <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501" delimiter="<br>">
                         ^relationship_typename : ^ca_objects_x_objects.link_part_of.link_partOf_llr
                     </unit>}}}</p>
             </div>
