@@ -75,7 +75,7 @@
         </div>
         <div class="col-sm-4 advancedSearchField">
             Impressum - Date of Printing:<br/>
-            {{{ca_objects.marc260c%width=220px&height=42px}}}
+            {{{multi_impressum-date_search%width=220px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Description based on Title:<br/>
