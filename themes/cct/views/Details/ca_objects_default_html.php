@@ -110,7 +110,7 @@
 
             <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="nio" min="1"><H6>Nihil Obstat: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="nio" delimiter="<br>">
-                        <l>^ca_entities.preferred_labels.displayname</l>
+                        ^ca_entities.preferred_labels.displayname
                         <ifdef code="ca_entities.preferred_labels.suffix">[^ca_entities.preferred_labels.suffix]</ifdef>
                         ^ca_entities.preferred_labels.prefix
                         <case>
