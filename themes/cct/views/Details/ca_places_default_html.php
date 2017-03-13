@@ -17,15 +17,27 @@
 		<div class="container">
 			<div class="row">
 				<div class='col-md-12 col-lg-12'>
-					<H4>{{{^ca_places.preferred_labels.name}}}</H4>
-                    {{{<ifdef code="ca_places.nonpreferred_labels"><br><H6 style="display: inline">Alternative Name: </H6></ifdef>}}}
-                    {{{<unit relativeTo="ca_places" delimiter=" | ">
-                        <ifdef code="ca_places.nonpreferred_labels">^ca_places.nonpreferred_labels</ifdef>
-                    </unit>}}}
-                    <br>
-                    {{{<ifcount code="ca_objects" min="1"><H6 style="display: inline">Related objects: </H6>
-                        <unit relativeTo="ca_objects" delimiter=" |  "><l>^ca_objects.preferred_labels.name</l></unit>
-                    </ifcount>}}}
+					<H3>{{{^ca_places.preferred_labels.name}}}</H3>
+
+                    <div class="detail_field">
+                        {{{<ifdef code="ca_places.nonpreferred_labels"><H6>Alternative Name: </H6></ifdef>}}}
+                        <p>
+                            {{{<unit relativeTo="ca_places" delimiter="<br>">
+                                <ifdef code="ca_places.nonpreferred_labels">^ca_places.nonpreferred_labels</ifdef>
+                            </unit>}}}
+                        </p>
+                    </div>
+
+                    <div class="detail_field">
+                        {{{<ifcount code="ca_objects" min="1">
+                            <H6>Related sources: </H6>
+                            <p>
+                                <unit relativeTo="ca_objects" delimiter="<br>">
+                                    <l>^ca_objects.preferred_labels.name</l>
+                                    <ifdef code="ca_objects.nonpreferred_labels">(^ca_objects.nonpreferred_labels%delimiter=_-_ )</ifdef>
+                                </unit>
+                        </ifcount>}}}
+                    </div>
 				</div><!-- end col -->
 			</div><!-- end row -->
 			<div class="row">			
