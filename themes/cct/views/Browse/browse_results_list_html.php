@@ -95,7 +95,17 @@
                     $vs_printing_year = $qr_res->get("{$vs_table}.yearOfPrinting_sort");                    
 					$vs_alternative_title = $qr_res->getWithTemplate("<unit relativeTo=\"ca_objects\" delimiter=\" / \">^{$vs_table}.nonpreferred_labels</unit>");
 					                    
-                    $vs_author_template = "<unit relativeTo=\"ca_entities\" restrictToRelationshipTypes=\"aut\" delimiter=\"<br/>\"><l>^ca_entities.preferred_labels.displayname </l><ifdef code=\"ca_entities.preferred_labels.suffix\">[^ca_entities.preferred_labels.suffix] </ifdef>^ca_entities.preferred_labels.prefix <case><ifcount code=\"ca_entities.nonpreferred_labels\" min=\"1\" max=\"1\">(^ca_entities.nonpreferred_labels.displayname) </ifcount><ifcount code=\"ca_entities.nonpreferred_labels\" min=\"2\">(^ca_entities.nonpreferred_labels.displayname%delimiter=_-_ ) </ifcount></case><ifdef code=\"ca_entities.marc700d\">(^ca_entities.marc700d) </unit>";
+                    $vs_author_template = "<unit relativeTo=\"ca_objects_x_entities\" restrictToRelationshipTypes=\"aut\" delimiter=\" /\">
+                        ^ca_entities.preferred_labels.displayname 
+                        <ifdef code=\"ca_entities.preferred_labels.suffix\">[^ca_entities.preferred_labels.suffix]</ifdef> 
+                        ^ca_entities.preferred_labels.prefix 
+                        <case>
+                            <ifcount code=\"ca_entities.nonpreferred_labels\" min=\"1\" max=\"1\">^ca_entities.nonpreferred_labels.displayname</ifcount>
+                            <ifcount code=\"ca_entities.nonpreferred_labels\" min=\"2\">(^ca_entities.nonpreferred_labels.displayname%delimiter=_-_)</ifcount>
+                        </case>
+                        <ifdef code=\"ca_entities.marc700d\">(^ca_entities.marc700d)</ifdef>
+                        <ifdef code=\"ca_objects_x_entities.marc700.marc7009\">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+                        </unit>";					
                     $vs_authors = $qr_res->getWithTemplate($vs_author_template);
 
                     $vs_label_detail_link = "<b>{$vs_label_detail_link}</b>";
