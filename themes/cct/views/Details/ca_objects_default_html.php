@@ -98,7 +98,7 @@
             <div class="detail_field">
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="descriptionTitle" min="1"><H6>Description Based On: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="descriptionTitle" delimiter="<br>">
-                        ^ca_objects.related.marc210a
+                        ^ca_objects.related.marc210a%returnAsLink=true&delimiter=
                         <ifdef code="ca_objects_x_objects.marc250Title.marc2509">, ^ca_objects_x_objects.marc250Title.marc2509</ifdef>
                         <ifdef code="ca_objects_x_objects.marc250Title.marc250z">Remark: ^ca_objects_x_objects.marc250Title.marc250z</ifdef>
                     </unit>}}}</p>
@@ -182,7 +182,7 @@
             <div class="detail_field">
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="facsimile" min="1"><H6>Facsimile editions: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="facsimile" delimiter="<br>">
-                        ^ca_objects.related.marc210a
+                        ^ca_objects.related.marc210a%returnAsLink=true&delimiter=
                         <ifdef code="ca_objects_x_objects.marc793.marc793b">, ^ca_objects_x_objects.marc793.marc793b </ifdef>
                         <ifdef code="ca_objects_x_objects.marc793.marc7939">(^ca_objects_x_objects.marc793.marc7939)</ifdef>
                         <more>[</more
@@ -200,7 +200,7 @@
             <div class="detail_field">
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="reprintSeries" min="1"><H6>Reprints in series: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="reprintSeries" delimiter="<br>">
-                        ^ca_objects.related.marc210a
+                        ^ca_objects.related.marc210a%returnAsLink=true&delimiter=
                         <ifdef code="ca_objects_x_objects.marc791.marc791b">, ^ca_objects_x_objects.marc791.marc791b </ifdef>
                         <ifdef code="ca_objects_x_objects.marc791.marc7919">(^ca_objects_x_objects.marc791.marc7919) </ifdef>
                         <ifdef code="ca_objects_x_objects.marc791.marc791t">^ca_objects_x_objects.marc791.marc791t </ifdef>
@@ -223,7 +223,7 @@
             <div class="detail_field">
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="modernList" min="1"><H6>Modern Lists: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="modernList" delimiter="<br>">
-                        ^ca_objects.related.marc210a
+                        ^ca_objects.related.marc210a%returnAsLink=true&delimiter=
                         <unit delimiter=", ">
                             <ifcount code="ca_objects_x_objects.marc532_ml.marc532c_ml, ca_objects_x_objects.marc532_ml.marc532b_ml" min="1">[</ifcount>
                                 <ifdef code="ca_objects_x_objects.marc532_ml.marc532b_ml">^ca_objects_x_objects.marc532_ml.marc532b_ml</ifdef>
