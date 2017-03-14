@@ -250,7 +250,10 @@
             <div class="detail_field">
                 {{{<ifdef code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501"><H6>Link Other: </H6></ifdef>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501" delimiter="<br>">
-                        ^relationship_typename : ^ca_objects_x_objects.link_part_of.link_partOf_llr
+						^relationship_typename: ^ca_objects.preferred_labels%returnAsLink=true&delimiter=
+						<unit delimiter=", ">
+							<ifdef code="ca_objects_x_objects.link_part_of.link_partOf_llrl">(^ca_objects_x_objects.link_part_of.link_partOf_llrl)</ifdef>
+						</unit>
                     </unit>}}}</p>
             </div>
 
