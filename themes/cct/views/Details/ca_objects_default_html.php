@@ -212,7 +212,13 @@
             </div>
 
             <div class="detail_field">{{{<ifcount code="ca_objects.marc794.marc794a" min = "1"><H6>Ancient Translations: </H6></ifcount>}}}
-                <p>{{{<unit delimiter="<br>">^ca_objects.marc794.marc794a</unit>}}}</p>
+                <p>{{{<unit delimiter="<br>">
+						Into ^ca_objects.marc794.marc794a
+						<ifdef code="ca_objects.marc794.marc794b">, ^ca_objects.marc794.marc794b </ifdef>
+						[</more
+						<ifdef code="ca_objects.marc794.marc794c">^ca_objects.marc794.marc794c) </ifdef>
+						<ifdef code="ca_objects.marc794.marc794d">, ^ca_objects.marc794.marc794d]</ifdef>				
+				</unit>}}}</p>
             </div>
 
             <div class="detail_field">
