@@ -49,7 +49,7 @@
               <p>
 								<unit relativeTo="ca_objects" delimiter="<br>">
                   <l>^ca_objects.preferred_labels.name</l>
-                  <ifdef code="ca_objects.nonpreferred_labels">(^ca_objects.nonpreferred_labels%delimiter=_-_)</ifdef>
+                  <ifdef code="ca_objects.nonpreferred_labels">(^ca_objects.nonpreferred_labels%delimiter=_-_ )</ifdef>
                 </unit>
             </ifcount>}}}
 					</div>
