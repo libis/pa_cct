@@ -101,16 +101,32 @@
                         ^ca_entities.preferred_labels.prefix 
                         <case>
                             <ifcount code=\"ca_entities.nonpreferred_labels\" min=\"1\" max=\"1\">^ca_entities.nonpreferred_labels.displayname</ifcount>
-                            <ifcount code=\"ca_entities.nonpreferred_labels\" min=\"2\">(^ca_entities.nonpreferred_labels.displayname%delimiter=_-_)</ifcount>
+                            <ifcount code=\"ca_entities.nonpreferred_labels\" min=\"2\">(^ca_entities.nonpreferred_labels.displayname%delimiter=_-_ )</ifcount>
                         </case>
                         <ifdef code=\"ca_entities.marc700d\">(^ca_entities.marc700d)</ifdef>
                         <ifdef code=\"ca_objects_x_entities.marc700.marc7009\">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
                         </unit>";					
                     $vs_authors = $qr_res->getWithTemplate($vs_author_template);
 
+                    $vs_contributors_template = "<unit relativeTo=\"ca_objects_x_entities\" restrictToRelationshipTypes=\"clb,com,ctb,edt,edc,imp,oth,ppf,trl,nio\" delimiter=\" /\">
+                        ^ca_entities.preferred_labels.displayname 
+                        <ifdef code=\"ca_entities.preferred_labels.suffix\">[^ca_entities.preferred_labels.suffix]</ifdef> 
+                        ^ca_entities.preferred_labels.prefix 
+                        <case>
+                            <ifcount code=\"ca_entities.nonpreferred_labels\" min=\"1\" max=\"1\">^ca_entities.nonpreferred_labels.displayname</ifcount>
+                            <ifcount code=\"ca_entities.nonpreferred_labels\" min=\"2\">(^ca_entities.nonpreferred_labels.displayname%delimiter=_-_ )</ifcount>
+                        </case>
+                        <ifdef code=\"ca_entities.marc700d\">(^ca_entities.marc700d)</ifdef>
+                        <ifdef code=\"ca_objects_x_entities.marc700.marc7009\">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+                        </unit>";
+                    $vs_contributors = $qr_res->getWithTemplate($vs_contributors_template);					
+					
                     $vs_label_detail_link = "<b>{$vs_label_detail_link}</b>";
 					if(!empty($vs_alternative_title))
                         $vs_label_detail_link = $vs_label_detail_link . "<br>" . $vs_alternative_title;
+					
+                    if(!empty($vs_contributors))
+                        $vs_label_detail_link = $vs_contributors . "<br>" . $vs_label_detail_link;					
 					
                     if(!empty($vs_authors))
                         $vs_label_detail_link = $vs_authors . "<br>" . $vs_label_detail_link;
