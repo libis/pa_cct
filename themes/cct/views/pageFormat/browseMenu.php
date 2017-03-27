@@ -30,6 +30,14 @@
 	$o_config = caGetBrowseConfig();
 	
 	if(sizeof($va_browse_types)){
+        //libis_start
+		//hide all items from browse menu except objects and entities
+        $browse_menu_include_items = array('objects', 'entities');
+        foreach($va_browse_types as $vs_browse_name => $va_browse_type){
+            if(!in_array(strtolower($vs_browse_name), $browse_menu_include_items))
+                unset($va_browse_types[$vs_browse_name]);
+        }
+        //libis_end		
 		if (!($vs_format = $o_config->get("browseMenuFormat"))) { $vs_format = $o_config->get("browse_menu_format"); }
 		switch($vs_format){
 			case "list":
