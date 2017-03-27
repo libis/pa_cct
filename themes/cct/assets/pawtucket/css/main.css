@@ -862,7 +862,7 @@ a.browseRemoveFacet img {
     display: none;
 }
 
-.jscroll-inner{
+#browse-menu .jscroll-inner{
     width: 100%;
 }
 
