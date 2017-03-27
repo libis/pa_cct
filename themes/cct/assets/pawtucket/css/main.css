@@ -862,6 +862,10 @@ a.browseRemoveFacet img {
     display: none;
 }
 
+.jscroll-inner{
+    width: 100%;
+}
+
 
 /*!
  * Yamm!3
