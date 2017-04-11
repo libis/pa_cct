@@ -37,11 +37,7 @@
                 <div id="subnav" class="row">
 										<nav class="noindex navigation col-sml-4"><h4><a href="https://www.arts.kuleuven.be/sinologie/english/cct" class="tile">Navigation</a></h4>
 											<ul>
-												<li class="navTreeItem visualNoMarker section-acknow">
-										        <a href="https://www.arts.kuleuven.be/sinologie/english/cct/acknow" class="state-published contenttype-document" title="">
-										            <span>Acknowledgements</span>
-										        </a>
-												</li>
+												<li <?php echo ($this->request->getController() == 'Acknowledgements') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Acknowledgements'), '', '', 'Acknowledgements', 'Acknowledgements'); ?></li>
 
 												<li class="navTreeItem visualNoMarker section-authors">
 										        <a href="https://www.arts.kuleuven.be/sinologie/english/cct/authors" class="state-published contenttype-document" title="">
