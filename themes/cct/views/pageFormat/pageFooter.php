@@ -37,12 +37,6 @@
                 <div id="subnav" class="row">
 										<nav class="noindex navigation col-sml-4"><h4><a href="https://www.arts.kuleuven.be/sinologie/english/cct" class="tile">Navigation</a></h4>
 											<ul>
-												<li class="navTreeItem visualNoMarker section-categories">
-										        <a href="https://www.arts.kuleuven.be/sinologie/english/cct/categories" class="state-published contenttype-document" title="">
-										            <span>Categories</span>
-										        </a>
-												</li>
-
 												<li class="navTreeItem visualNoMarker section-acknow">
 										        <a href="https://www.arts.kuleuven.be/sinologie/english/cct/acknow" class="state-published contenttype-document" title="">
 										            <span>Acknowledgements</span>
