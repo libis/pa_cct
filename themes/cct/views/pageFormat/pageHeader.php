@@ -143,6 +143,7 @@
 									<li <?php echo (($this->request->getController() == 'Search') && ($this->request->getAction() == 'advanced')) ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Advanced Search'), '', '', 'Search', 'advanced/objects'); ?></li>
 									<?php echo $this->render('pageFormat/browseMenu.php'); ?>
 									<li <?php echo ($this->request->getController() == 'Contact') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Contact'), '', '', 'Contact', 'Form'); ?></li>
+									<li <?php echo ($this->request->getController() == 'Categories') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Categories'), '', '', 'Categories', 'Categories'); ?></li>
 								</ul>
 					  </nav>
 
