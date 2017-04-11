@@ -43,11 +43,7 @@
 													
 													<li <?php echo ($this->request->getController() == 'Abbreviations') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Abbreviations'), '', '', 'Abbreviations', 'Abbreviations'); ?></li>
 
-													<li class="navTreeItem visualNoMarker section-links">
-											        <a href="https://www.arts.kuleuven.be/sinologie/english/cct/links" class="state-published contenttype-document" title="">
-											            <span>Links</span>
-											        </a>
-													</li>
+													<li <?php echo ($this->request->getController() == 'Links') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Links'), '', '', 'Links', 'Links'); ?></li>
         								</ul>
 											</nav>
 
