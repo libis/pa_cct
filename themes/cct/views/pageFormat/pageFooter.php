@@ -40,12 +40,8 @@
 													<li <?php echo ($this->request->getController() == 'Acknowledgements') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Acknowledgements'), '', '', 'Acknowledgements', 'Acknowledgements'); ?></li>
 
 													<li <?php echo ($this->request->getController() == 'Authors') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Authors'), '', '', 'Authors', 'Authors'); ?></li>												
-
-													<li class="navTreeItem visualNoMarker section-abbrev">
-											        <a href="https://www.arts.kuleuven.be/sinologie/english/cct/abbrev" class="state-published contenttype-document" title="">
-											            <span>Abbreviations</span>
-											        </a>
-													</li>
+													
+													<li <?php echo ($this->request->getController() == 'Abbreviations') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Abbreviations'), '', '', 'Abbreviations', 'Abbreviations'); ?></li>
 
 													<li class="navTreeItem visualNoMarker section-links">
 											        <a href="https://www.arts.kuleuven.be/sinologie/english/cct/links" class="state-published contenttype-document" title="">
