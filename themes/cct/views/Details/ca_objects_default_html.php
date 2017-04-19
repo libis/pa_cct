@@ -243,8 +243,8 @@
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc530a</unit>}}}</p>
             </div>
 
-            <div class="detail_field">{{{<ifcount code="ca_list_items" restrictToRelationshipTypes="category" min="1"><H6>Category: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_list_items" restrictToRelationshipTypes="category" delimiter="<br>">^ca_list_items.preferred_labels</unit>}}}</p>
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc690"><H6>Category: </H6></ifdef>}}}
+                <p>{{{<unit delimiter="<br/>">^ca_objects.marc690</unit>}}}</p>
             </div>
 
             <div class="detail_field">
