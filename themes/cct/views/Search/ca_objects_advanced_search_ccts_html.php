@@ -37,7 +37,7 @@
             </div>
             <div class="col-sm-4 advancedSearchField">
                 Category:<br/>
-                {{{ca_list_items.preferred_labels.name_plural%restrictToTypes=category_list&width=100%}}}
+                {{{ca_objects.marc690%width=240px}}}
             </div>
 					</div>
 					<div class="row">
