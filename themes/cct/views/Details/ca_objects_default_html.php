@@ -89,10 +89,8 @@
                  <p>{{{<unit delimiter="<br>">^ca_objects.marc260c</unit>}}}</p>
             </div>
 
-            <div class="detail_field">{{{<ifcount code="ca_places.preferred_labels" restrictToRelationshipTypes="printedIn" min = "1"><H6>Impressum - Place: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_places" restrictToRelationshipTypes="printedIn" delimiter="<br>">
-                        <l>^ca_places.preferred_labels</l><ifdef code="ca_places.nonpreferred_labels"> (^ca_places.nonpreferred_labels)</ifdef>
-                    </unit>}}}</p>
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc2609a"><H6>Impressum - Place: </H6></ifdef>}}}
+                <p>{{{<unit delimiter="<br/>">^ca_objects.marc2609a</unit>}}}</p>
             </div>
 
             <div class="detail_field">
