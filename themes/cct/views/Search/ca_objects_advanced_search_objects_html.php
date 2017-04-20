@@ -65,7 +65,7 @@
         </div>
         <div class="col-sm-4 advancedSearchField">
             Impressum - Place of Printing:<br/>
-            {{{ca_objects.marc2609a%&width=240px&height=42px}}}
+            {{{multi_printing_place_search%&width=240px&height=42px}}}
         </div>
 		</div>
 		<div class="row">
