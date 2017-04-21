@@ -89,8 +89,14 @@
                  <p>{{{<unit delimiter="<br>">^ca_objects.marc260c</unit>}}}</p>
             </div>
 
-            <div class="detail_field">{{{<ifdef code="ca_objects.marc2609a"><H6>Impressum - Place: </H6></ifdef>}}}
-                <p>{{{<unit delimiter="<br/>">^ca_objects.marc2609a</unit>}}}</p>
+            <div class="detail_field">
+                {{{<ifdef code="ca_objects.marc2609a"><H6>Impressum: </H6></ifdef>}}}
+                <p>{{{<ifdef code="ca_objects.marc2609a">^ca_objects.marc2609a
+                    <ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printer" min = "1">: </ifcount>
+                    <unit relativeTo="ca_entities" restrictToRelationshipTypes="printer" delimiter="- ">
+                        <l>^ca_entities.preferred_labels</l>
+                    </unit>
+                    </ifdef>}}}</p>
             </div>
 
             <div class="detail_field">
@@ -267,13 +273,6 @@
             <div class="detail_field">{{{<ifdef code="ca_objects.marc655a"><H6>Document Type: </H6>^ca_objects.marc655a</ifdef>}}}</div>
 
             <div class="detail_field">{{{<ifdef code="ca_objects.marc900a"><H6>Type of Source: </H6>^ca_objects.marc900a</ifdef>}}}</div>
-
-
-        <!--temporary-->
-        <div class="detail_field">{{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printer" min = "1"><H6>Impressum - Printer: </H6></ifcount>}}}
-            <p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printer" delimiter="<br>"><l>^ca_entities.preferred_labels</l></unit>}}}</p>
-        </div>
-
 
 				<hr></hr>
 					<div class="row">
