@@ -30,7 +30,7 @@
 	$va_comments = 			$this->getVar("comments");
 	$vn_comments_enabled = 	$this->getVar("commentsEnabled");
 	$vn_share_enabled = 	$this->getVar("shareEnabled");
-	
+
 ?>
 <div class="row">
 	<div class='col-xs-12 navTop'><!--- only shown at small screen size -->
@@ -265,7 +265,7 @@
             </div>
 
             <div class="detail_field">
-                {{{<ifdef code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501"><H6>Link Other: </H6></ifdef>}}}
+                {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501" min="1"><H6>Link Other: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501" delimiter="<br>">
 						^relationship_typename: ^ca_objects.preferred_labels%returnAsLink=true&delimiter=
 						<unit delimiter=", ">
