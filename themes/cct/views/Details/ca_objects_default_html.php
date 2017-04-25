@@ -254,7 +254,14 @@
             </div>
 
             <div class="detail_field">{{{<ifdef code="ca_objects.marc690"><H6>Category: </H6></ifdef>}}}
-                <p>{{{<unit delimiter="<br/>">^ca_objects.marc690</unit>}}}</p>
+                <p>
+                <?php
+                    $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects?search=ca_objects.marc690";
+                    $categories = $t_object->get("ca_objects.marc690", array('returnAsArray' => true, 'convertCodesToDisplayText'=>true));
+                    foreach ($categories as $cat)
+                        echo "<a href='/$base_search_url : \"$cat\"' style='text-decoration: none'>$cat</a> <br>";
+                ?>
+                </p>
             </div>
 
             <div class="detail_field">
