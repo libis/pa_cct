@@ -26,6 +26,12 @@
             {{{multi_label_search%width=100%}}}
         </div>
 		</div>
+        <div class="row">
+            <div class="col-sm-12">
+                IDNO(Temp):<br/>
+                {{{ca_objects.idno%width=100%}}}
+            </div>
+        </div>		
 		<div class="row">
         <div class="col-sm-4 advancedSearchField">
             Source:<br/>
