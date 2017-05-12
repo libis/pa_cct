@@ -92,7 +92,7 @@
             </div>
 
             <div class="detail_field">
-                {{{<ifdef code="ca_objects.marc2609a"><H6>Impressum: </H6></ifdef>}}}
+                {{{<ifdef code="ca_objects.marc2609a"><H6>Impressum - Place: </H6></ifdef>}}}
                 <p>{{{<ifdef code="ca_objects.marc2609a">^ca_objects.marc2609a
                     <ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printer" min = "1">: </ifcount>
                     <unit relativeTo="ca_entities" restrictToRelationshipTypes="printer" delimiter="- ">
