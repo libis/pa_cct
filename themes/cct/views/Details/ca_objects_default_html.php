@@ -291,7 +291,7 @@
 
             <div class="detail_field">{{{<ifdef code="ca_objects.marc655a"><H6>Document Type: </H6>^ca_objects.marc655a</ifdef>}}}</div>
 
-            <div class="detail_field">{{{<ifdef code="ca_objects.marc900a"><H6>Type of Source: </H6>^ca_objects.marc900a</ifdef>}}}</div>
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc900a"><H6>Source Type: </H6>^ca_objects.marc900a</ifdef>}}}</div>
 
 				<hr></hr>
 					<div class="row">
