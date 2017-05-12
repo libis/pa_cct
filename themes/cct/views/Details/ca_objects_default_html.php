@@ -99,6 +99,13 @@
             </div>
 
             <div class="detail_field">
+                {{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printer" min = "1"><H6>Impressum - Printer: </H6></ifcount>}}}
+                <p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printer" delimiter="<br>">
+                        <l>^ca_entities.preferred_labels</l> <ifdef code="ca_entities.nonpreferred_labels"> (^ca_entities.nonpreferred_labels)</ifdef>
+                    </unit>}}}</p>
+            </div>			
+			
+            <div class="detail_field">
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="descriptionTitle" min="1"><H6>Description Based On: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="descriptionTitle" delimiter="<br>">
                         ^ca_objects.related.marc210a%returnAsLink=true&delimiter=
