@@ -87,8 +87,10 @@
                 <p>{{{<unit delimiter="<br>">^ca_objects.nonpreferred_labels</unit>}}}</p>
             </div>
 
-            <div class="detail_field">{{{<ifdef code="ca_objects.marc260c"><H6>Date: </H6></ifdef>}}}
-                 <p>{{{<unit delimiter="<br>">^ca_objects.marc260c</unit>}}}</p>
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc260.marc260c"><H6>Date: </H6></ifdef>}}}
+                <p>{{{<unit delimiter="<br>">
+                        ^ca_objects.marc260.marc260c<ifdef code="ca_objects.marc260.marc2609"> [ ^ca_objects.marc260.marc2609 ] </ifdef>
+                    </unit>}}}</p>
             </div>
 
             <div class="detail_field">
