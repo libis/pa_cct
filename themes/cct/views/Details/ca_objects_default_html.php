@@ -108,11 +108,14 @@
             </div>			
 			
             <div class="detail_field">
-                {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="descriptionTitle" min="1"><H6>Description Based On: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="descriptionTitle" delimiter="<br>">
-                        ^ca_objects.related.marc210a%returnAsLink=true&delimiter=
-                        <ifdef code="ca_objects_x_objects.marc250Title.marc2509">, ^ca_objects_x_objects.marc250Title.marc2509</ifdef>
-                        <ifdef code="ca_objects_x_objects.marc250Title.marc250z">Remark: ^ca_objects_x_objects.marc250Title.marc250z</ifdef>
+                {{{<ifcount code="ca_entities" restrictToRelationshipTypes="libraryCopy" min="1"><H6>Descr. based on: </H6></ifcount>}}}
+                <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="libraryCopy" delimiter="<br>">
+                        <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >
+                            ^ca_entities.preferred_labels.displayname</a>
+                        <unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="libraryCopy" delimiter=" - ">
+                            , Shelf: ^ca_objects_x_entities.marc250.marc250x
+                            , ^ca_objects_x_entities.marc250.marc250y
+                        </unit>
                     </unit>}}}</p>
             </div>
 
