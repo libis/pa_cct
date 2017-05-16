@@ -281,7 +281,11 @@
             <div class="detail_field">{{{<ifdef code="ca_objects.marc020a"><H6>ISBN: </H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc020a</unit>}}}</p>
             </div>
-		
+
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc022a"><H6>ISSN: </H6></ifdef>}}}
+                <p>{{{<unit delimiter=";">^ca_objects.marc022a</unit>}}}</p>
+            </div>
+			
             <div class="detail_field">{{{<ifdef code="ca_objects.marc655a"><H6>Document Type: </H6>^ca_objects.marc655a</ifdef>}}}</div>
 
             <div class="detail_field">{{{<ifdef code="ca_objects.marc900a"><H6>Source Type: </H6>^ca_objects.marc900a</ifdef>}}}</div>
