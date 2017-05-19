@@ -83,8 +83,11 @@
                     }}}</p>
             </div>
 
-			<div class="detail_field">{{{<ifdef code="ca_objects.nonpreferred_labels"><H6>Alternative Title: </H6></ifdef>}}}
-                <p>{{{<unit delimiter="<br>">^ca_objects.nonpreferred_labels</unit>}}}</p>
+			<div class="detail_field">{{{<ifdef code="ca_objects.nonpreferred_labels|ca_objects.preferred_labels"><H6>Title: </H6></ifdef>}}}
+                <p>{{{
+                    <unit delimiter="<br>">^ca_objects.nonpreferred_labels</unit>
+                    <ifdef code="ca_objects.nonpreferred_labels"><br></ifdef>^ca_objects.preferred_labels
+                    }}}</p>
             </div>
 
             <div class="detail_field">{{{<ifdef code="ca_objects.marc260.marc260c"><H6>Date: </H6></ifdef>}}}
