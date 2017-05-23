@@ -251,6 +251,10 @@
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc530a</unit>}}}</p>
             </div>
 
+            <div class="detail_field">{{{<ifcount code="ca_objects.marc500a"  min = "1"><H6>General Note: </H6></ifcount>}}}
+                <p>{{{<unit delimiter="<br>">^ca_objects.marc500a</unit>}}}</p>
+            </div>			
+			
             <div class="detail_field">{{{<ifdef code="ca_objects.marc690"><H6>Category: </H6></ifdef>}}}
                 <p>
                 <?php
