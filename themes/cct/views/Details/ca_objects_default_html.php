@@ -237,6 +237,74 @@
             <div class="detail_field">
                 <?php
                 $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
+                $alist_types_list = array("ancientList");
+                $alist = $t_object->getRelatedItems("ca_objects", array(
+                    'returnAsArray' => true,
+                    'restrictToRelationshipTypes' => $alist_types_list
+                ));
+                $counter = 1;
+                foreach ($alist as $list){
+                    if(isset($related_interstitial))
+                        unset($related_interstitial);
+                    /* Skipp 'has ancient list', which is rtol in CA/Pawtucket */
+                    if(!isset($list['direction']) || $list['direction'] === 'rtol')
+                        continue;
+
+                    if($counter === 1){
+                        echo "<H6>Ancient Lists: </H6>";
+                        echo "<p>";
+                    }
+
+                    $counter++;
+                    $related_interstitial = new ca_objects_x_objects($list['relation_id']);
+                    $al_interstitial_data = $related_interstitial->get('ca_objects_x_objects.marc532_al', array(
+                        'returnWithStructure' => true,
+                        'convertCodesToDisplayText'=>true
+                    ));
+
+                    $strArray = array();
+                    if(isset($al_interstitial_data[$list['relation_id']])){
+                        $data = $al_interstitial_data[$list['relation_id']];
+                        foreach ($data as $item){
+                            $str = " - ";
+                            if(isset($item['marc532a_al']) && strlen($item['marc532a_al']) > 0)
+                                $str .= $item['marc532a_al'].", ";
+                            if(isset($item['marc532c_al']) && strlen($item['marc532c_al']) > 0)
+                                $str .= $item['marc532c_al'].", ";
+                            if(isset($item['marc5329_al']) && strlen($item['marc5329_al']) > 0)
+                                $str .= $item['marc5329_al'];
+                            if(isset($item['marc532z_al']) && strlen($item['marc532z_al']) > 0)
+                                $str .= "(".$item['marc532z_al'].")";
+
+                            if(strlen($str) > strlen(" - "))
+                                $strArray[] = $str;
+                        }
+                    }
+                    $al_obj_id = $list['object_id'];
+                    $al_obj_label = $list['label'];
+                    echo "<a href='/$base_search_url/$al_obj_id' style='text-decoration: none' target='_blank'>$al_obj_label</a>";
+
+                    $obj_related = new ca_objects($al_obj_id);
+                    $al_related_label = $obj_related->get('ca_objects.marc210a', array('returnAsArray' => true));
+                    $al_related_label = array_filter(array_slice($al_related_label, 0, 2));
+                    foreach($al_related_label as $abb_title){
+                        echo "<br>Abbr. <a href='/$base_search_url/$al_obj_id' style='text-decoration: none' target='_blank'>$abb_title</a>";
+                    }
+
+                    if(sizeof($strArray) > 0){
+                        echo "<br>".implode($strArray);
+                    }
+
+                    echo "<br>";
+                    if($counter > sizeof($alist))
+                        echo "</p>";
+                }
+                ?>
+            </div>			
+			
+            <div class="detail_field">
+                <?php
+                $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
                 $mlist_types_list = array("modernList");
                 $mlist = $t_object->getRelatedItems("ca_objects", array(
                     'returnAsArray' => true,
