@@ -247,6 +247,30 @@
                     </unit>}}}</p>
             </div>
 
+            <div class="detail_field">
+                {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="r78505,r78500,r78501,r78502,r78503,r78508,r78511,r78512,r78510,r78513,r78506,r78507,r78509,r78516,r78504,r78514,r78515" min="1"><H6>Translation: </H6></ifcount>}}}
+                <p>
+                    <?php
+                    $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
+                    $link_translation_types_list = array("r78505","r78500","r78501","r78502","r78503","r78508","r78511","r78512","r78510","r78513","r78506","r78507","r78509","r78516","r78504","r78514","r78515");
+                    $link_translation = $t_object->getRelatedItems("ca_objects", array(
+                        'returnAsArray' => true,
+                        'restrictToRelationshipTypes' => $link_translation_types_list
+                    ));
+                    foreach ($link_translation as $link){
+                        if(!in_array($link['relationship_type_code'], $link_translation_types_list))
+                            continue;
+
+                        $obj_id = $link['object_id'];
+                        $obj_label = $link['label'];
+                        $obj_rel_name = $link['relationship_typename'];
+                        echo "<b>$obj_rel_name</b>: <a href='/$base_search_url/$obj_id' style='text-decoration: none' target='_blank'>$obj_label</a>";
+                        echo "<br>";
+                    }
+                    ?>
+                </p>
+            </div>
+			
             <div class="detail_field">{{{<ifcount code="ca_objects.marc530a"  min = "1"><H6>Notes on text History: </H6></ifcount>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc530a</unit>}}}</p>
             </div>
