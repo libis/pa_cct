@@ -339,7 +339,7 @@
                             if(isset($item['marc532b_ml']) && strlen($item['marc532b_ml']) > 0)
                                 $str .= $item['marc532b_ml'];
                             if(isset($item['marc532c_ml']) && strlen($item['marc532c_ml']) > 0)
-                                $str .= "(".$item['marc532c_ml'].")";
+                                $str .= " (".$item['marc532c_ml'].") ";
 
                             if(strlen($str) > strlen(" - "))
                                 $strArray[] = $str;
@@ -350,10 +350,13 @@
                     $obj_rel_name = $list['relationship_typename'];//TBR if type is not to be shown
                     echo "<a href='/$base_search_url/$ml_obj_id' style='text-decoration: none' target='_blank'>$ml_obj_label</a>";
 
-                    $ml_related_label = array_slice($ml_related_label, 0, 2);
-                    $ml_related_label = array_filter($ml_related_label);
+                    $obj_related = new ca_objects($ml_obj_id);
+                    $ml_related_label = $obj_related->get('ca_objects.marc210a', array('returnAsArray' => true));
+                    if(!isset($ml_related_label))
+                        continue;
+                    $ml_related_label = array_filter(array_slice($ml_related_label, 0, 2));
                     foreach($ml_related_label as $abb_title){
-                        echo "<br>Abbr. <a href='/$base_search_url/$ml_obj_id' style='text-decoration: none' target='_blank'>$abb_title</a>";
+                        echo "<br>Abbr.: <a href='/$base_search_url/$ml_obj_id' style='text-decoration: none' target='_blank'>$abb_title</a>";
                     }
 
                     if(sizeof($strArray) > 0){
