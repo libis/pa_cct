@@ -235,16 +235,67 @@
             </div>
 
             <div class="detail_field">
-                {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="modernList" min="1"><H6>Modern Lists: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="modernList" delimiter="<br>">
-                        ^ca_objects.related.marc210a%returnAsLink=true&delimiter=
-                        <unit delimiter=", ">
-                            <ifcount code="ca_objects_x_objects.marc532_ml.marc532c_ml, ca_objects_x_objects.marc532_ml.marc532b_ml" min="1">[</ifcount>
-                                <ifdef code="ca_objects_x_objects.marc532_ml.marc532b_ml">^ca_objects_x_objects.marc532_ml.marc532b_ml</ifdef>
-                                <ifdef code="ca_objects_x_objects.marc532_ml.marc532c_ml">(^ca_objects_x_objects.marc532_ml.marc532c_ml) </ifdef>
-                            <ifcount code="ca_objects_x_objects.marc532_ml.marc532c_ml, ca_objects_x_objects.marc532_ml.marc532b_ml" min="1">]</ifcount>
-                        </unit>
-                    </unit>}}}</p>
+                <?php
+                $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
+                $mlist_types_list = array("modernList");
+                $mlist = $t_object->getRelatedItems("ca_objects", array(
+                    'returnAsArray' => true,
+                    'restrictToRelationshipTypes' => $mlist_types_list
+                ));
+                $counter = 1;
+                foreach ($mlist as $list){
+                    if(isset($related_interstitial))
+                        unset($related_interstitial);
+                    /* Skipp 'has modern list', which is rtol in CA/Pawtucket */
+                    if(!isset($list['direction']) || $list['direction'] === 'rtol')
+                        continue;
+
+                    if($counter === 1){
+                        echo "<H6>Modern Lists: </H6>";
+                        echo "<p>";
+                    }
+
+                    $counter++;
+                    $related_interstitial = new ca_objects_x_objects($list['relation_id']);
+                    $ml_related_label = $related_interstitial->get('ca_objects.related.marc210a', array('returnAsArray' => true));
+                    $ml_interstitial_data = $related_interstitial->get('ca_objects_x_objects.marc532_ml', array(
+                        'returnWithStructure' => true,
+                        'convertCodesToDisplayText'=>true
+                    ));
+
+                    $strArray = array();
+                    if(isset($ml_interstitial_data[$list['relation_id']])){
+                        $data = $ml_interstitial_data[$list['relation_id']];
+                        foreach ($data as $item){
+                            $str = " - ";
+                            if(isset($item['marc532b_ml']) && strlen($item['marc532b_ml']) > 0)
+                                $str .= $item['marc532b_ml'];
+                            if(isset($item['marc532c_ml']) && strlen($item['marc532c_ml']) > 0)
+                                $str .= "(".$item['marc532c_ml'].")";
+
+                            if(strlen($str) > strlen(" - "))
+                                $strArray[] = $str;
+                        }
+                    }
+                    $ml_obj_id = $list['object_id'];
+                    $ml_obj_label = $list['label'];
+                    $obj_rel_name = $list['relationship_typename'];//TBR if type is not to be shown
+                    echo "<a href='/$base_search_url/$ml_obj_id' style='text-decoration: none' target='_blank'>$ml_obj_label</a>";
+
+                    $ml_related_label = array_slice($ml_related_label, 0, 2);
+                    $ml_related_label = array_filter($ml_related_label);
+                    foreach($ml_related_label as $abb_title){
+                        echo "<br>Abbr. <a href='/$base_search_url/$ml_obj_id' style='text-decoration: none' target='_blank'>$abb_title</a>";
+                    }
+
+                    if(sizeof($strArray) > 0){
+                        echo "<br>".implode($strArray);
+                    }
+                    echo "<br>";
+                    if($counter > sizeof($mlist))
+                        echo "</p>";
+                }
+                ?>
             </div>
 
             <div class="detail_field">
