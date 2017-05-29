@@ -90,6 +90,62 @@
                     }}}</p>
             </div>
 
+            <div class="detail_field">
+                <?php
+                $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
+                $slist_types_list = array("partOfSeries");
+                $slist = $t_object->getRelatedItems("ca_objects", array(
+                    'returnAsArray' => true,
+                    'restrictToRelationshipTypes' => $slist_types_list
+                ));
+                $counter = 1;
+                foreach ($slist as $list){
+                    if(isset($related_interstitial))
+                        unset($related_interstitial);
+                    /* Skipp 'has part of series', which is rtol in CA/Pawtucket */
+                    if(!isset($list['direction']) || $list['direction'] === 'rtol')
+                        continue;
+                    if($counter === 1){
+                        echo "<H6>Series Test: </H6>";
+                        echo "<p>";
+                    }
+                    $counter++;
+                    $related_interstitial = new ca_objects_x_objects($list['relation_id']);
+                    $ml_interstitial_data = $related_interstitial->get('ca_objects_x_objects.marc440', array(
+                        'returnWithStructure' => true,
+                        'convertCodesToDisplayText'=>true
+                    ));
+
+                    $strArray = array();
+                    if(isset($ml_interstitial_data[$list['relation_id']])){
+                        $data = $ml_interstitial_data[$list['relation_id']];
+                        foreach ($data as $item){
+                            $str = "";
+                            if(isset($item['marc440b']) && strlen($item['marc440b']) > 0)
+                                $str .= " (".$item['marc440b'].") ";
+                            if(isset($item['marc440v']) && strlen($item['marc440v']) > 0)
+                                $str .= $item['marc440v']." ";
+
+
+                            if(strlen($str) > strlen(""))
+                                $strArray[] = $str;
+                        }
+                    }
+                    $s_obj_id = $list['object_id'];
+                    $s_obj_label = $list['label'];
+                    $obj_rel_name = $list['relationship_typename'];//TBR if type is not to be shown
+                    echo "<a href='/$base_search_url/$s_obj_id' style='text-decoration: none' target='_blank'>$s_obj_label</a>";
+                    if(sizeof($strArray) > 0){
+                        echo " ".implode($strArray);
+                    }
+
+                    echo "<br>";
+                    if($counter > sizeof($slist))
+                        echo "</p>";
+                }
+                ?>
+            </div>			
+			
             <div class="detail_field">{{{<ifdef code="ca_objects.marc260.marc260c"><H6>Date: </H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">
                         ^ca_objects.marc260.marc260c<ifdef code="ca_objects.marc260.marc2609"> [ ^ca_objects.marc260.marc2609 ] </ifdef>
