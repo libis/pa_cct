@@ -269,7 +269,7 @@
             <div class="detail_field">
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501" min="1"><H6>Link Other: </H6></ifcount>}}}
                 <p>
-                    <?php
+                  <?php
                     $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
                     $link_types_list = array("r77300","r77301","r77302","r77501","r77500","r77501");
                     $link_include_interstitial_list = array('link_partOf_llrl');
@@ -280,31 +280,13 @@
                     foreach ($link_other as $link){
                         if(!in_array($link['relationship_type_code'], $link_types_list))
                             continue;
-                        $related_interstitial = new ca_objects_x_objects($link['relation_id']);
-                        $interstitial_data = $related_interstitial->get('ca_objects_x_objects.link_part_of', array(
-                            'returnWithStructure' => true,
-                            'convertCodesToDisplayText'=>true
-                        ));
-                        if(isset($interstitial_data[$link['relation_id']])){
-                            $data = $interstitial_data[$link['relation_id']];
-                            $strArray = array();
-                            foreach ($data as $item){
-                                foreach ($item as $key => $vl)
-                                    if(!in_array($key,$link_include_interstitial_list))
-                                        unset($item[$key]);
-
-                                $strArray[] = " (".implode(" ", $item).") ";
-                            }
-                        }
                         $obj_id = $link['object_id'];
                         $obj_label = $link['label'];
                         $obj_rel_name = $link['relationship_typename'];
-                        echo "$obj_rel_name: <a href='/$base_search_url/$obj_id' style='text-decoration: none' target='_blank'>$obj_label</a>";
-                        if(sizeof($strArray) > 0)
-                            echo implode($strArray);
+                        echo "<b>$obj_rel_name</b>: <a href='/$base_search_url/$obj_id' style='text-decoration: none' target='_blank'>$obj_label</a>";
                         echo "<br>";
                     }
-                    ?>
+                  ?>
                 </p>
             </div>
 
