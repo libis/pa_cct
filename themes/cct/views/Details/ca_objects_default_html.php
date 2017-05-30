@@ -75,10 +75,12 @@
                         ^ca_entities.preferred_labels.prefix
                         <case>
                             <ifcount code="ca_entities.nonpreferred_labels" min="1" max="1">^ca_entities.nonpreferred_labels.displayname</ifcount>
-                            <ifcount code="ca_entities.nonpreferred_labels" min="2">(^ca_entities.nonpreferred_labels.displayname%delimiter=_-_)</ifcount>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="2">(^ca_entities.nonpreferred_labels.displayname%delimiter=_-_ )</ifcount>
                         </case>
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
+                        <unit relativeTo="ca_objects_x_entities">
                         <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+                        </unit>
                     </unit>
                     }}}</p>
             </div>
