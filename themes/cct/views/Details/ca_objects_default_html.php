@@ -90,6 +90,10 @@
                     }}}</p>
             </div>
 
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc210a"><H6>Abbreviated Title: </H6></ifdef>}}}
+                <p>{{{<unit delimiter="<br>">^ca_objects.marc210a</unit>}}}</p>
+            </div>			
+			
             <div class="detail_field">
                 <?php
                 $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
