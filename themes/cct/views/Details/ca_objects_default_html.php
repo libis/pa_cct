@@ -103,6 +103,22 @@
                     }}}</p>
             </div>			
 			
+            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="edc" min="1"><H6>Editor in chief</H6></ifcount>}}}
+                <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="edc" delimiter="<br>">
+                        <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >^ca_entities.preferred_labels.displayname</a>
+                        <ifdef code="ca_entities.preferred_labels.prefix">[^ca_entities.preferred_labels.prefix]</ifdef>
+                        ^ca_entities.preferred_labels.suffix
+                        <case>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="1" max="1">^ca_entities.nonpreferred_labels.displayname</ifcount>
+                            <ifcount code="ca_entities.nonpreferred_labels" min="2">(^ca_entities.nonpreferred_labels.displayname%delimiter=_-_ )</ifcount>
+                        </case>
+                        <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
+                        <unit relativeTo="ca_objects_x_entities">
+                            <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+                        </unit>
+                    </unit>}}}</p>
+            </div>
+			
 			<div class="detail_field">{{{<ifdef code="ca_objects.nonpreferred_labels|ca_objects.preferred_labels"><H6>Title: </H6></ifdef>}}}
                 <p>{{{
                     <unit delimiter="<br>">^ca_objects.nonpreferred_labels</unit>
