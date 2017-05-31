@@ -309,18 +309,78 @@
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc520a_cont</unit>}}}</p>
             </div>
 
+            <!--Facsimile Editions-->
             <div class="detail_field">
-                {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="facsimile" min="1"><H6>Facsimile editions: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="facsimile" delimiter="<br>">
-                        ^ca_objects.related.marc210a%returnAsLink=true&delimiter=
-                        <ifdef code="ca_objects_x_objects.marc793.marc793b">, ^ca_objects_x_objects.marc793.marc793b </ifdef>
-                        <ifdef code="ca_objects_x_objects.marc793.marc7939">(^ca_objects_x_objects.marc793.marc7939)</ifdef>
-                        <more>[</more
-                        <ifdef code="ca_objects_x_objects.marc793.marc793w">^ca_objects_x_objects.marc793.marc793w </ifdef>
-                        <ifdef code="ca_objects_x_objects.marc793.marc793x">Shelf: ^ca_objects_x_objects.marc793.marc793x</ifdef>
-                        <ifdef code="ca_objects_x_objects.marc793.marc793y">, ^ca_objects_x_objects.marc793.marc793y
-                            ]</ifdef>
-                    </unit>}}}</p>
+                <?php
+                $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
+                $facslist_types_list = array("facsimile");
+                $facslist = $t_object->getRelatedItems("ca_objects", array(
+                    'returnAsArray' => true,
+                    'restrictToRelationshipTypes' => $facslist_types_list
+                ));
+                $counter = 1;
+                foreach ($facslist as $list){
+                    if(isset($related_interstitial))
+                        unset($related_interstitial);
+                    /* Skipp 'has facsimile list', which is rtol in CA/Pawtucket */
+                    if(!isset($list['direction']) || $list['direction'] === 'rtol')
+                        continue;
+
+                    if($counter === 1){
+                        echo "<H6>Facsimile Editions: </H6>";
+                        echo "<p>";
+                    }
+                    $counter++;
+                    $related_interstitial = new ca_objects_x_objects($list['relation_id']);
+                    $al_interstitial_data = $related_interstitial->get('ca_objects_x_objects.marc793', array(
+                        'returnWithStructure' => true,
+                        'convertCodesToDisplayText'=>true
+                    ));
+
+                    $strArray = array();
+                    if(isset($al_interstitial_data[$list['relation_id']])){
+                        $data = $al_interstitial_data[$list['relation_id']];
+                        foreach ($data as $item){
+                            $str = " - ";
+                            if(isset($item['marc793b']) && strlen($item['marc793b']) > 0)
+                                $str .= $item['marc793b']." ";
+                            if(isset($item['marc7939']) && strlen($item['marc7939']) > 0)
+                                $str .= " (".$item['marc7939'].") ";
+                            if(isset($item['marc793w']) && strlen($item['marc793w']) > 0){
+                                $related_entity_label = "[".$item['marc793w'].", "; //TOBE A LINK
+                                $entity_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/entities/search/\"".$item['marc793w']."\"";
+                                $str .= "<a href='/$entity_search_url' style='text-decoration: none' target='_blank'>$related_entity_label</a>";
+                            }
+
+                            if(isset($item['marc793x']) && strlen($item['marc793x']) > 0)
+                                $str .= "shelf: ".$item['marc793x'].", ";
+                            if(isset($item['marc793y']) && strlen($item['marc793y']) > 0)
+                                $str .= $item['marc793y']."] ";
+
+                            if(strlen($str) > strlen(" - "))
+                                $strArray[] = $str;
+                        }
+                    }
+                    $f_obj_id = $list['object_id'];
+                    $f_obj_label = $list['label'];
+                    echo "<a href='/$base_search_url/$f_obj_id' style='text-decoration: none' target='_blank'>$f_obj_label</a>";
+
+                    $obj_related = new ca_objects($f_obj_id);
+                    $f_related_label = $obj_related->get('ca_objects.marc210a', array('returnAsArray' => true));
+                    if(!isset($f_related_label))
+                        continue;
+                    $f_related_label = array_filter(array_slice($f_related_label, 0, 2));
+                    foreach($f_related_label as $abb_title){
+                        echo "<br>Abbr.: <a href='/$base_search_url/$f_obj_id' style='text-decoration: none' target='_blank'>$abb_title</a>";
+                    }
+                    if(sizeof($strArray) > 0){
+                        echo "<br>".implode($strArray);
+                    }
+                    echo "<br>";
+                    if($counter > sizeof($facslist))
+                        echo "</p>";
+                }
+                ?>
             </div>
 <!-- Temporarily hidden
             <div class="detail_field">{{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printerReprint" min = "1"><H6>Reprints: </H6></ifcount>}}}
