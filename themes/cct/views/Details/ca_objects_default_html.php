@@ -250,6 +250,74 @@
                     </unit>}}}</p>
             </div>
 
+            <!--Descr. based on Title-->
+            <div class="detail_field">
+                <?php
+                $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
+                $dtlist_types_list = array("descriptionTitle");
+                $dtlist = $t_object->getRelatedItems("ca_objects", array(
+                    'returnAsArray' => true,
+                    'restrictToRelationshipTypes' => $dtlist_types_list
+                ));
+                $counter = 1;
+                $is_field_label = true;
+                foreach ($dtlist as $list){
+                    $counter++;
+                    if(isset($related_interstitial))
+                        unset($related_interstitial);
+                    /* Skipp 'has description based on title', which is rtol in CA/Pawtucket */
+                    if(!isset($list['direction']) || $list['direction'] === 'rtol')
+                        continue;
+
+                    if($is_field_label === true){
+                        echo "<H6> Descr. based on Title </H6>";
+                        echo "<p>";
+                        $is_field_label = false;
+                    }
+                    $related_interstitial = new ca_objects_x_objects($list['relation_id']);
+                    $dt_interstitial_data = $related_interstitial->get('ca_objects_x_objects.marc250Title', array(
+                        'returnWithStructure' => true,
+                        'convertCodesToDisplayText'=>true
+                    ));
+
+                    $strArray = array();
+                    if(isset($dt_interstitial_data[$list['relation_id']])){
+                        $data = $dt_interstitial_data[$list['relation_id']];
+                        foreach ($data as $item){
+                            $str = " - ";
+                            if(isset($item['marc2509']) && strlen($item['marc2509']) > 0)
+                                $str .= $item['marc2509']." ";
+                            if(isset($item['marc250z']) && strlen($item['marc250z']) > 0)
+                                $str .= "(".$item['marc250z'].") ";
+
+                            if(strlen($str) > strlen(" - "))
+                                $strArray[] = $str;
+                        }
+                    }
+                    $dt_obj_id = $list['object_id'];
+                    $dt_obj_label = $list['label'];
+                    echo "<a href='/$base_search_url/$dt_obj_id' style='text-decoration: none' target='_blank'>$dt_obj_label</a>";
+
+                    $obj_related = new ca_objects($dt_obj_id);
+                    $dt_related_label = $obj_related->get('ca_objects.marc210a', array('returnAsArray' => true));
+                    if(!isset($dt_related_label))
+                        continue;
+                    $dt_related_label = array_filter(array_slice($dt_related_label, 0, 2));
+                    foreach($dt_related_label as $abb_title){
+                        echo "<br>Abbr.: <a href='/$base_search_url/$dt_obj_id' style='text-decoration: none' target='_blank'>$abb_title</a>";
+                    }
+
+                    if(sizeof($strArray) > 0){
+                        echo "<br>".implode($strArray);
+                    }
+
+                    echo "<br>";
+                    if($counter > sizeof($dtlist))
+                        echo "</p>";
+                }
+                ?>
+            </div>			
+			
             <div class="detail_field">{{{<ifcount code="ca_objects.marc300" min = "1"><H6>Physical Description: </H6></ifcount>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc300.marc300a</unit>}}}</p>
             </div>
