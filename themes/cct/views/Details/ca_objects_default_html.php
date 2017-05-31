@@ -542,6 +542,10 @@
                 ?>
             </div>
 
+            <div class="detail_field">{{{<ifcount code="ca_objects.marc792a"  min = "1"><H6>Reprints (Other): </H6></ifcount>}}}
+                <p>{{{<unit delimiter="<br>">^ca_objects.marc792a</unit>}}}</p>
+            </div>
+			
             <div class="detail_field">{{{<ifcount code="ca_objects.marc794.marc794a" min = "1"><H6>Ancient Translations: </H6></ifcount>}}}
                 <p>{{{<unit delimiter="<br>">
 						Into ^ca_objects.marc794.marc794a
