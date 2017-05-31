@@ -217,6 +217,13 @@
                 }
                 ?>
             </div>			
+
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc773"><H6>Periodical: </H6></ifdef>}}}
+                <p>{{{<unit delimiter="<br>">
+                        <ifdef code="ca_objects.marc773.marc773a"><b>In:</b> ^ca_objects.marc773.marc773a </ifdef>
+                        <ifdef code="ca_objects.marc773.marc773g"> ^ca_objects.marc773.marc773g</ifdef>
+                    </unit>}}}</p>
+            </div>			
 			
             <div class="detail_field">{{{<ifdef code="ca_objects.marc260.marc260c"><H6>Date: </H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">
