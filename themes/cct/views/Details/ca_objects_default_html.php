@@ -461,18 +461,85 @@
                     }}}</p>
             </div>
 -->
+            <!--Reprints in series-->
             <div class="detail_field">
-                {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="reprintSeries" min="1"><H6>Reprints in series: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_objects_x_objects" restrictToRelationshipTypes="reprintSeries" delimiter="<br>">
-                        ^ca_objects.related.marc210a%returnAsLink=true&delimiter=
-                        <ifdef code="ca_objects_x_objects.marc791.marc791b">, ^ca_objects_x_objects.marc791.marc791b </ifdef>
-                        <ifdef code="ca_objects_x_objects.marc791.marc7919">(^ca_objects_x_objects.marc791.marc7919) </ifdef>
-                        <ifdef code="ca_objects_x_objects.marc791.marc791t">^ca_objects_x_objects.marc791.marc791t </ifdef>
-                        <more>[</more
-                        <ifdef code="ca_objects_x_objects.marc791.marc791w">^ca_objects_x_objects.marc791.marc791w </ifdef>
-                        <ifdef code="ca_objects_x_objects.marc791.marc791x">,Shelf:^ca_objects_x_objects.marc791.marc791x </ifdef>
-                        <ifdef code="ca_objects_x_objects.marc791.marc791y">, ^ca_objects_x_objects.marc791.marc791y]</ifdef>
-                    </unit>}}}</p>
+                <?php
+                $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
+                $rs_types_list = array("reprintSeries");
+                $rslist = $t_object->getRelatedItems("ca_objects", array(
+                    'returnAsArray' => true,
+                    'restrictToRelationshipTypes' => $rs_types_list
+                ));
+                $counter = 1;
+                $is_field_label = true;
+                foreach ($rslist as $list){
+                    $counter++;
+                    if(isset($related_interstitial))
+                        unset($related_interstitial);
+                    /* Skipp 'has reprint', which is rtol in CA/Pawtucket */
+                    if(!isset($list['direction']) || $list['direction'] === 'rtol')
+                        continue;
+
+                    if($is_field_label === true){
+                        echo "<H6> Reprints in series: </H6>";
+                        echo "<p>";
+                        $is_field_label = false;
+                    }
+                    $related_interstitial = new ca_objects_x_objects($list['relation_id']);
+                    $rs_interstitial_data = $related_interstitial->get('ca_objects_x_objects.marc791', array(
+                        'returnWithStructure' => true,
+                        'convertCodesToDisplayText'=>true
+                    ));
+
+                    $strArray = array();
+                    if(isset($rs_interstitial_data[$list['relation_id']])){
+                        $data = $rs_interstitial_data[$list['relation_id']];
+                        foreach ($data as $item){
+                            $str = " - ";
+                            if(isset($item['marc791b']) && strlen($item['marc791b']) > 0)
+                                $str .= $item['marc791b']." ";
+                            if(isset($item['marc7919']) && strlen($item['marc7919']) > 0)
+                                $str .= " (".$item['marc7919'].") ";
+                            if(isset($item['marc791t']) && strlen($item['marc791t']) > 0){
+                                $related_entity_label = $item['marc791t'].", "; //TOBE A LINK
+                                $entity_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects/search/\"".$item['marc791t']."\"";
+                                $str .= "<a href='/$entity_search_url' style='text-decoration: none' target='_blank'>$related_entity_label</a>";
+                            }
+
+                            if(isset($item['marc791w']) && strlen($item['marc791w']) > 0){
+                                $related_entity_label = "[".$item['marc791w'].", "; //TOBE A LINK
+                                $entity_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/entities/search/\"".$item['marc791w']."\"";
+                                $str .= "<a href='/$entity_search_url' style='text-decoration: none' target='_blank'>$related_entity_label</a>";
+                            }
+                            if(isset($item['marc791x']) && strlen($item['marc791x']) > 0)
+                                $str .= "shelf: ".$item['marc793x'].", ";
+                            if(isset($item['marc791y']) && strlen($item['marc791y']) > 0)
+                                $str .= $item['marc791y']."] ";
+
+                            if(strlen($str) > strlen(" - "))
+                                $strArray[] = $str;
+                        }
+                    }
+                    $rs_obj_id = $list['object_id'];
+                    $rs_obj_label = $list['label'];
+                    echo "<a href='/$base_search_url/$rs_obj_id' style='text-decoration: none' target='_blank'>$rs_obj_label</a>";
+
+                    $obj_related = new ca_objects($rs_obj_id);
+                    $rs_related_label = $obj_related->get('ca_objects.marc210a', array('returnAsArray' => true));
+                    if(!isset($rs_related_label))
+                        continue;
+                    $rs_related_label = array_filter(array_slice($rs_related_label, 0, 2));
+                    foreach($rs_related_label as $abb_title){
+                        echo "<br>Abbr.: <a href='/$base_search_url/$rs_obj_id' style='text-decoration: none' target='_blank'>$abb_title</a>";
+                    }
+                    if(sizeof($strArray) > 0){
+                        echo "<br>".implode($strArray);
+                    }
+                    echo "<br>";
+                    if($counter > sizeof($rslist))
+                        echo "</p>";
+                }
+                ?>
             </div>
 
             <div class="detail_field">{{{<ifcount code="ca_objects.marc794.marc794a" min = "1"><H6>Ancient Translations: </H6></ifcount>}}}
