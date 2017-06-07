@@ -558,7 +558,6 @@
                 <?php
                 $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
                 $atrlist = $t_object->get("ca_objects.marc794", array('returnWithStructure' => true));
-                $counter = 1;
                 $is_field_label = true;
                 foreach ($atrlist as $list){
                     $strArray = array();
@@ -569,23 +568,29 @@
                         if(isset($item['marc794b']) && strlen($item['marc794b']) > 0)
                             $str .= $item['marc794b'].", ";
                         if(isset($item['marc794c']) && strlen($item['marc794c']) > 0){
-                            $object_label = "[".$item['marc794c']." ";
+                            $object_label = $item['marc794c']." ";
                             $object_label_decoded = htmlspecialchars($item['marc794c'], ENT_QUOTES);
                             $object_search_query_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects/search/\"".$object_label_decoded."\"";
-                            $str .= "<a href='/$object_search_query_url' style='text-decoration: none' target='_blank'>$object_label</a>";
+                            $str .= "[<a href='/$object_search_query_url' style='text-decoration: none' target='_blank'>$object_label</a>";
                         }
                         if(isset($item['marc794d']) && strlen($item['marc794d']) > 0)
                             $str .= $item['marc794d']."] ";
                         if(isset($item['marc7949']) && strlen($item['marc7949']) > 0)
                             $str .= "(".$item['marc7949'].") ";
                         if(isset($item['marc794t']) && strlen($item['marc794t']) > 0){
-                            $object_label = "[".$item['marc794t']." ";
+                            $object_label = $item['marc794t'];
                             $object_label_decoded = htmlspecialchars($item['marc794t'], ENT_QUOTES);
                             $object_search_query_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects/search/\"".$object_label_decoded."\"";
-                            $str .= "<a href='/$object_search_query_url' style='text-decoration: none' target='_blank'>$object_label</a>";
+                            $str .= "[<a href='/$object_search_query_url' style='text-decoration: none' target='_blank'>$object_label</a>, ";
                         }
-                        if(isset($item['marc794w']) && strlen($item['marc794w']) > 0)
-                            $str .= $item['marc794w'].", ";
+                        if(isset($item['marc794w']) && strlen($item['marc794w']) > 0){
+                            $entity_label .= $item['marc794w'];
+                            $entity_label_decoded = htmlspecialchars($item['marc794w'], ENT_QUOTES);
+                            $entity_search_query_url =  basename(__CA_BASE_DIR__)."/index.php/Search/entities/search/\"".$entity_label_decoded."\"";
+                            $str .= "<a href='/$entity_search_query_url' style='text-decoration: none' target='_blank'>$entity_label</a>, ";
+                        }
+
+
                         if(isset($item['marc794x']) && strlen($item['marc794x']) > 0)
                             $str .= "shelf: ".$item['marc794x']." ";
                         if(isset($item['marc794y']) && strlen($item['marc794y']) > 0)
@@ -595,11 +600,12 @@
                             $strArray[] = $str."<br>";
                     }
                 }
-                if(sizeof($strArray) > 0){
+                if(sizeof($atrlist) > 0 && sizeof($strArray) > 0){
                     echo "<H6>Anc. translations: </H6>";
                     echo "<p>";
                     echo implode($strArray);
                     echo "</p>";
+                    $strArray=null;
                 }
                 ?>
             </div>
