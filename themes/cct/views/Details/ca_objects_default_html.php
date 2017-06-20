@@ -658,25 +658,15 @@
                                 $str .= "(".$item['marc532z_al'].")";
 
                             if(strlen($str) > strlen(" - "))
-                                $strArray[] = $str;
+                                $strArray[] = $str. "<br>";
                         }
                     }
                     $al_obj_id = $list['object_id'];
                     $al_obj_label = $list['label'];
                     echo "<a href='/$base_search_url/$al_obj_id' style='text-decoration: none' target='_blank'>$al_obj_label</a>";
-
-                    $obj_related = new ca_objects($al_obj_id);
-                    $al_related_label = $obj_related->get('ca_objects.marc210a', array('returnAsArray' => true));
-                    $al_related_label = array_filter(array_slice($al_related_label, 0, 2));
-                    foreach($al_related_label as $abb_title){
-                        echo "<br>Abbr.: <a href='/$base_search_url/$al_obj_id' style='text-decoration: none' target='_blank'>$abb_title</a>";
-                    }
-
                     if(sizeof($strArray) > 0){
                         echo "<br>".implode($strArray);
-                    }
-
-                    echo "<br>";
+                    }                  
                     if($counter > sizeof($alist))
                         echo "</p>";
                 }
