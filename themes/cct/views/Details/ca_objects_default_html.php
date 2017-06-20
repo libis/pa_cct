@@ -427,15 +427,6 @@
                     $f_obj_id = $list['object_id'];
                     $f_obj_label = $list['label'];
                     echo "<a href='/$base_search_url/$f_obj_id' style='text-decoration: none' target='_blank'>$f_obj_label</a>";
-
-                    $obj_related = new ca_objects($f_obj_id);
-                    $f_related_label = $obj_related->get('ca_objects.marc210a', array('returnAsArray' => true));
-                    if(!isset($f_related_label))
-                        continue;
-                    $f_related_label = array_filter(array_slice($f_related_label, 0, 2));
-                    foreach($f_related_label as $abb_title){
-                        echo "<br>Abbr.: <a href='/$base_search_url/$f_obj_id' style='text-decoration: none' target='_blank'>$abb_title</a>";
-                    }
                     if(sizeof($strArray) > 0){
                         echo "<br>".implode($strArray);
                     }
