@@ -151,10 +151,9 @@
                     </unit>}}}</p>
             </div>			
 			
-			<div class="detail_field">{{{<ifdef code="ca_objects.nonpreferred_labels|ca_objects.preferred_labels"><H6>Title: </H6></ifdef>}}}
+			<div class="detail_field">{{{<ifdef code="ca_objects.nonpreferred_labels"><H6>Title (alternative): </H6></ifdef>}}}
                 <p>{{{
-                    <unit delimiter="<br>">^ca_objects.nonpreferred_labels</unit>
-                    <ifdef code="ca_objects.nonpreferred_labels"><br></ifdef>^ca_objects.preferred_labels
+                    <unit delimiter="<br>">^ca_objects.nonpreferred_labels</unit>                    
                     }}}</p>
             </div>
 
