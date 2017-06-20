@@ -178,7 +178,7 @@
                     if(!isset($list['direction']) || $list['direction'] === 'rtol')
                         continue;
                     if($counter === 1){
-                        echo "<H6>Series Test: </H6>";
+                        echo "<H6>Series: </H6>";
                         echo "<p>";
                     }
                     $counter++;
