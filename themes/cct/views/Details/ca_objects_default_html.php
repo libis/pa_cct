@@ -770,8 +770,8 @@
             <div class="detail_field">
                 {{{<ifcount code="ca_objects.marc856" min="1"><H6>URL-link: </H6></ifcount>}}}
                 <p>{{{<unit delimiter="<br>">
-                        <ifdef code="ca_objects.marc856.marc856u"><a href="^ca_objects.marc856.marc856u" target="_blank">^ca_objects.marc856.marc856u</a></ifdef>
-                        <ifdef code="ca_objects.marc856.marc856y">^ca_objects.marc856.marc856y</ifdef>
+                        <ifdef code="ca_objects.marc856.marc856u,ca_objects.marc856.marc856y"><a href="^ca_objects.marc856.marc856u" target="_blank">^ca_objects.marc856.marc856y</a></ifdef>
+
                         <ifdef code="ca_objects.marc856.marc856z">^ca_objects.marc856.marc856z</ifdef>
                     </unit>}}}</p>
             </div>
