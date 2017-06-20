@@ -690,16 +690,6 @@
                     $ml_obj_label = $list['label'];
                     $obj_rel_name = $list['relationship_typename'];//TBR if type is not to be shown
                     echo "<a href='/$base_search_url/$ml_obj_id' style='text-decoration: none' target='_blank'>$ml_obj_label</a>";
-
-                    $obj_related = new ca_objects($ml_obj_id);
-                    $ml_related_label = $obj_related->get('ca_objects.marc210a', array('returnAsArray' => true));
-                    if(!isset($ml_related_label))
-                        continue;
-                    $ml_related_label = array_filter(array_slice($ml_related_label, 0, 2));
-                    foreach($ml_related_label as $abb_title){
-                        echo "<br>Abbr.: <a href='/$base_search_url/$ml_obj_id' style='text-decoration: none' target='_blank'>$abb_title</a>";
-                    }
-
                     if(sizeof($strArray) > 0){
                         echo "<br>".implode($strArray);
                     }
