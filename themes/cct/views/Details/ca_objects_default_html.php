@@ -102,7 +102,7 @@
                     </unit>
                     }}}</p>
             </div>			
-			
+		
             <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="edc" min="1"><H6>Editor in chief</H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="edc" delimiter="<br>">
                         <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >^ca_entities.preferred_labels.displayname</a>
@@ -250,8 +250,8 @@
                         <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >
                             ^ca_entities.preferred_labels.displayname</a>
                         <unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="libraryCopy" delimiter=" - ">
-                            , Shelf: ^ca_objects_x_entities.marc250.marc250x
-                            , ^ca_objects_x_entities.marc250.marc250y
+                            <ifdef code="ca_objects_x_entities.marc250.marc250x">, Shelf: ^ca_objects_x_entities.marc250.marc250x</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc250.marc250y">, ^ca_objects_x_entities.marc250.marc250y</ifdef>
                         </unit>
                     </unit>}}}</p>
             </div>
