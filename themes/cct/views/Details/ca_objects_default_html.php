@@ -580,9 +580,70 @@
                 ?>
             </div>
 
+            <!--Library Copies-->
             <div class="detail_field">
-                {{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="libraryCopy" min = "1"><H6>Library copies: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="libraryCopy" delimiter="<br>"><l>^ca_entities.preferred_labels</l></unit>}}}</p>
+                <?php
+                $base_detail_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/entities";
+                $libcopy_types_list = array("libraryCopy");
+                $libcopylist = $t_object->getRelatedItems("ca_entities", array(
+                    'returnAsArray' => true,
+                    'restrictToRelationshipTypes' => $libcopy_types_list
+                ));
+                $counter = 1;
+                $is_field_label = true;
+                foreach ($libcopylist as $list){
+                    $counter++;
+                    if(isset($related_interstitial))
+                        unset($related_interstitial);
+                    /* Skipp 'Library copy', which is rtol in CA/Pawtucket */
+                    if(!isset($list['direction']) || $list['direction'] === 'rtol')
+                        continue;
+
+                    if($is_field_label === true){
+                        echo "<H6> Library Copies: </H6>";
+                        echo "<p>";
+                        $is_field_label = false;
+                    }
+                    $related_interstitial = new ca_objects_x_entities($list['relation_id']);
+                    $libcopy_interstitial_data = $related_interstitial->get('ca_objects_x_entities.marc852', array(
+                        'returnWithStructure' => true,
+                        'convertCodesToDisplayText'=>true
+                    ));
+
+                    $strArray = array();
+                    if(isset($libcopy_interstitial_data[$list['relation_id']])){
+                        $data = $libcopy_interstitial_data[$list['relation_id']];
+                        foreach ($data as $item){
+                            $str = " - ";
+                            if(isset($item['marc852h']) && strlen($item['marc852h']) > 0)
+                                $str .= "<b>Shelf:</b> ".$item['marc852h'].",";
+                            if(isset($item['marc852l']) && strlen($item['marc852l']) > 0)
+                                $str .= " ".$item['marc852l']." ";
+                            if(isset($item['marc8529']) && strlen($item['marc8529']) > 0)
+                                $str .= " (".$item['marc8529'].") ";
+
+                            if(isset($item['marc852t']) && strlen($item['marc852t']) > 0){
+                                $related_object_label = $item['marc852t'].", ";
+                                $object_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects/search/\"".$item['marc852t']."\"";
+                                $str .= "<a href='/$object_search_url' style='text-decoration: none' target='_blank'>$related_object_label</a>";
+                            }
+                            if(isset($item['marc852y']) && strlen($item['marc852y']) > 0)
+                                $str .= " ".$item['marc852y']." ";
+
+                            if(strlen($str) > strlen(" - "))
+                                $strArray[] = $str."<br>";
+                        }
+                    }
+                    $libcopy_entity_id = $list['entity_id'];
+                    $libcopy_entity_label = $list['label'];
+                    echo "<a href='/$base_detail_url/$libcopy_entity_id' style='text-decoration: none' target='_blank'>$libcopy_entity_label</a>";
+                    if(sizeof($strArray) > 0){
+                        echo "<br>".implode($strArray);
+                    }
+                    if($counter > sizeof($libcopylist))
+                        echo "</p>";
+                }
+                ?>
             </div>
 
             <div class="detail_field">
