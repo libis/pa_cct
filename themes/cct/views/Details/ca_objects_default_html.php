@@ -700,6 +700,73 @@
                 ?>
             </div>
 
+			<!--Reviews-->
+			<div class="detail_field">
+				<?php
+				$base_detail_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/entities";
+				$rev_types_list = array("reviewer");
+				$rvlist = $t_object->getRelatedItems("ca_entities", array(
+					'returnAsArray' => true,
+					'restrictToRelationshipTypes' => $rev_types_list
+				));
+				$counter = 1;
+				$is_field_label = true;
+				foreach ($rvlist as $list){
+					$counter++;
+					if(isset($related_interstitial))
+						unset($related_interstitial);
+					/* Skipp 'has description based on title', which is rtol in CA/Pawtucket */
+					if(!isset($list['direction']) || $list['direction'] === 'rtol')
+						continue;
+
+					if($is_field_label === true){
+						echo "<H6>Reviews: </H6>";
+						echo "<p>";
+						$is_field_label = false;
+					}
+					$related_interstitial = new ca_objects_x_entities($list['relation_id']);
+					$rv_interstitial_data = $related_interstitial->get('ca_objects_x_entities.marc520', array(
+						'returnWithStructure' => true,
+						'convertCodesToDisplayText'=>true
+					));
+
+					$strArray = array();
+					if(isset($rv_interstitial_data[$list['relation_id']])){
+						$data = $rv_interstitial_data[$list['relation_id']];
+						foreach ($data as $item){
+							$str = " - ";
+							if(isset($item['marc520a']) && strlen($item['marc520a']) > 0){
+								$related_object_label = $item['marc520a'].", ";
+								$object_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects/search/\"".$item['marc520a']."\"";
+								$str .= "<a href='/$object_search_url' style='text-decoration: none' target='_blank'>$related_object_label</a>";
+							}
+							if(isset($item['marc520a_freetext']) && strlen($item['marc520a_freetext']) > 0)
+								$str .= $item['marc520a_freetext'].", ";
+							if(isset($item['marc5209']) && strlen($item['marc5209']) > 0)
+								$str .= "<b>In:</b> ".$item['marc5209'];
+
+							if(strlen($str) > strlen(" - "))
+								$strArray[] = $str."<br>";
+						}
+					}
+					$rv_entity_id = $list['entity_id'];
+					$rv_entity_label = $list['label'];
+					echo "<a href='/$base_detail_url/$rv_entity_id' style='text-decoration: none' target='_blank'>$rv_entity_label</a>";
+					$entity_info = new ca_entities($rv_entity_id);
+					if(isset($entity_info)){
+						$ent_alt_label = $entity_info->get("ca_entities.nonpreferred_labels");
+						if(isset($ent_alt_label))
+							echo " ($ent_alt_label)";
+					}
+					if(sizeof($strArray) > 0){
+						echo "<br>".implode($strArray);
+					}
+					if($counter > sizeof($rvlist))
+						echo "</p>";
+				}
+				?>
+			</div>			
+			
             <div class="detail_field">
                 {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="r78505,r78500,r78501,r78502,r78503,r78508,r78511,r78512,r78510,r78513,r78506,r78507,r78509,r78516,r78504,r78514,r78515" min="1"><H6>Translation: </H6></ifcount>}}}
                 <p>
