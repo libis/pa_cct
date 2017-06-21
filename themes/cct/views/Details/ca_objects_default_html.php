@@ -244,16 +244,59 @@
                     </unit>}}}</p>
             </div>			
 			
+            <!--Descr. Based on Library Copies-->
             <div class="detail_field">
-                {{{<ifcount code="ca_entities" restrictToRelationshipTypes="libraryCopy" min="1"><H6>Descr. based on: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="libraryCopy" delimiter="<br>">
-                        <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >
-                            ^ca_entities.preferred_labels.displayname</a>
-                        <unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="libraryCopy" delimiter=" - ">
-                            <ifdef code="ca_objects_x_entities.marc250.marc250x">, Shelf: ^ca_objects_x_entities.marc250.marc250x</ifdef>
-                            <ifdef code="ca_objects_x_entities.marc250.marc250y">, ^ca_objects_x_entities.marc250.marc250y</ifdef>
-                        </unit>
-                    </unit>}}}</p>
+                <?php
+                $base_detail_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/entities";
+                $desclibcopy_types_list = array("libraryx");
+                $desclibcopylist = $t_object->getRelatedItems("ca_entities", array(
+                    'returnAsArray' => true,
+                    'restrictToRelationshipTypes' => $desclibcopy_types_list
+                ));
+                $counter = 1;
+                $is_field_label = true;
+                foreach ($desclibcopylist as $list){
+                    $counter++;
+                    if(isset($related_interstitial))
+                        unset($related_interstitial);
+                    /* Skipp 'Library copy(libraryx)', which is rtol in CA/Pawtucket */
+                    if(!isset($list['direction']) || $list['direction'] === 'rtol')
+                        continue;
+
+                    if($is_field_label === true){
+                        echo "<H6>Descr. based on: </H6>";
+                        echo "<p>";
+                        $is_field_label = false;
+                    }
+                    $related_interstitial = new ca_objects_x_entities($list['relation_id']);
+                    $desclibcopy_interstitial_data = $related_interstitial->get('ca_objects_x_entities.marc250', array(
+                        'returnWithStructure' => true,
+                        'convertCodesToDisplayText'=>true
+                    ));
+
+                    $strArray = array();
+                    if(isset($desclibcopy_interstitial_data[$list['relation_id']])){
+                        $data = $desclibcopy_interstitial_data[$list['relation_id']];
+                        foreach ($data as $item){
+                            $str = " - ";
+                            if(isset($item['marc250x']) && strlen($item['marc250x']) > 0)
+                                $str .= "<b>Shelf:</b> ".$item['marc250x'].",";
+                            if(isset($item['marc250y']) && strlen($item['marc250y']) > 0)
+                                $str .= " ".$item['marc250y']." ";
+                            if(strlen($str) > strlen(" - "))
+                                $strArray[] = $str."<br>";
+                        }
+                    }
+                    $desclibcopy_entity_id = $list['entity_id'];
+                    $desclibcopy_entity_label = $list['label'];
+                    echo "<a href='/$base_detail_url/$desclibcopy_entity_id' style='text-decoration: none' target='_blank'>$desclibcopy_entity_label</a>";
+                    if(sizeof($strArray) > 0){
+                        echo "<br>".implode($strArray);
+                    }
+                    if($counter > sizeof($desclibcopylist))
+                        echo "</p>";
+                }
+                ?>
             </div>
 
             <!--Descr. based on Title-->
@@ -600,7 +643,7 @@
                         continue;
 
                     if($is_field_label === true){
-                        echo "<H6> Library Copies: </H6>";
+                        echo "<H6>Library Copies: </H6>";
                         echo "<p>";
                         $is_field_label = false;
                     }
