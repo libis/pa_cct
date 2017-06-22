@@ -914,28 +914,65 @@
                 </p>
             </div>
 
+            <!--Link Others-->
             <div class="detail_field">
-                {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="r77300,r77301,r77302,r77501,r77500,r77501" min="1"><H6>Link Other: </H6></ifcount>}}}
-                <p>
-                  <?php
-                    $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
-                    $link_types_list = array("r77300","r77301","r77302","r77501","r77500","r77501");
-                    $link_include_interstitial_list = array('link_partOf_llrl');
-                    $link_other = $t_object->getRelatedItems("ca_objects", array(
-                        'returnAsArray' => true,
-                        'restrictToRelationshipTypes' => $link_types_list
+                <?php
+                $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
+                $linkother_types_list = array("r77300","r77301","r77302","r77501","r77500","r77501");
+                $linkotherlist = $t_object->getRelatedItems("ca_objects", array(
+                    'returnAsArray' => true,
+                    'restrictToRelationshipTypes' => $linkother_types_list
+                ));
+                $counter = 1;
+                $is_field_label = true;
+                foreach ($linkotherlist as $list){
+                    $counter++;
+                    if(isset($related_interstitial))
+                        unset($related_interstitial);
+
+
+                    $related_interstitial = new ca_objects_x_objects($list['relation_id']);
+                    $linkother_interstitial_data = $related_interstitial->get('ca_objects_x_objects.link_part_of', array(
+                        'returnWithStructure' => true,
+                        'convertCodesToDisplayText'=>true
                     ));
-                    foreach ($link_other as $link){
-                        if(!in_array($link['relationship_type_code'], $link_types_list))
-                            continue;
-                        $obj_id = $link['object_id'];
-                        $obj_label = $link['label'];
-                        $obj_rel_name = $link['relationship_typename'];
-                        echo "<b>$obj_rel_name</b>: <a href='/$base_search_url/$obj_id' style='text-decoration: none' target='_blank'>$obj_label</a>";
+
+                    $strArray = array();
+                    if(isset($linkother_interstitial_data[$list['relation_id']])){
+                        $data = $linkother_interstitial_data[$list['relation_id']];
+                        foreach ($data as $item){
+                            $str = "";
+                            $str .= "<b>".$list['relationship_typename']. "</b>: " ;
+
+                            $link_field = "";
+                            if($list['direction'] === 'rtol')
+                                $link_field = 'link_partOf_llrn';
+                            elseif($list['direction'] === 'ltor')
+                                $link_field = 'link_partOf_llrm';
+
+                            if(isset($item[$link_field]) && strlen($item[$link_field]) > 0){
+                                $related_object_label = $item[$link_field];
+                                $object_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects/search/\"".$related_object_label."\"";
+                                $str .= "<a href='/$object_search_url' style='text-decoration: none' target='_blank'>$related_object_label</a> ";
+                            }
+
+                            if(strlen($str) > strlen(""))
+                                $strArray[] = $str;
+                        }
+                    }
+                    if(sizeof($strArray) > 0){
+                        if($is_field_label === true){
+                            echo "<H6>Link Other: </H6>";
+                            echo "<p>";
+                            $is_field_label = false;
+                        }
+                        echo implode($strArray);
                         echo "<br>";
                     }
-                  ?>
-                </p>
+                    if($counter > sizeof($linkotherlist))
+                        echo "</p>";
+                }
+                ?>
             </div>
 
             <div class="detail_field">
