@@ -954,8 +954,8 @@
 
                             if(isset($item[$link_field]) && strlen($item[$link_field]) > 0){
                                 $related_object_label = $item[$link_field];
-                                $object_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects/search/\"".$related_object_label."\"";
-                                $str .= "<a href='/$object_search_url' style='text-decoration: none' target='_blank'>$related_object_label</a> ";
+                                $link_object_id = $list['object_id'];
+                                $str .= "<a href='/$base_search_url/$link_object_id' style='text-decoration: none' target='_blank'>$related_object_label</a> ";
                             }
 
                             if(strlen($str) > strlen(""))
