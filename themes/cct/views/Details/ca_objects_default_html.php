@@ -151,10 +151,12 @@
                     </unit>}}}</p>
             </div>			
 			
-			<div class="detail_field">{{{<ifdef code="ca_objects.nonpreferred_labels"><H6>Title (alternative): </H6></ifdef>}}}
-                <p>{{{
-                    <unit delimiter="<br>">^ca_objects.nonpreferred_labels</unit>                    
-                    }}}</p>
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc242a"><H6>Pinyin Title: </H6></ifdef>}}}
+                <p>{{{<unit delimiter="<br>">^ca_objects.marc242a</unit>}}}</p>
+            </div>
+
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc246"><H6>Alternative Form of Title: </H6></ifdef>}}}
+                <p>{{{<unit delimiter="<br>">^ca_objects.marc246</unit>}}}</p>
             </div>
 
             <div class="detail_field">{{{<ifdef code="ca_objects.marc210a"><H6>Abbreviated Title: </H6></ifdef>}}}
