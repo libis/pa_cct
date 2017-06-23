@@ -51,7 +51,7 @@
             </div>
             <div class="col-sm-4 advancedSearchField">
                 Year From -To (e.g. 1970-1979)<br/>
-                {{{ca_objects.yearOfPrinting_sort%width=240px&height=40px}}}
+                {{{print_year_sort%width=240px&height=40px}}}
             </div>
 				</div>
 			</div>
