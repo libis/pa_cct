@@ -873,28 +873,64 @@
 				?>
 			</div>			
 			
+            <!--Link Translations-->
             <div class="detail_field">
-                {{{<ifcount code="ca_objects.related.preferred_labels" restrictToRelationshipTypes="r78505,r78500,r78501,r78502,r78503,r78508,r78511,r78512,r78510,r78513,r78506,r78507,r78509,r78516,r78504,r78514,r78515" min="1"><H6>Translation: </H6></ifcount>}}}
-                <p>
-                    <?php
-                    $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
-                    $link_translation_types_list = array("r78505","r78500","r78501","r78502","r78503","r78508","r78511","r78512","r78510","r78513","r78506","r78507","r78509","r78516","r78504","r78514","r78515");
-                    $link_translation = $t_object->getRelatedItems("ca_objects", array(
-                        'returnAsArray' => true,
-                        'restrictToRelationshipTypes' => $link_translation_types_list
-                    ));
-                    foreach ($link_translation as $link){
-                        if(!in_array($link['relationship_type_code'], $link_translation_types_list))
-                            continue;
+                <?php
+                $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
+                $linktrans_types_list = array("r78505","r78500","r78501","r78502","r78503","r78508","r78511","r78512","r78510","r78513","r78506","r78507","r78509","r78516","r78504","r78514","r78515");
+                $linktranslist = $t_object->getRelatedItems("ca_objects", array(
+                    'returnAsArray' => true,
+                    'restrictToRelationshipTypes' => $linktrans_types_list
+                ));
+                $counter = 1;
+                $is_field_label = true;
+                foreach ($linktranslist as $list){
+                    $counter++;
+                    if(isset($related_interstitial))
+                        unset($related_interstitial);
 
-                        $obj_id = $link['object_id'];
-                        $obj_label = $link['label'];
-                        $obj_rel_name = $link['relationship_typename'];
-                        echo "<b>$obj_rel_name</b>: <a href='/$base_search_url/$obj_id' style='text-decoration: none' target='_blank'>$obj_label</a>";
+                    $related_interstitial = new ca_objects_x_objects($list['relation_id']);
+                    $linktrans_interstitial_data = $related_interstitial->get('ca_objects_x_objects.link_translation', array(
+                        'returnWithStructure' => true,
+                        'convertCodesToDisplayText'=>true
+                    ));
+
+                    $strArray = array();
+                    if(isset($linktrans_interstitial_data[$list['relation_id']])){
+                        $data = $linktrans_interstitial_data[$list['relation_id']];
+                        foreach ($data as $item){
+                            $str = "";
+                            $str .= "<b>".$list['relationship_typename']. "</b>: " ;
+
+                            $link_field = "";
+                            if($list['direction'] === 'rtol')
+                                $link_field = 'link_translation_llrm';
+                            elseif($list['direction'] === 'ltor')
+                                $link_field = 'link_translation_llrn';
+
+                            if(isset($item[$link_field]) && strlen($item[$link_field]) > 0){
+                                $related_object_label = $item[$link_field];
+                                $link_object_id = $list['object_id'];
+                                $str .= "<a href='/$base_search_url/$link_object_id' style='text-decoration: none' target='_blank'>$related_object_label</a> ";
+                            }
+
+                            if(strlen($str) > strlen(""))
+                                $strArray[] = $str;
+                        }
+                    }
+                    if(sizeof($strArray) > 0){
+                        if($is_field_label === true){
+                            echo "<H6>Translation: </H6>";
+                            echo "<p>";
+                            $is_field_label = false;
+                        }
+                        echo implode($strArray);
                         echo "<br>";
                     }
-                    ?>
-                </p>
+                    if($counter > sizeof($linktranslist))
+                        echo "</p>";
+                }
+                ?>
             </div>
 			
             <div class="detail_field">{{{<ifcount code="ca_objects.marc530a"  min = "1"><H6>Notes on text History: </H6></ifcount>}}}
