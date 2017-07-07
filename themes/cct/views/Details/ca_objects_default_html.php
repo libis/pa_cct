@@ -481,17 +481,112 @@
                 }
                 ?>
             </div>
-<!-- Temporarily hidden
-            <div class="detail_field">{{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printerReprint" min = "1"><H6>Reprints: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printerReprint" delimiter="<br>">
-                        <ifdef code="ca_objects_x_entities.marc790.marc790c">^ca_objects_x_entities.marc790.marc790c :</ifdef>
-                        <ifdef code="ca_objects_x_entities.marc790.marc790a">^ca_objects_x_entities.marc790.marc790a :</ifdef>
-                        <l>^ca_entities.preferred_labels</l>
-                        <ifdef code="ca_objects_x_entities.marc790.marc7909">(^ca_objects_x_entities.marc790.marc7909)</ifdef>
-                    </unit>
-                    }}}</p>
+			
+            <!--Reprints-->
+            <div class="detail_field">
+                <?php
+                $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
+                $base_entity_detail_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/entities";
+                $rs_types_list = array("printerReprint");
+                $rplist = $t_object->getRelatedItems("ca_entities", array(
+                    'returnAsArray' => true,
+                    'restrictToRelationshipTypes' => $rs_types_list
+                ));
+                $counter = 1;
+                $is_field_label = true;
+                $date_fields = array();
+                $non_date_fields = array();
+                foreach ($rplist as $list){
+                    $counter++;
+                    if(isset($related_interstitial))
+                        unset($related_interstitial);
+                    /* Skipp 'is printer(reprint)of', which is rtol in CA/Pawtucket */
+                    if(!isset($list['direction']) || $list['direction'] === 'rtol')
+                        continue;
+
+                    if($is_field_label === true){
+                        echo "<H6> Reprints: </H6>";
+                        echo "<p>";
+                        $is_field_label = false;
+                    }
+                    $related_interstitial = new ca_objects_x_entities($list['relation_id']);
+                    $rp_interstitial_data = $related_interstitial->get('ca_objects_x_entities.marc790', array(
+                        'returnWithStructure' => true,
+                        'convertCodesToDisplayText'=>true
+                    ));
+
+                    $rp_ent_id = $list['entity_id'];
+                    $rp_ent_label = $list['label'];
+                    $rp_ent_label = "<a href='/$base_entity_detail_url/$rp_ent_id' style='text-decoration: none' target='_blank'>$rp_ent_label</a>";
+
+                    $strArray = array();
+                    $dateArray = array();
+                    if(isset($rp_interstitial_data[$list['relation_id']])){
+                        $data = $rp_interstitial_data[$list['relation_id']];
+                        foreach ($data as $item){
+                            $str = " - ";
+                            if(isset($item['marc790c']) && strlen($item['marc790c']) > 0){
+                                $str .= $item['marc790c'].": ";
+                            }
+
+                            if(isset($item['marc790c_date']) && strlen($item['marc790c_date']) > 0)
+                                $str .= " ".$item['marc790c_date'].", ";
+                            if(isset($item['marc790a']) && strlen($item['marc790a']) > 0)
+                                $str .= " ".$item['marc790a']." ";
+                            if(isset($item['marc790_']) && strlen($item['marc790_']) > 0)
+                                $str .= " (".$item['marc790_'].") ";
+                            if(isset($item['marc790d']) && strlen($item['marc790d']) > 0){
+                                $related_obj_label = $item['marc790d'].", ";
+                                $obj_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects/search/ca_objects.preferred_labels.name:\"".urlencode($item['marc790d'])."\"";
+                                $str .= "(<a href='/$obj_search_url' style='text-decoration: none' target='_blank'>$related_obj_label</a>,";
+                            }
+                            if(isset($item['marc790e']) && strlen($item['marc790e']) > 0)
+                                $str .= " ".$item['marc790e'].") ";
+                            if(isset($item['marc7909']) && strlen($item['marc7909']) > 0)
+                                $str .= " (".$item['marc7909'].") ";
+
+                            if(strlen($str) > strlen(" - ")){
+                                if(isset($item['marc790c']) && strlen($item['marc790c']) > 0){
+                                    $str_date = $item['marc790c'];
+                                    $str_date = current(explode('-', $item['marc790c']));
+                                    $dateArray[$str_date] = $str.": $rp_ent_label<br>";
+                                }
+                                else
+                                    $strArray[] = $str.": $rp_ent_label<br>";
+                            }
+                        }
+                    }
+
+                    if(sizeof($dateArray) > 0)
+                        $date_fields[] = $dateArray;
+
+                    if(sizeof($strArray) > 0)
+                        $non_date_fields[] = $strArray;
+
+                    if($counter > sizeof($rplist)){
+                        if(sizeof($date_fields) > 0){
+                            //sort by date
+                            $temp_sort = array();
+                            foreach ($date_fields as $item){
+                                foreach($item as $key => $value){
+                                    $temp_sort[$key][] = $value;
+                                }
+                            }
+                            ksort($temp_sort);
+                            $date_fields = $temp_sort;
+                            echo implode(call_user_func_array('array_merge', $date_fields));
+                            unset($date_fields);
+                        }
+                        if(sizeof($non_date_fields) > 0){
+                            echo implode(call_user_func_array('array_merge', $non_date_fields));
+                            unset($non_date_fields);
+                        }
+                        echo "</p>";
+                    }
+                }
+                ?>
             </div>
--->
+			
             <!--Reprints in series-->
             <div class="detail_field">
                 <?php
