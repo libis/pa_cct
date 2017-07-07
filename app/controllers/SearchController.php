@@ -284,9 +284,11 @@
 				$o_browse->addResultFilter('ca_objects.parent_id', 'is', 'null');	
 			}
 			
-			
-			$o_browse->execute(array_merge($va_options, array('expandToIncludeParents' => caGetOption('expandToIncludeParents', $va_browse_info, false), 'strictPhraseSearching' => !$vb_is_advanced)));
-		
+			//libis_start
+            //enable or disable strict phrase searching based on 'strictPhraseSearching' specified in theme's search.conf
+			//$o_browse->execute(array_merge($va_options, array('expandToIncludeParents' => caGetOption('expandToIncludeParents', $va_browse_info, false), 'strictPhraseSearching' => !$vb_is_advanced)));
+			$o_browse->execute(array_merge($va_options, array('expandToIncludeParents' => caGetOption('expandToIncludeParents', $va_browse_info, false), 'strictPhraseSearching' => caGetOption('strictPhraseSearching', $va_browse_info, false))));		
+			//libis_end
 			//
 			// Facets
 			//
