@@ -25,13 +25,7 @@
             Title:<br/>
             {{{multi_label_search%width=100%}}}
         </div>
-		</div>
-        <div class="row">
-            <div class="col-sm-12">
-                IDNO(Temp):<br/>
-                {{{ca_objects.idno%width=100%}}}
-            </div>
-        </div>		
+		</div>		
 		<div class="row">
         <div class="col-sm-4 advancedSearchField">
             Source:<br/>
@@ -140,6 +134,10 @@
             Notes:<br/>
             {{{ca_objects.marc529a%width=220px&height=42px}}}
         </div>
+        <div class="col-sm-4 advancedSearchField">
+            Object identifier:<br/>
+            {{{ca_objects.idno%width=100}}}
+        </div>		
 			</div>
 	</div>
 
