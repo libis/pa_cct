@@ -547,9 +547,11 @@
 
                             if(strlen($str) > strlen(" - ")){
                                 if(isset($item['marc790c']) && strlen($item['marc790c']) > 0){
-                                    $str_date = $item['marc790c'];
-                                    $str_date = current(explode('-', $item['marc790c']));
-                                    $dateArray[$str_date] = $str.": $rp_ent_label<br>";
+                                    $int_date = intval(current(explode('-', $item['marc790c'])));
+                                    if(strlen((string)$int_date) === 4)
+                                        $dateArray[$int_date] = $str.": $rp_ent_label<br>";
+                                    else
+                                        $strArray[] = $str.": $rp_ent_label<br>";
                                 }
                                 else
                                     $strArray[] = $str.": $rp_ent_label<br>";
