@@ -47,7 +47,7 @@
             </div>
             <div class="col-sm-4 advancedSearchField">
                 Translations:<br/>
-                {{{ca_objects_x_objects.link_translation_lkrr%excludeRelationshipTypes=r77301,r77302,r77300,r77301,r77500,r77501&width=220px}}}
+                {{{ca_objects_x_objects.preferred_labels%restrictToRelationshipTypes=r78500,r78501,r78502,r78503,r78504,r78505,r78506,r78507,r78508,r78509,r78510,r78511,r78512,r78513,r78514,r78515,r78516&width=220px}}}
             </div>
             <div class="col-sm-4 advancedSearchField">
                 Year From -To (e.g. 1970-1979)<br/>
