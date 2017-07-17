@@ -43,7 +43,7 @@
 				<div class="row">
           	<div class="col-sm-4 advancedSearchField">
                 Source Type:<br/>
-                {{{ca_objects.marc900a%width=220px}}}
+                {{{ca_objects.marc900a%width=240px}}}
             </div>
             <div class="col-sm-4 advancedSearchField">
                 Authors (all):<br/>
@@ -57,7 +57,7 @@
 					<div class="row">
             <div class="col-sm-4 advancedSearchField">
                 Document Type:<br/>
-                {{{ca_objects.marc655a%width=220px}}}
+                {{{ca_objects.marc655a%width=240px}}}
             </div>
             <div class="col-sm-4 advancedSearchField">
                 Translations:<br/>
