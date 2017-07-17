@@ -43,7 +43,7 @@
 		<div class="row">
         <div class="col-sm-4 advancedSearchField">
             Source:<br/>
-            {{{ca_objects.marc900a%width=220px}}}
+            {{{ca_objects.marc900a%width=240px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Authors (all):<br/>
@@ -57,11 +57,11 @@
 		<div class="row">
         <div class="col-sm-4 advancedSearchField">
             Document Type:<br/>
-            {{{ca_objects.marc655a%width=220px}}}
+            {{{ca_objects.marc655a%width=240px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Translations:<br/>
-            {{{ca_objects_x_objects.preferred_labels%restrictToRelationshipTypes=r78500,r78501,r78502,r78503,r78504,r78505,r78506,r78507,r78508,r78509,r78510,r78511,r78512,r78513,r78514,r78515,r78516&width=220px}}}
+            {{{ca_objects_x_objects.preferred_labels%restrictToRelationshipTypes=r78500,r78501,r78502,r78503,r78504,r78505,r78506,r78507,r78508,r78509,r78510,r78511,r78512,r78513,r78514,r78515,r78516&width=240px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Year From - To: (e.g. 1970-1979)<br/>
@@ -75,7 +75,7 @@
         </div>
         <div class="col-sm-4 advancedSearchField">
             Periodical:<br/>
-            {{{ca_objects.marc773.marc773a%width=220px&height=42px}}}
+            {{{ca_objects.marc773.marc773a%width=240px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Impressum - Place of Printing:<br/>
@@ -89,7 +89,7 @@
         </div>
         <div class="col-sm-4 advancedSearchField">
             Impressum - Date of Printing:<br/>
-            {{{multi_impressum-date_search%width=220px&height=42px}}}
+            {{{multi_impressum-date_search%width=240px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Description based on Title:<br/>
@@ -99,11 +99,11 @@
 		<div class="row">
         <div class="col-sm-4 advancedSearchField">
             Contents:<br/>
-            {{{ca_objects.marc520a_cont%width=220px&height=42px}}}
+            {{{ca_objects.marc520a_cont%width=240px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Adaptations from West:<br/>
-            {{{ca_objects.marc795.marc795a%width=220px&height=42px}}}
+            {{{ca_objects.marc795.marc795a%width=240px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Facsimile editions:<br/>
@@ -121,7 +121,7 @@
         </div>
         <div class="col-sm-4 advancedSearchField">
             Ancients Translations:<br/>
-            {{{ca_objects_x_objects.preferred_labels%restrictToRelationshipTypes=ancientTranslation&width=220px}}}
+            {{{ca_objects_x_objects.preferred_labels%restrictToRelationshipTypes=ancientTranslation&width=240px}}}
         </div>
 			</div>
 			<div class="row">
@@ -146,7 +146,7 @@
 
         <div class="col-sm-4 advancedSearchField">
             Notes:<br/>
-            {{{ca_objects.marc529a%width=220px&height=42px}}}
+            {{{ca_objects.marc529a%width=240px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
             Object identifier:<br/>
