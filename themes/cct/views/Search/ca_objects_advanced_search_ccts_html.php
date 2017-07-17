@@ -22,10 +22,24 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-					Title:<br/>
+					Search All Titles:<br/>
 					{{{multi_label_search%width=100%}}}
 					</div>
 				</div>
+            <div class="row">
+                <div class="col-sm-4 advancedSearchField">
+                    Title:<br/>
+                    {{{ca_objects.preferred_labels.name%width=240px}}}
+                </div>
+                <div class="col-sm-4 advancedSearchField">
+                    Pinyin Title:<br/>
+                    {{{ca_objects.marc242a%width=240px&height=40px}}}
+                </div>
+                <div class="col-sm-4 advancedSearchField">
+                    Alternative Form of Title:<br/>
+                    {{{ca_objects.marc246%width=240px&height=40px}}}
+                </div>
+            </div>				
 				<div class="row">
           	<div class="col-sm-4 advancedSearchField">
                 Source Type:<br/>
