@@ -233,7 +233,7 @@
             </div>
 
             <div class="detail_field">
-                {{{<ifdef code="ca_objects.marc2609a"><H6>Impressum - Place: </H6></ifdef>}}}
+                {{{<ifdef code="ca_objects.marc260p"><H6>Impressum - Place:</H6></ifdef>}}}
                 <p>{{{<ifdef code="ca_objects.marc260p.marc260p9a">^ca_objects.marc260p.marc260p9a </ifdef>
                     <ifdef code="ca_objects.marc260p.marc260p_9a">(^ca_objects.marc260p.marc260p_9a)</ifdef>
                     }}}</p>
