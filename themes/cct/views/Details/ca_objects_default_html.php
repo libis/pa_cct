@@ -1031,6 +1031,10 @@
                 }
                 ?>
             </div>
+
+            <div class="detail_field">{{{<ifcount code="ca_objects.marc529a"  min = "1"><H6>Notes on Contents: </H6></ifcount>}}}
+                <p>{{{<unit delimiter="<br>">^ca_objects.marc529a</unit>}}}</p>
+            </div>			
 			
             <div class="detail_field">{{{<ifcount code="ca_objects.marc530a"  min = "1"><H6>Notes on text History: </H6></ifcount>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc530a</unit>}}}</p>
