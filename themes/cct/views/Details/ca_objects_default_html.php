@@ -544,6 +544,8 @@
                                 $str .= " ".$item['marc790e'].") ";
                             if(isset($item['marc7909']) && strlen($item['marc7909']) > 0)
                                 $str .= " (".$item['marc7909'].") ";
+                            if(isset($item['marc790f']) && strlen($item['marc790f']) > 0)
+                                $str .= $item['marc790f']." ";							
 
                             if(strlen($str) > strlen(" - ")){
                                 if(isset($item['marc790c']) && strlen($item['marc790c']) > 0){
