@@ -671,7 +671,7 @@
                 ?>
             </div>
 
-            <div class="detail_field">{{{<ifcount code="ca_objects.marc792a"  min = "1"><H6>Reprints (Other): </H6></ifcount>}}}
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc792a"  min = "1"><H6>Reprints (Other):</H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc792a</unit>}}}</p>
             </div>
 			
