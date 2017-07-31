@@ -559,7 +559,7 @@
                                 if(isset($item['marc790c']) && strlen($item['marc790c']) > 0){
                                     $int_date = intval(current(explode('-', $item['marc790c'])));
                                     if(strlen((string)$int_date) === 4)
-                                        $dateArray[$int_date] = $str.": $rp_ent_label<br>";
+                                        $dateArray[] = array($int_date => $str.": $rp_ent_label<br>");
                                     else
                                         $strArray[] = $str.": $rp_ent_label<br>";
                                 }
@@ -579,9 +579,11 @@
                         if(sizeof($date_fields) > 0){
                             //sort by date
                             $temp_sort = array();
-                            foreach ($date_fields as $item){
-                                foreach($item as $key => $value){
-                                    $temp_sort[$key][] = $value;
+                            foreach ($date_fields as $dt){
+                                foreach ($dt as $item){
+                                    foreach($item as $key => $value){
+                                        $temp_sort[$key][] = $value;
+                                    }
                                 }
                             }
                             ksort($temp_sort);
