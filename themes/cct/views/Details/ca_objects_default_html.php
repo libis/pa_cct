@@ -285,6 +285,8 @@
                                 $str .= "<b>Shelf:</b> ".$item['marc250x'].",";
                             if(isset($item['marc250y']) && strlen($item['marc250y']) > 0)
                                 $str .= " ".$item['marc250y']." ";
+                            if(isset($item['marc250_add']) && strlen($item['marc250_add']) > 0)
+                                $str .= "- ".$item['marc250_add']." ";
                             if(strlen($str) > strlen(" - "))
                                 $strArray[] = $str."<br>";
                         }
