@@ -1113,7 +1113,7 @@
                     }
                     if(sizeof($strArray) > 0){
                         if($is_field_label === true){
-                            echo "<H6>Link Other: </H6>";
+                            echo "<H6>Link: </H6>";
                             echo "<p>";
                             $is_field_label = false;
                         }
