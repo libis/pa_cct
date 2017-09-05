@@ -1168,7 +1168,7 @@
 
 
                     $related_interstitial = new ca_objects_x_objects($list['relation_id']);
-                    $linkother_interstitial_data = $related_interstitial->get('ca_objects_x_objects.link_part_of', array(
+                    $linkother_interstitial_data = $related_interstitial->get('ca_objects_x_objects.link_partOf', array(
                         'returnWithStructure' => true,
                         'convertCodesToDisplayText'=>true
                     ));
