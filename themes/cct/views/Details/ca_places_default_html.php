@@ -20,7 +20,7 @@
 					<H3>{{{^ca_places.preferred_labels.name}}}</H3>
 
                     <div class="detail_field">
-                        {{{<ifdef code="ca_places.nonpreferred_labels"><H6>Alternative Name: </H6></ifdef>}}}
+                        {{{<ifdef code="ca_places.nonpreferred_labels"><H6>Alternative name: </H6></ifdef>}}}
                         <p>
                             {{{<unit relativeTo="ca_places" delimiter="<br>">
                                 <ifdef code="ca_places.nonpreferred_labels">^ca_places.nonpreferred_labels</ifdef>
