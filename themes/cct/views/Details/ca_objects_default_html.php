@@ -49,9 +49,9 @@
                     <ifcount min="1" code="ca_collections"> ➔ </ifcount>}}}{{{ca_objects.preferred_labels.name}}}</H3>
 				<HR>
 
-			<div class="detail_field">{{{<ifdef code="ca_objects.idno"><H6>Identifer: </H6>^ca_objects.idno</ifdef>}}}</div>
+			<div class="detail_field">{{{<ifdef code="ca_objects.idno"><H6>Identifier: </H6>^ca_objects.idno</ifdef>}}}</div>
 
-            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="aut" min="1"><H6>Author</H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="aut" min="1"><H6>Author: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="aut" delimiter="<br>">
                         <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >^ca_entities.preferred_labels.displayname</a>
                         <ifdef code="ca_entities.preferred_labels.prefix">[^ca_entities.preferred_labels.prefix]</ifdef>
@@ -103,7 +103,7 @@
                     }}}</p>
             </div>			
 		
-            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="edc" min="1"><H6>Editor in chief</H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="edc" min="1"><H6>Editor in chief: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="edc" delimiter="<br>">
                         <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >^ca_entities.preferred_labels.displayname</a>
                         <ifdef code="ca_entities.preferred_labels.prefix">[^ca_entities.preferred_labels.prefix]</ifdef>
@@ -119,7 +119,7 @@
                     </unit>}}}</p>
             </div>
 
-            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="edt" min="1"><H6>Editor</H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="edt" min="1"><H6>Editor: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="edt" delimiter="<br>">
                         <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >^ca_entities.preferred_labels.displayname</a>
                         <ifdef code="ca_entities.preferred_labels.prefix">[^ca_entities.preferred_labels.prefix]</ifdef>
@@ -135,7 +135,7 @@
                     </unit>}}}</p>
             </div>			
 			
-            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="com" min="1"><H6>Compiler</H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="com" min="1"><H6>Compiler: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="com" delimiter="<br>">
                         <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >^ca_entities.preferred_labels.displayname</a>
                         <ifdef code="ca_entities.preferred_labels.prefix">[^ca_entities.preferred_labels.prefix]</ifdef>
@@ -167,7 +167,7 @@
                     </unit>}}}</p>
             </div>			
 			
-            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="aui" min="1"><H6>Introduction by</H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="aui" min="1"><H6>Introduction by: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="aui" delimiter="<br>">
                         <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >^ca_entities.preferred_labels.displayname</a>
                         <ifdef code="ca_entities.preferred_labels.prefix">[^ca_entities.preferred_labels.prefix]</ifdef>
@@ -230,15 +230,15 @@
                         </unit>
                     </unit>}}}</p>
             </div>
-            <div class="detail_field">{{{<ifdef code="ca_objects.marc242a"><H6>Pinyin Title: </H6></ifdef>}}}
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc242a"><H6>Pinyin title: </H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc242a</unit>}}}</p>
             </div>
 
-            <div class="detail_field">{{{<ifdef code="ca_objects.marc246"><H6>Alternative Form of Title: </H6></ifdef>}}}
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc246"><H6>Alternative form of title: </H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc246</unit>}}}</p>
             </div>
 
-            <div class="detail_field">{{{<ifdef code="ca_objects.marc210a"><H6>Abbreviated Title: </H6></ifdef>}}}
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc210a"><H6>Abbreviated title: </H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc210a</unit>}}}</p>
             </div>			
 			
@@ -312,14 +312,14 @@
             </div>
 
             <div class="detail_field">
-                {{{<ifdef code="ca_objects.marc260p"><H6>Impressum - Place:</H6></ifdef>}}}
+                {{{<ifdef code="ca_objects.marc260p"><H6>Impressum - place:</H6></ifdef>}}}
                 <p>{{{<ifdef code="ca_objects.marc260p.marc260p9a">^ca_objects.marc260p.marc260p9a </ifdef>
                     <ifdef code="ca_objects.marc260p.marc260p_9a">(^ca_objects.marc260p.marc260p_9a)</ifdef>
                     }}}</p>
             </div>
 
             <div class="detail_field">
-                {{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printer" min = "1"><H6>Impressum - Printer: </H6></ifcount>}}}
+                {{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printer" min = "1"><H6>Impressum - printer: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printer" delimiter="<br>">
                         <l>^ca_entities.preferred_labels</l> <ifdef code="ca_entities.nonpreferred_labels"> (^ca_entities.nonpreferred_labels)</ifdef>
                     </unit>}}}</p>
@@ -402,7 +402,7 @@
                         continue;
 
                     if($is_field_label === true){
-                        echo "<H6> Descr. based on Title </H6>";
+                        echo "<H6> Descr. based on title: </H6>";
                         echo "<p>";
                         $is_field_label = false;
                     }
@@ -439,19 +439,19 @@
                 ?>
             </div>			
 			
-            <div class="detail_field">{{{<ifcount code="ca_objects.marc300" min = "1"><H6>Physical Description: </H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_objects.marc300" min = "1"><H6>Physical description: </H6></ifcount>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc300.marc300a</unit>}}}</p>
             </div>
 
             <div class="detail_field">
-                {{{<ifdef code="ca_objects.marc795"><H6>Adapt. From West: </H6></ifdef>}}}
+                {{{<ifdef code="ca_objects.marc795"><H6>Adapt. from west: </H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">
                         <ifdef code="ca_objects.marc795.marc795a">^ca_objects.marc795.marc795a </ifdef>
                         <ifdef code="ca_objects.marc795.marc7959">(^ca_objects.marc795.marc7959)</ifdef>
                     </unit>}}}</p>
             </div>			
 			
-            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="nio" min="1"><H6>Nihil Obstat: </H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="nio" min="1"><H6>Nihil obstat: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="nio" delimiter="<br>">
                         <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >^ca_entities.preferred_labels.displayname</a>
                         <ifdef code="ca_entities.preferred_labels.prefix">[^ca_entities.preferred_labels.prefix]</ifdef>
@@ -482,7 +482,7 @@
                     }}}</p>
             </div>
 
-            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="ppf" min="1"><H6>Pre/Post Faces: </H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="ppf" min="1"><H6>Pre/post faces: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="ppf" delimiter="<br>">
                         <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >^ca_entities.preferred_labels.displayname</a>						
                         <ifdef code="ca_entities.preferred_labels.prefix">[^ca_entities.preferred_labels.prefix]</ifdef>
@@ -524,7 +524,7 @@
                         continue;
 
                     if($counter === 1){
-                        echo "<H6>Facsimile Editions: </H6>";
+                        echo "<H6>Facsimile editions: </H6>";
                         echo "<p>";
                     }
                     $counter++;
@@ -594,7 +594,7 @@
                         continue;
 
                     if($is_field_label === true){
-                        echo "<H6> Reprints: </H6>";
+                        echo "<H6>Reprints: </H6>";
                         echo "<p>";
                         $is_field_label = false;
                     }
@@ -702,7 +702,7 @@
                         continue;
 
                     if($is_field_label === true){
-                        echo "<H6> Reprints in series: </H6>";
+                        echo "<H6>Reprints in series: </H6>";
                         echo "<p>";
                         $is_field_label = false;
                     }
@@ -754,7 +754,7 @@
                 ?>
             </div>
 
-            <div class="detail_field">{{{<ifdef code="ca_objects.marc792a"  min = "1"><H6>Reprints (Other):</H6></ifdef>}}}
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc792a"  min = "1"><H6>Reprints (other):</H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc792a</unit>}}}</p>
             </div>
 			
@@ -835,7 +835,7 @@
                         continue;
 
                     if($is_field_label === true){
-                        echo "<H6>Library Copies: </H6>";
+                        echo "<H6>Library copies: </H6>";
                         echo "<p>";
                         $is_field_label = false;
                     }
@@ -898,7 +898,7 @@
                         continue;
 
                     if($counter === 1){
-                        echo "<H6>Ancient Lists: </H6>";
+                        echo "<H6>Ancient lists: </H6>";
                         echo "<p>";
                     }
 
@@ -956,7 +956,7 @@
                         continue;
 
                     if($counter === 1){
-                        echo "<H6>Modern Lists: </H6>";
+                        echo "<H6>Modern lists: </H6>";
                         echo "<p>";
                     }
 
@@ -1123,19 +1123,19 @@
                 ?>
             </div>
 
-            <div class="detail_field">{{{<ifcount code="ca_objects.marc529a"  min = "1"><H6>Notes on Contents: </H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_objects.marc529a"  min = "1"><H6>Notes on contents: </H6></ifcount>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc529a</unit>}}}</p>
             </div>
 			
-            <div class="detail_field">{{{<ifcount code="ca_objects.marc539a"  min = "1"><H6>Notes on Author: </H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_objects.marc539a"  min = "1"><H6>Notes on author: </H6></ifcount>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc539a</unit>}}}</p>
             </div>			
 			
-            <div class="detail_field">{{{<ifcount code="ca_objects.marc530a"  min = "1"><H6>Notes on text History: </H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_objects.marc530a"  min = "1"><H6>Notes on text history: </H6></ifcount>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc530a</unit>}}}</p>
             </div>
 
-            <div class="detail_field">{{{<ifcount code="ca_objects.marc500a"  min = "1"><H6>General Note: </H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_objects.marc500a"  min = "1"><H6>General note: </H6></ifcount>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc500a</unit>}}}</p>
             </div>			
 			
@@ -1228,9 +1228,9 @@
                 <p>{{{<unit delimiter=";">^ca_objects.marc022a</unit>}}}</p>
             </div>
 			
-            <div class="detail_field">{{{<ifdef code="ca_objects.marc655a"><H6>Document Type: </H6>^ca_objects.marc655a</ifdef>}}}</div>
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc655a"><H6>Document type: </H6>^ca_objects.marc655a</ifdef>}}}</div>
 
-            <div class="detail_field">{{{<ifdef code="ca_objects.marc900a"><H6>Source Type: </H6>^ca_objects.marc900a</ifdef>}}}</div>
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc900a"><H6>Source type: </H6>^ca_objects.marc900a</ifdef>}}}</div>
 
 				<hr></hr>
 					<div class="row">
