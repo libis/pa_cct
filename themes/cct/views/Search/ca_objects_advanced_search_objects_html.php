@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8 cct_result_div_bkg ">
-			<h1>Objects Advanced Search</h1>
+			<h1>Advanced Search</h1>
 
 <?php
 	print "<p>Enter your search terms in the fields below.</p>";
