@@ -361,7 +361,7 @@
                         foreach ($data as $item){
                             $str = " - ";
                             if(isset($item['marc250x']) && strlen($item['marc250x']) > 0)
-                                $str .= "<b>Shelf:</b> ".$item['marc250x'].",";
+                                $str .= "shelf: ".$item['marc250x'].",";
                             if(isset($item['marc250y']) && strlen($item['marc250y']) > 0)
                                 $str .= " ".$item['marc250y']." ";
                             if(isset($item['marc250_add']) && strlen($item['marc250_add']) > 0)
@@ -851,7 +851,7 @@
                         foreach ($data as $item){
                             $str = " - ";
                             if(isset($item['marc852h']) && strlen($item['marc852h']) > 0)
-                                $str .= "<b>Shelf:</b> ".$item['marc852h'].",";
+                                $str .= "shelf: ".$item['marc852h'].",";
                             if(isset($item['marc852l']) && strlen($item['marc852l']) > 0)
                                 $str .= " ".$item['marc852l']." ";
                             if(isset($item['marc8529']) && strlen($item['marc8529']) > 0)
