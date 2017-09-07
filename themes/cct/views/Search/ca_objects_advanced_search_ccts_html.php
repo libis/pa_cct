@@ -9,8 +9,8 @@
 
 			{{{form}}}
 
-            <div style="float: right; margin-left: 20px;">{{{reset%label=Reset}}}</div>
-            <div style="float: right;">{{{submit%label=Search}}}</div>
+            <div style="float: right; margin-left: 20px;">{{{submit%label=Search}}}</div>
+            <div style="float: right;">{{{reset%label=Reset}}}</div>
             <br style="clear: both;"/>
 
 			<div class='advancedContainer'>
@@ -72,8 +72,8 @@
 
 			<br style="clear: both;"/>
 
-			<div style="float: left; margin-right: 20px;">{{{reset%label=Reset}}}</div>
-			<div style="float: left;">{{{submit%label=Search}}}</div>
+			<div style="float: left; margin-right: 20px; font-weight: bold;">{{{reset%label=Reset}}}</div>
+			<div style="float: left; font-weight: bold;">{{{submit%label=Search}}}</div>
 			{{{/form}}}
 
 		</div>
