@@ -25,7 +25,7 @@
 
                     <div class="detail_field">
 											{{{<ifdef code="ca_entities.nonpreferred_labels.displayname">
-												<H6>Alternative Name: </H6>
+												<H6>Alternative name: </H6>
 											</ifdef>}}}
 											<p>
 	                    	{{{<unit relativeTo="ca_entities" delimiter="<br>">
@@ -36,7 +36,7 @@
 											</p>
 										</div>
 										<div class="detail_field">
-                    {{{<ifdef code="ca_entities.marc700d"><H6>Birth and Death Date: </H6></ifdef>}}}
+                    {{{<ifdef code="ca_entities.marc700d"><H6>Birth and death date: </H6></ifdef>}}}
                     <p>{{{<unit relativeTo="ca_entities" delimiter="<br>">^ca_entities.marc700d</unit>}}}</p>
 										</div>
 				</div><!-- end col -->
