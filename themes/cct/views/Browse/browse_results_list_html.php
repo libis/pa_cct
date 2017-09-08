@@ -87,7 +87,6 @@
 			$t_list_item = new ca_list_items();
 			while($qr_res->nextHit() && ($vn_c < $vn_hits_per_block)) {
 				$vn_id 					= $qr_res->get("{$vs_table}.{$vs_pk}");
-				$vs_idno_detail_link 	= caDetailLink($this->request, $qr_res->get("{$vs_table}.idno"), '', $vs_table, $vn_id);
 				$vs_label_detail_link 	= caDetailLink($this->request, $qr_res->get("{$vs_table}.preferred_labels"), '', $vs_table, $vn_id);
 				//libis_start
                 if ($vs_table == 'ca_objects'){
@@ -179,7 +178,6 @@
 			<div class='bSetsSelectMultiple'><input type='checkbox' name='object_ids[]' value='{$vn_id}'></div>
 			<div class='bResultListItemContent'>
 				<div class='bResultListItemText'>
-					<div class='idno'>{$vs_idno_detail_link}</div>
 					<div class='label_link'>{$vs_label_detail_link}</div>
 					<div class='add_link'>{$vs_expanded_info}{$vs_add_to_set_link}</div>
 				</div><!-- end bResultListItemText -->
