@@ -54,7 +54,6 @@
 
             $vn_id = $qr_results->get("{$vs_table}.{$vs_pk}");
 
-            $vs_idno_detail_link = caDetailLink($this->request, $qr_results->get("{$vs_table}.idno"), '', $vs_table, $vn_id);
             $vs_label_detail_link = caDetailLink($this->request, $qr_results->get("{$vs_table}.preferred_labels"), '', $vs_table, $vn_id);
 
             $vs_source_type = $qr_results->get("{$vs_table}.marc900a", array('convertCodesToDisplayText' => true));
@@ -71,7 +70,6 @@
 			<div class='bSetsSelectMultiple'><input type='checkbox' name='object_ids[]' value='{$vn_id}'></div>
 			<div class='bResultListItemContent'>
 				<div class='bResultListItemText'>
-					<div class='idno'>{$vs_idno_detail_link}</div>
 					<div class='idno'>{$vs_authors}</div>
 					<div class='label_link'>{$vs_label_detail_link}</div>
 					<div class='idno'>{$vs_printing_year}</div>
