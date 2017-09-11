@@ -2533,6 +2533,10 @@ a.readmore-js-toggle {
   font-weight:bold;
 }
 
+.bResultListItemText .label_lin .data-line {
+    margin-top: 8px;
+}
+
 .bResultListItemText .year {
 
 }
