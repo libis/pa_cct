@@ -88,7 +88,7 @@ if (!$vb_ajax) {	// !ajax
 ?>
 		<H1>
 <?php
-			print _t('%1 %2 %3', $qr_res->numHits(), ($va_browse_info["labelSingular"]) ? $va_browse_info["labelSingular"] : $t_instance->getProperty('NAME_SINGULAR'), ($qr_res->numHits() == 1) ? _t("Result") : _t("Results"));	
+			print _t('%1 %2', $qr_res->numHits(), ($qr_res->numHits() == 1) ? _t("Result") : _t("Results"));
 ?>		
 			<div class="btn-group">
 				<i class="fa fa-gear bGear" data-toggle="dropdown"></i>
