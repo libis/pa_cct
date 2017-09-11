@@ -30,7 +30,7 @@
                             echo "<td valign='top' style='white-space: nowrap; padding-right: 150px'> $category_number </td>";
                             if(isset($values[1])){
                                 $category_text = trim($values[1]);
-                                echo "<td valign='top' style='white-space: nowrap'> <a href='/$base_search_url : \"$category_text\"' style='text-decoration: none'>$category_text</a> </td>";
+                                echo "<td valign='top' style='white-space: nowrap'> <a href='/$base_search_url:$category_text' style='text-decoration: none'>$category_text</a> </td>";
                             }
 
                 }
