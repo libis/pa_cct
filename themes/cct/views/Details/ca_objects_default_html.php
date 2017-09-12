@@ -1144,10 +1144,10 @@
                 <?php
                     $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects?search=ca_objects.marc690";
                     $categories = $t_object->get("ca_objects.marc690", array('returnAsArray' => true, 'convertCodesToDisplayText'=>true));
-                    foreach ($categories as $cat){}
+                    foreach ($categories as $cat){
 						$cat_without_numbers = preg_replace('#\d+#', '', str_replace(".","",$cat));
                         echo "<a href='/$base_search_url:$cat_without_numbers' style='text-decoration: none'>$cat</a> <br>";
-						}
+					}
                 ?>
                 </p>
             </div>
