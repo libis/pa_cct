@@ -107,7 +107,7 @@
                         </unit>";
                     $vs_authors = $qr_res->getWithTemplate($vs_author_template);
 
-                    $vs_contributors_template = "<unit relativeTo=\"ca_objects_x_entities\" restrictToRelationshipTypes=\"clb,com,ctb,edt,edc,imp,oth,ppf,trl,nio\" delimiter=\" /\">
+                    $vs_contributors_template = "<unit relativeTo=\"ca_objects_x_entities\" restrictToRelationshipTypes=\"edt,trl\" delimiter=\" /\">
                         ^ca_entities.preferred_labels.displayname
                         <ifdef code=\"ca_entities.preferred_labels.suffix\">[^ca_entities.preferred_labels.suffix]</ifdef>
                         ^ca_entities.preferred_labels.prefix
