@@ -16,31 +16,17 @@
 			<div class='advancedContainer'>
 				<div class="row">
 					<div class="col-sm-12 advancedSearchField">
-						Free Text:<br/>
+						Any Word:<br/>
 						{{{_fulltext%width=100%&height=50px&placeholder='Type word or phrase and click Search'}}}
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-					Search All Titles:<br/>
+					Title:<br/>
 					{{{multi_label_search%width=100%}}}
 					</div>
-				</div>
-            <div class="row">
-                <div class="col-sm-4 advancedSearchField">
-                    Title:<br/>
-                    {{{ca_objects.preferred_labels.name%width=240px}}}
-                </div>
-                <div class="col-sm-4 advancedSearchField">
-                    Pinyin Title:<br/>
-                    {{{ca_objects.marc242a%width=240px&height=40px}}}
-                </div>
-                <div class="col-sm-4 advancedSearchField">
-                    Alternative Form of Title:<br/>
-                    {{{ca_objects.marc246%width=240px&height=40px}}}
-                </div>
-            </div>				
-				<div class="row">
+				</div>				
+			<div class="row">
           	<div class="col-sm-4 advancedSearchField">
                 Source Type:<br/>
                 {{{ca_objects.marc900a%width=240px}}}
