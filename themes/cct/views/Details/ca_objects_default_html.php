@@ -562,7 +562,7 @@
                     $f_obj_label = $list['label'];
                     echo "<a href='/$base_search_url/$f_obj_id' style='text-decoration: none' target='_blank'>$f_obj_label</a>";
                     if(sizeof($strArray) > 0){
-                        echo "<br>".implode($strArray);
+                        echo "<br>".implode("<br>",$strArray);
                     }
                     echo "<br>";
                     if($counter > sizeof($facslist))
