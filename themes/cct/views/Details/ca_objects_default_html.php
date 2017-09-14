@@ -769,7 +769,7 @@
                     foreach($list as $item){
                         $str = "";
                         if(isset($item['marc794a']) && strlen($item['marc794a']) > 0)
-                            $str .= " Into ". $item['marc794a']." ";
+                            $str .= " Into ". $item['marc794a'].": ";
                         if(isset($item['marc794b']) && strlen($item['marc794b']) > 0)
                             $str .= $item['marc794b'].", ";
                         if(isset($item['marc794c']) && strlen($item['marc794c']) > 0){
@@ -779,7 +779,7 @@
                             $str .= "[<a href='/$object_search_query_url' style='text-decoration: none' target='_blank'>$object_label</a>";
                         }
                         if(isset($item['marc794d']) && strlen($item['marc794d']) > 0)
-                            $str .= $item['marc794d']."] ";
+                            $str .= ", ".$item['marc794d']."] ";
                         if(isset($item['marc7949']) && strlen($item['marc7949']) > 0)
                             $str .= "(".$item['marc7949'].") ";
                         if(isset($item['marc794t']) && strlen($item['marc794t']) > 0){
