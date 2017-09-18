@@ -144,6 +144,7 @@
 									<?php echo $this->render('pageFormat/browseMenu.php'); ?>
 									<li <?php echo ($this->request->getController() == 'Contact') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Contact'), '', '', 'Contact', 'Form'); ?></li>
 									<li <?php echo ($this->request->getController() == 'Categories') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Categories'), '', '', 'Categories', 'Categories'); ?></li>
+									<li <?php echo ($this->request->getController() == 'About') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Search Tips'), '', '', 'About', 'Help'); ?></li>
 								</ul>
 					  </nav>
 
