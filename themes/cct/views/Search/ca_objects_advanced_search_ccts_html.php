@@ -28,13 +28,13 @@
                 </div>	
 				<div class="row">
 					<div class="col-sm-12 advancedSearchField">
-						Any Word:<br/>
+						Any word:<br/>
 						{{{_fulltext%width=100%&height=50px&placeholder='Type word or phrase and click Search'}}}
 					</div>
 				</div>			
 				<div class="row">
 					<div class="col-sm-4 advancedSearchField">
-						Source Type:<br/>
+						Source type:<br/>
 						{{{ca_objects.marc900a%width=240px}}}
 					</div>
 					<div class="col-sm-4 advancedSearchField">
