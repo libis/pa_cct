@@ -1,5 +1,5 @@
 <?php
-	MetaTagManager::setWindowTitle($this->request->config->get("app_display_name").": About");
+	MetaTagManager::setWindowTitle($this->request->config->get("app_display_name").": Help");
 ?>
 <H1><?php print _t("CCT-Database Search Tips"); ?></H1>
 
