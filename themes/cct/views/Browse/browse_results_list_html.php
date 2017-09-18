@@ -92,7 +92,7 @@
                 if ($vs_table == 'ca_objects'){
                     $vs_source_type = $qr_res->get("{$vs_table}.marc900a", array('convertCodesToDisplayText' => true));
                     $vs_printing_year = $qr_res->get("{$vs_table}.yearOfPrinting_sort");
-					$vs_alternative_title = $qr_res->getWithTemplate("<unit relativeTo=\"ca_objects\" delimiter=\" / \">^{$vs_table}.nonpreferred_labels</unit>");
+					$vs_title = $qr_res->getWithTemplate("<unit relativeTo=\"ca_objects\" delimiter=\" / \">^{$vs_table}.marc242a</unit>");
 
                     $vs_author_template = "<unit relativeTo=\"ca_objects_x_entities\" restrictToRelationshipTypes=\"aut\" delimiter=\" /\">
                         ^ca_entities.preferred_labels.displayname
@@ -121,8 +121,8 @@
                     $vs_contributors = $qr_res->getWithTemplate($vs_contributors_template);
 
                     $vs_label_detail_link = "<b>{$vs_label_detail_link}</b>";
-					if(!empty($vs_alternative_title))
-                        $vs_label_detail_link = $vs_label_detail_link . "<div class='data-line'>" . $vs_alternative_title."</div>";
+					if(!empty($vs_title))
+                        $vs_label_detail_link = $vs_label_detail_link . "<div class='data-line'>" . $vs_title."</div>";
 
                     if(!empty($vs_contributors))
                         $vs_label_detail_link = $vs_contributors . "<div class='data-line'>" . $vs_label_detail_link."</div>";
