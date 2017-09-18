@@ -1,7 +1,7 @@
 <?php
 	MetaTagManager::setWindowTitle($this->request->config->get("app_display_name").": About");
 ?>
-<H1><?php print _t("About"); ?></H1>
+<H1><?php print _t("CCT-Database"); ?></H1>
 
 <div class="row" style="text-align: justify; text-justify: inter-word;">
 	<div class="col-sm-8">
