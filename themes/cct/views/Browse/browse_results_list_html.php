@@ -170,7 +170,7 @@
 				$vs_expanded_info = $qr_res->getWithTemplate($vs_extended_info_template);
 
 				//lisib: remove $vs_rep_detail_link from the following print statement to remove image
-
+				$vs_spacer = caGetThemeGraphic($this->request,'spacer.png');
                 print "
 	<div class='bResultListItemCol col-xs-{$vn_col_span_xs} col-sm-{$vn_col_span_sm} col-md-{$vn_col_span}'>
 		<div class='bResultListItem' >
@@ -186,6 +186,7 @@
 					{$vs_expanded_info}{$vs_add_to_set_link}
 			</div>--><!-- bResultListItemExpandedInfo -->
 		</div><!-- end bResultListItem -->
+		<div>$vs_spacer</div>
 	</div><!-- end col -->";
 
 				$vn_c++;
