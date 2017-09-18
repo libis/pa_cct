@@ -42,7 +42,7 @@
 						{{{ca_objects.marc690%width=240px}}}
 					</div>
 					<div class="col-sm-4 advancedSearchField">
-						Year(e.g. 1970 or 1970-1979):<br/>
+						Year (e.g. 1970 or 1970-1979):<br/>
 						{{{print_year_sort%width=240px&height=40px}}}
 					</div>			
 				</div>

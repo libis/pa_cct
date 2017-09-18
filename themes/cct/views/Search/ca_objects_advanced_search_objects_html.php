@@ -64,7 +64,7 @@
             {{{ca_objects_x_objects.preferred_labels%restrictToRelationshipTypes=r78500,r78501,r78502,r78503,r78504,r78505,r78506,r78507,r78508,r78509,r78510,r78511,r78512,r78513,r78514,r78515,r78516&width=240px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
-            Year From - To: (e.g. 1970-1979)<br/>
+            Year (e.g. 1970 or 1970-1979)<br/>
             {{{print_year_sort%width=240px&height=40px}}}
         </div>
 		</div>
