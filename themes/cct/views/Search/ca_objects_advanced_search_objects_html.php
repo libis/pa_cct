@@ -16,37 +16,23 @@
 	<div class='advancedContainer'>
 		<div class="row">
 			<div class="col-sm-12 advancedSearchField">
-				Free Text:<br/>
+				Any word:<br/>
 				{{{_fulltext%width=100%&height=50px&placeholder='Type word or phrase and click Search'}}}
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
-            Search All Titles:<br/>
+            Title:<br/>
             {{{multi_label_search%width=100%}}}
         </div>
-		</div>
-		<div class="row">
-			<div class="col-sm-4 advancedSearchField">
-				Title:<br/>
-				{{{ca_objects.preferred_labels.name%width=240px}}}
-			</div>
-			<div class="col-sm-4 advancedSearchField">
-				Pinyin Title:<br/>
-				{{{ca_objects.marc242a%width=240px&height=40px}}}
-			</div>
-			<div class="col-sm-4 advancedSearchField">
-				Alternative Form of Title:<br/>
-				{{{ca_objects.marc246%width=240px&height=40px}}}
-			</div>
-		</div>		
+		</div>	
 		<div class="row">
         <div class="col-sm-4 advancedSearchField">
             Source:<br/>
             {{{ca_objects.marc900a%width=240px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
-            Authors (all):<br/>
+            Authors:<br/>
             {{{ca_entities.preferred_labels%restrictToRelationshipTypes=aut,clb,com,ctb,edt,edc,imp,oth,ppf,trl,nio&width=100%}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
@@ -56,7 +42,7 @@
 		</div>
 		<div class="row">
         <div class="col-sm-4 advancedSearchField">
-            Document Type:<br/>
+            Document type:<br/>
             {{{ca_objects.marc655a%width=240px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
@@ -78,7 +64,7 @@
             {{{ca_objects.marc773.marc773a%width=240px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
-            Impressum - Place of Printing:<br/>
+            Impressum - place of printing:<br/>
             {{{multi_printing_place_search%&width=240px&height=42px}}}
         </div>
 		</div>
@@ -88,11 +74,11 @@
             {{{ca_entities.preferred_labels%restrictToRelationshipTypes=printer&width=100%}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
-            Impressum - Date of Printing:<br/>
+            Impressum - date of printing:<br/>
             {{{multi_impressum-date_search%width=240px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
-            Description based on Title:<br/>
+            Description based on title:<br/>
             {{{ca_objects_x_objects.preferred_labels%restrictToRelationshipTypes=descriptionTitle&width=100%}}}
         </div>
 		</div>
@@ -102,7 +88,7 @@
             {{{ca_objects.marc520a_cont%width=240px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
-            Adaptations from West:<br/>
+            Adapted from West:<br/>
             {{{ca_objects.marc795.marc795a%width=240px&height=42px}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
@@ -112,29 +98,29 @@
 			</div>
 			<div class="row">
         <div class="col-sm-4 advancedSearchField">
-            Reprints in Series:<br/>
+            Reprints in series:<br/>
             {{{ca_objects_x_objects.preferred_labels%restrictToRelationshipTypes=reprintSeries&width=100%}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
-            Reprints - Place of Printing:<br/>
+            Reprints - place of printing:<br/>
             {{{ca_objects_x_places.preferred_labels%restrictToRelationshipTypes=printedIn&width=100%}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
-            Ancients Translations:<br/>
+            Ancients translations:<br/>
             {{{ca_objects_x_objects.preferred_labels%restrictToRelationshipTypes=ancientTranslation&width=240px}}}
         </div>
 			</div>
 			<div class="row">
         <div class="col-sm-4 advancedSearchField">
-            Library Copy:<br/>
+            Library copy:<br/>
             {{{ca_entities.preferred_labels%restrictToRelationshipTypes=libraryCopy&width=100%}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
-            Ancient List:<br/>
+            Ancient list:<br/>
             {{{ca_objects_x_objects.preferred_labels%restrictToRelationshipTypes=ancientList&width=100%}}}
         </div>
         <div class="col-sm-4 advancedSearchField">
-            Modern List:<br/>
+            Modern list:<br/>
             {{{ca_objects_x_objects.preferred_labels%restrictToRelationshipTypes=modernList&width=100%}}}
         </div>
 			</div>
