@@ -15,17 +15,17 @@
 
 	<div class='advancedContainer'>
 		<div class="row">
+			<div class="col-sm-12">
+            Title:<br/>
+            {{{multi_label_search%width=100%}}}
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-sm-12 advancedSearchField">
 				Any word:<br/>
 				{{{_fulltext%width=100%&height=50px&placeholder='Type word or phrase and click Search'}}}
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-sm-12">
-            Title:<br/>
-            {{{multi_label_search%width=100%}}}
-        </div>
-		</div>	
 		<div class="row">
         <div class="col-sm-4 advancedSearchField">
             Source:<br/>
