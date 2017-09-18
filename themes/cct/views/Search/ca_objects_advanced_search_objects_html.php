@@ -163,8 +163,14 @@
 
 		</div>
 		<div class="col-sm-4" style='border-left:1px solid #ddd;'>
-			<h1>Helpful Links</h1>
-			<p>Include some helpful info for your users here.</p>
+			<h1>Search Tips</h1>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+
+            <p><a href="/pa_cct/index.php/About/Help" style="border-bottom-width: 1px; border-bottom-style: dotted; border-bottom-color: rgb(12, 120, 139); color: rgb(114, 170, 190); text-decoration: none;">More search tips</a></p>
 		</div><!-- end col -->
 	</div><!-- end row -->
 </div><!-- end container -->
