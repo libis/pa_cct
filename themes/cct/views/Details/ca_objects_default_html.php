@@ -444,10 +444,18 @@
             </div>
 
             <div class="detail_field">
-                {{{<ifdef code="ca_objects.marc795"><H6>Adapt. from west: </H6></ifdef>}}}
+                {{{<ifdef code="ca_objects.marc795"><H6>Adapted from West: </H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">
                         <ifdef code="ca_objects.marc795.marc795a">^ca_objects.marc795.marc795a </ifdef>
                         <ifdef code="ca_objects.marc795.marc7959">(^ca_objects.marc795.marc7959)</ifdef>
+                    </unit>}}}</p>
+            </div>			
+			
+            <div class="detail_field">
+                {{{<ifdef code="ca_objects.marc795bis"><H6>Adapted from East: </H6></ifdef>}}}
+                <p>{{{<unit delimiter="<br>">
+                        <ifdef code="ca_objects.marc795bis.marc795bisa">^ca_objects.marc795bis.marc795bisa </ifdef>
+                        <ifdef code="ca_objects.marc795bis.marc795bis9">(^ca_objects.marc795bis.marc795bis9)</ifdef>
                     </unit>}}}</p>
             </div>			
 			
