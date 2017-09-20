@@ -93,7 +93,7 @@
         <div class="container container-relative">
             <h2>
               <?php
-                 echo caNavLink($this->request, "Chinese Christian Texts Database", '', '', '', '');
+                 echo caNavLink($this->request, "Chinese Christian Texts Database", '', '', 'About', 'Index');
               ?>
             </h2>
             <div class="nav-user2 pull-xs-right">
