@@ -345,7 +345,7 @@
                         continue;
 
                     if($is_field_label === true){
-                        echo "<H6>Descr. based on: </H6>";
+                        echo "<H6>Description based on: </H6>";
                         echo "<p>";
                         $is_field_label = false;
                     }
@@ -402,7 +402,7 @@
                         continue;
 
                     if($is_field_label === true){
-                        echo "<H6> Descr. based on title: </H6>";
+                        echo "<H6>Description based on: </H6>";
                         echo "<p>";
                         $is_field_label = false;
                     }
