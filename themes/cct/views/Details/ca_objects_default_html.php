@@ -814,7 +814,7 @@
                     }
                 }
                 if(sizeof($atrlist) > 0 && sizeof($strArray) > 0){
-                    echo "<H6>Anc. translations: </H6>";
+                    echo "<H6>Ancient translation: </H6>";
                     echo "<p>";
                     echo implode($strArray);
                     echo "</p>";
