@@ -923,9 +923,9 @@
                         foreach ($data as $item){
                             $str = " - ";
                             if(isset($item['marc532a_al']) && strlen($item['marc532a_al']) > 0)
-                                $str .= $item['marc532a_al'].", ";
+                                $str .= $item['marc532a_al'].": ";
                             if(isset($item['marc532c_al']) && strlen($item['marc532c_al']) > 0)
-                                $str .= $item['marc532c_al'].", ";
+                                $str .= $item['marc532c_al'].": ";
                             if(isset($item['marc5329_al']) && strlen($item['marc5329_al']) > 0)
                                 $str .= $item['marc5329_al'];
                             if(isset($item['marc532z_al']) && strlen($item['marc532z_al']) > 0)
