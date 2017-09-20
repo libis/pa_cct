@@ -103,7 +103,7 @@
                     }}}</p>
             </div>			
 		
-            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="edc" min="1"><H6>Editor in chief: </H6></ifcount>}}}
+            <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="edc" min="1"><H6>Editor-in-chief: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="edc" delimiter="<br>">
                         <a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >^ca_entities.preferred_labels.displayname</a>
                         <ifdef code="ca_entities.preferred_labels.prefix">[^ca_entities.preferred_labels.prefix]</ifdef>
@@ -234,7 +234,7 @@
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc242a</unit>}}}</p>
             </div>
 
-            <div class="detail_field">{{{<ifdef code="ca_objects.marc246"><H6>Alternative form of title: </H6></ifdef>}}}
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc246"><H6>Varying form of title: </H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc246</unit>}}}</p>
             </div>
 
