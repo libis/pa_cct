@@ -320,7 +320,7 @@
 
             <div class="detail_field">
                 {{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printer" min = "1"><H6>Impressum - printer: </H6></ifcount>}}}
-                <p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printer" delimiter="<br>">
+                <p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printer" delimiter="-">
                         <l>^ca_entities.preferred_labels</l> <ifdef code="ca_entities.nonpreferred_labels"> (^ca_entities.nonpreferred_labels)</ifdef>
                     </unit>}}}</p>
             </div>			
