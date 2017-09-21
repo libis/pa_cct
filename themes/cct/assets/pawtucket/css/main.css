@@ -1631,17 +1631,21 @@ a.browseRemoveFacet img {
 /* --------------------------------- */
 
 .front H1 {
+/*	
     color: #858585;
     line-height: 1.3;
     text-transform: none;
     padding-top: 50px;
+*/	
 }
 
 @media (min-width: 768px) {
     .front H1 {
+/*		
         font-size: 28px;
         padding-left: 25px;
         padding-right: 25px;
+*/		
     }
 }
 
