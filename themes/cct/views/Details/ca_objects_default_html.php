@@ -440,7 +440,10 @@
             </div>			
 			
             <div class="detail_field">{{{<ifcount code="ca_objects.marc300" min = "1"><H6>Physical description: </H6></ifcount>}}}
-                <p>{{{<unit delimiter="<br>">^ca_objects.marc300.marc300a</unit>}}}</p>
+                <p>{{{<unit delimiter="<br>">^ca_objects.marc300.marc300a 
+                        <ifdef code="ca_objects.marc300.marc300b">; ^ca_objects.marc300.marc300b</ifdef> 
+                        <ifdef code="ca_objects.marc300.marc300e">; ^ca_objects.marc300.marc300e</ifdef> 
+                    </unit>}}}</p>
             </div>
 
             <div class="detail_field">
