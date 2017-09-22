@@ -44,7 +44,7 @@
         ?>
         <H3><?php print $va_block_info['displayName'] . " (" . $qr_results->numHits() . ")"; ?></H3>
         <small class="pull-right">
-            <span class='multisearchFullResults'><?php print caNavLink($this->request, '<span class="glyphicon glyphicon-list"></span> ' . _t('Full results'), '', '', 'Search', '{{{block}}}', array('search' => $vs_search)); ?></span>
+            <span class='multisearchFullResults'><?php print caNavLink($this->request, '<span class="glyphicon glyphicon-list"></span> ' . _t('Full results'), '', '', 'Search', '{{{block}}}', array('search' => $vs_search, '_advanced' => 1)); ?></span>
         </small>
         <br>
         <?php
