@@ -63,6 +63,9 @@
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
                         <unit relativeTo="ca_objects_x_entities">
                             <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>
                         </unit>
                     </unit>}}}</p>
             </div>
@@ -70,7 +73,7 @@
             <div class="detail_field">{{{<ifcount code="ca_entities" restrictToRelationshipTypes="clb" min="1"><H6>Collaborator: </H6></ifcount>}}}
 				<p>{{{
                     <unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="clb" delimiter="<br>">
-						<a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >^ca_entities.preferred_labels.displayname</a>						
+						<a href="/<?php echo basename(__CA_BASE_DIR__); ?>/index.php/Detail/entities/^ca_entities.entity_id" target="_blank" >^ca_entities.preferred_labels.displayname</a>	    
                         <ifdef code="ca_entities.preferred_labels.suffix">[^ca_entities.preferred_labels.suffix]</ifdef>
                         ^ca_entities.preferred_labels.prefix
                         <case>
@@ -80,8 +83,11 @@
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
                         <unit relativeTo="ca_objects_x_entities">
                         <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>
                         </unit>
-                    </unit>
+                     </unit>
                     }}}</p>
             </div>
 
@@ -98,6 +104,9 @@
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
                         <unit relativeTo="ca_objects_x_entities">
                         <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+	   		    <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>
                         </unit>
                     </unit>
                     }}}</p>
@@ -115,6 +124,9 @@
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
                         <unit relativeTo="ca_objects_x_entities">
                             <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+			     <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>
                         </unit>
                     </unit>}}}</p>
             </div>
@@ -131,6 +143,9 @@
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
                         <unit relativeTo="ca_objects_x_entities">
                             <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+			    <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>
                         </unit>
                     </unit>}}}</p>
             </div>			
@@ -147,6 +162,9 @@
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
                         <unit relativeTo="ca_objects_x_entities">
                             <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+			    <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>
                         </unit>
                     </unit>}}}</p>
             </div>			
@@ -163,6 +181,9 @@
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
                         <unit relativeTo="ca_objects_x_entities">
                             <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+			    <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>
                         </unit>
                     </unit>}}}</p>
             </div>			
@@ -179,6 +200,9 @@
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
                         <unit relativeTo="ca_objects_x_entities">
                             <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+			    <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>    
                         </unit>
                     </unit>}}}</p>
             </div>			
@@ -195,6 +219,9 @@
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
                         <unit relativeTo="ca_objects_x_entities">
                             <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+			    <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>
                         </unit>
                     </unit>}}}</p>
             </div>			
@@ -211,6 +238,9 @@
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
                         <unit relativeTo="ca_objects_x_entities">
                             <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+			    <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>
                         </unit>
                     </unit>}}}</p>
             </div>			
@@ -227,9 +257,13 @@
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
                         <unit relativeTo="ca_objects_x_entities">
                             <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+			    <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>
                         </unit>
                     </unit>}}}</p>
             </div>
+					
             <div class="detail_field">{{{<ifdef code="ca_objects.marc242a"><H6>Pinyin title: </H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc242a</unit>}}}</p>
             </div>
@@ -311,6 +345,13 @@
                     </unit>}}}</p>
             </div>
 
+	    <div class="detail_field">{{{<ifdef code="ca_objects.marc269.marc269a"><H6>Chinesed date: </H6></ifdef>}}} 
+                <p>{{{<unit delimiter="<br>">
+                        ^ca_objects.marc269.marc269a <ifdef code="ca_objects.marc269.marc269b"> ( ^ca_objects.marc269.marc269b ) </ifdef>
+                        <ifdef code="ca_objects.marc269.marc269c"> [ ^ca_objects.marc269.marc269c ] </ifdef>
+                    </unit>}}}</p>
+            </div>
+					
             <div class="detail_field">
                 {{{<ifdef code="ca_objects.marc260p"><H6>Impressum - place:</H6></ifdef>}}}
                 <p>{{{<ifdef code="ca_objects.marc260p.marc260p9a">^ca_objects.marc260p.marc260p9a </ifdef>
@@ -472,6 +513,12 @@
                             <ifcount code="ca_entities.nonpreferred_labels" min="2">(^ca_entities.nonpreferred_labels.displayname%delimiter=_-_ ) </ifcount>
                         </case>
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
+			                        <unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="nio" delimiter=" ">
+                            <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+                            <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>
+                        </unit>							
                     </unit>
                     }}}</p>
             </div>
@@ -488,6 +535,9 @@
                         <ifdef code="ca_entities.marc700d">(^ca_entities.marc700d)</ifdef>
                         <unit relativeTo="ca_objects_x_entities" restrictToRelationshipTypes="imp" delimiter=" ">
                             <ifdef code="ca_objects_x_entities.marc700.marc7009">(^ca_objects_x_entities.marc700.marc7009)</ifdef>
+			    <ifdef code="ca_objects_x_entities.marc700.marc700e">[^ca_objects_x_entities.marc700.marc700e]</ifdef>
+                            ^ca_objects_x_entities.marc700.marc700f
+                            <ifdef code="ca_objects_x_entities.marc700.marc700t">[^ca_objects_x_entities.marc700.marc700t]</ifdef>
                         </unit>
                     </unit>
                     }}}</p>
@@ -651,6 +701,7 @@
                                 if(isset($item['marc790c']) && strlen($item['marc790c']) > 0){
                                     $int_date = intval(current(explode('-', $item['marc790c'])));
                                     if(strlen((string)$int_date) === 4)
+					//$dateArray[$int_date] = $str.": $rp_ent_label<br>";
                                         $dateArray[] = array($int_date => $str.": $rp_ent_label<br>");
                                     else
                                         $strArray[] = $str.": $rp_ent_label<br>";
@@ -890,6 +941,10 @@
                         echo "</p>";
                 }
                 ?>
+            </div>
+	
+	     <div class="detail_field">{{{<ifdef code="ca_objects.marc852_vrij"><H6>Library copies (free text):</H6></ifdef>}}} 
+                <p>{{{<unit delimiter="<br>">^ca_objects.marc852_vrij</unit>}}}</p>
             </div>
 
             <div class="detail_field">
