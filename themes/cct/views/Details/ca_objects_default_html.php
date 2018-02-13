@@ -611,7 +611,7 @@
                             }
 
                             if(isset($item['marc793x']) && strlen($item['marc793x']) > 0)
-                                $str .= "shelf: ".$item['marc793x'].", ";
+                                $str .= "shelf: ".$item['marc793x']." ";
                             if(isset($item['marc793y']) && strlen($item['marc793y']) > 0)
                                 $str .= $item['marc793y']."] ";
 
