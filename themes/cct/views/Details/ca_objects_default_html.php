@@ -686,7 +686,7 @@
                             if(isset($item['marc790_']) && strlen($item['marc790_']) > 0)
                                 $str .= " (".$item['marc790_'].") ";
                             if(isset($item['marc790d']) && strlen($item['marc790d']) > 0){
-                                $related_obj_label = $item['marc790d'].", ";
+                                $related_obj_label = $item['marc790d'];
                                 $obj_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects/search/ca_objects.preferred_labels.name:".urlencode($item['marc790d'])."";
                                 $str .= "(<a href='/$obj_search_url' style='text-decoration: none' target='_blank'>$related_obj_label</a>,";
                             }
@@ -795,7 +795,7 @@
                                 $str .= "<a href='/$entity_search_url' style='text-decoration: none' target='_blank'>$related_entity_label</a>";
                             }
                             if(isset($item['marc791x']) && strlen($item['marc791x']) > 0)
-                                $str .= "shelf: ".$item['marc793x'].", ";
+                                $str .= "shelf: ".$item['marc791x'].", ";
                             if(isset($item['marc791y']) && strlen($item['marc791y']) > 0)
                                 $str .= $item['marc791y']."] ";
 
