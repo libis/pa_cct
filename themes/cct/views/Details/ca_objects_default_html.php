@@ -688,6 +688,7 @@
                             if(isset($item['marc790d']) && strlen($item['marc790d']) > 0){
                                 $related_obj_label = $item['marc790d'];
                                 $obj_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects/search/ca_objects.preferred_labels.name:".urlencode($item['marc790d'])."";
+                                $str .= "(<a href='/$obj_search_url' style='text-decoration: none' target='_blank'>$related_obj_label</a> ";
                             }
                             if(isset($item['marc790e']) && strlen($item['marc790e']) > 0)
                                 $str .= " ".$item['marc790e'].") ";
