@@ -42,7 +42,7 @@
 		</div><!-- end detailNavBgLeft -->
 	</div><!-- end col -->
 	<div class='col-xs-12 col-sm-10 col-md-10 col-lg-10'>
-		<div class="container"><div class="row">
+		<div class="row">
 
 			<div class='col-sm-12 col-md-12 col-lg-12 detail-metadata'>
 				<H3>{{{<unit relativeTo="ca_collections" delimiter="<br>"><l>^ca_collections.preferred_labels.name</l></unit>
@@ -1323,7 +1323,7 @@
 						</div><!-- end col -->
 					</div><!-- end row -->
 			</div><!-- end col -->
-		</div><!-- end row --></div><!-- end container -->
+		</div><!-- end row -->
 	</div><!-- end col -->
 	<div class='navLeftRight col-xs-1 col-sm-1 col-md-1 col-lg-1'>
 		<div class="detailNavBgRight">
