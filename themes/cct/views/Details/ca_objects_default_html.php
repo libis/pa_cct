@@ -345,7 +345,7 @@
                     </unit>}}}</p>
             </div>
 
-	    <div class="detail_field">{{{<ifdef code="ca_objects.marc269.marc269a|ca_objects.marc269.marc269b"><H6>Chinesed date: </H6></ifdef>}}} 
+	    <div class="detail_field">{{{<ifdef code="ca_objects.marc269.marc269a|ca_objects.marc269.marc269b"><H6>Chinese date: </H6></ifdef>}}} 
                 <p>{{{<unit delimiter="<br>">
                         ^ca_objects.marc269.marc269a <ifdef code="ca_objects.marc269.marc269b"> ( ^ca_objects.marc269.marc269b ) </ifdef>
                         <ifdef code="ca_objects.marc269.marc269c"> [ ^ca_objects.marc269.marc269c ] </ifdef>
