@@ -363,6 +363,8 @@
                 {{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printer" min = "1"><H6>Impressum - printer: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printer" delimiter="-">
                         <l>^ca_entities.preferred_labels</l> <ifdef code="ca_entities.nonpreferred_labels"> (^ca_entities.nonpreferred_labels)</ifdef>
+		      </unit>
+		      <unit relativeTo="ca_objects" delimiter="-">
 			<ifdef code="ca_objects.marc260b"> (^ca_objects.marc260b)</ifdef>
                     </unit>}}}</p>
             </div>			
