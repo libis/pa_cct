@@ -1,4 +1,6 @@
 /nbproject/*
+app/tmp
+log
 app/tmp/*
 setup.php
 /media/*
@@ -12,4 +14,8 @@ setup.php
 *.swp
 app/lib/core/Parsers/htmlpurifier/standalone/HTMLPurifier/DefinitionCache/Serializer/*
 app/lib/core/Parsers/dompdf/lib/fonts/*fm.php
-app/conf/local/*
+#app/conf/local/*
+vendor/*
+tmp/*
+log/*
+public/*

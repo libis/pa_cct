@@ -88,7 +88,8 @@ if (!$vb_ajax) {	// !ajax
 ?>
 		<H1>
 <?php
-			print _t('%1 %2 %3', $qr_res->numHits(), ($va_browse_info["labelSingular"]) ? $va_browse_info["labelSingular"] : $t_instance->getProperty('NAME_SINGULAR'), ($qr_res->numHits() == 1) ? _t("Result") : _t("Results"));	
+			//print _t('%1 %2 %3', $qr_res->numHits(), ($va_browse_info["labelSingular"]) ? $va_browse_info["labelSingular"] : $t_instance->getProperty('NAME_SINGULAR'), ($qr_res->numHits() == 1) ? _t("Result") : _t("Results"));	
+			print _t('%1 %2', $qr_res->numHits(), ($qr_res->numHits() == 1) ? _t("Result") : _t("Results"));
 ?>		
 			<div class="btn-group">
 				<i class="fa fa-gear bGear" data-toggle="dropdown"></i>
@@ -146,7 +147,7 @@ if (!$vb_ajax) {	// !ajax
 		if (sizeof($va_criteria) > 0) {
 			$i = 0;
 			foreach($va_criteria as $va_criterion) {
-				print "<strong>".$va_criterion['facet'].':</strong>';
+				//print "<strong>".$va_criterion['facet'].':</strong>'; // libis: hide all search terms
 				if ($va_criterion['facet_name'] != '_search') {
 					print caNavLink($this->request, '<button type="button" class="btn btn-default btn-sm">'.$va_criterion['value'].' <span class="glyphicon glyphicon-remove-circle"></span></button>', 'browseRemoveFacet', '*', '*', '*', array('removeCriterion' => $va_criterion['facet_name'], 'removeID' => $va_criterion['id'], 'view' => $vs_current_view, 'key' => $vs_browse_key));
 				}else{
@@ -155,7 +156,7 @@ if (!$vb_ajax) {	// !ajax
                     if (strpos($va_criterion['value'], "???:") !== false)
                         $va_criterion['value'] = str_replace('???:', '', $va_criterion['value']);
                     //libis_end					
-					print ' '.$va_criterion['value'];
+					//print ' '.$va_criterion['value']; // libis: hide all search terms
 					$vs_search = $va_criterion['value'];
 				}
 				$i++;

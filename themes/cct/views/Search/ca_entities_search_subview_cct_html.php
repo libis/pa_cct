@@ -52,7 +52,6 @@
             ?>
             <?php
             $vn_id = $qr_results->get("{$vs_table}.{$vs_pk}");
-            $vs_idno_detail_link = caDetailLink($this->request, $qr_results->get("{$vs_table}.idno"), '', $vs_table, $vn_id);
             //$vs_entity_identifier = $qr_results->getWithTemplate("^ca_entities.idno");
             $vs_entity_type = $qr_results->getWithTemplate("^ca_entities.type_id");
             $vs_entity_label = $qr_results->get('ca_entities.preferred_labels.displayname', array('returnAsLink' => true));
@@ -62,7 +61,6 @@
                 <div class='bSetsSelectMultiple'><input type='checkbox' name='object_ids[]' value='{$vn_id}'></div>
                 <div class='bResultListItemContent'>
                     <div class='bResultListItemText'>
-                        <div class='idno'>{$vs_idno_detail_link}</div>
                         <div class='label_link'>{$vs_entity_label}</div>
                         <div class='idno'>{$vs_entity_type}</div>
                     </div><!-- end bResultListItemText -->

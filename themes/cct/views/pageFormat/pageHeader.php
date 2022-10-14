@@ -93,7 +93,7 @@
         <div class="container container-relative">
             <h2>
               <?php
-                 echo caNavLink($this->request, "Chinese Christian Texts Database", '', '', '', '');
+                 echo caNavLink($this->request, "Chinese Christian Texts Database", '', '', 'About', 'Index');
               ?>
             </h2>
             <div class="nav-user2 pull-xs-right">
@@ -144,6 +144,7 @@
 									<?php echo $this->render('pageFormat/browseMenu.php'); ?>
 									<li <?php echo ($this->request->getController() == 'Contact') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Contact'), '', '', 'Contact', 'Form'); ?></li>
 									<li <?php echo ($this->request->getController() == 'Categories') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Categories'), '', '', 'Categories', 'Categories'); ?></li>
+									<li <?php echo ($this->request->getController() == 'About') ? 'class="active"' : ''; ?>><?php echo caNavLink($this->request, _t('Search Tips'), '', '', 'About', 'Help'); ?></li>
 								</ul>
 					  </nav>
 

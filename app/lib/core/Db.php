@@ -1,6 +1,6 @@
 <?php
 /** ---------------------------------------------------------------------
- * app/lib/core/Db.php : 
+ * app/lib/core/Db.php :
  * ----------------------------------------------------------------------
  * CollectiveAccess
  * Open-source collections management software
@@ -15,10 +15,10 @@
  * the terms of the provided license as published by Whirl-i-Gig
  *
  * CollectiveAccess is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTIES whatsoever, including any implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * WITHOUT ANY WARRANTIES whatsoever, including any implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * This source code is free and modifiable under the terms of 
+ * This source code is free and modifiable under the terms of
  * GNU General Public License. (http://www.gnu.org/copyleft/gpl.html). See
  * the "license.txt" file for details, or visit the CollectiveAccess web site at
  * http://www.CollectiveAccess.org
@@ -29,11 +29,11 @@
  *
  * ----------------------------------------------------------------------
  */
- 
+
  /**
   *
   */
- 
+
 require_once(__CA_LIB_DIR__."/core/Db/DbBase.php");
 require_once(__CA_LIB_DIR__."/core/Db/DbStatement.php");
 require_once(__CA_LIB_DIR__."/core/Db/DbResult.php");
@@ -80,8 +80,8 @@ class Db extends DbBase {
 	 * @access private
 	 */
 	private $opn_last_insert_id = null;
-	
-	/** 
+
+	/**
 	  * ApplicationMonitor to use for query logging
 	  * @var ApplicationMonitor
 	  */
@@ -103,7 +103,7 @@ class Db extends DbBase {
 		$this->opn_transaction_count = 0;
 
 		$va_options = (is_array($pa_options)) ? $pa_options : array();
-		
+
 		if (!isset($va_options['username'])) {
 			$va_options = array_merge($va_options, array(
 				"username" => 	$this->config->get("db_user"),
@@ -171,7 +171,7 @@ class Db extends DbBase {
 	public function getConfig() {
 		return $this->config;
 	}
-	
+
 	/**
 	 * Fetches the underlying database connection handle
 	 *
@@ -180,7 +180,7 @@ class Db extends DbBase {
 	public function getHandle() {
 		return $this->opo_db->getHandle();
 	}
-	
+
 	/**
 	 * Set ApplicationMonitor object to log queries
 	 *
@@ -216,8 +216,8 @@ class Db extends DbBase {
 	public function prepare($ps_sql) {
 		if(!$this->connected(true, "Db->prepare()")) { return false; }
 		$this->clearErrors();
-		
-		if (false){ 
+
+		if (false){
 			print "<hr>$ps_sql<br/><pre>";
 			$va_trace = debug_backtrace();
 			$vs_debug = '';
@@ -226,7 +226,20 @@ class Db extends DbBase {
 			}
 			print "$vs_debug</pre><hr>";
 		}
-		return $this->opo_db->prepare($this, $ps_sql);
+
+
+
+    //replace rank
+    $pattern='~[\"\'`].*?[\"\'`](*SKIP)(*FAIL)|\brank\b~is';
+    $replacement = "`rank`";
+    $ps_sql = preg_replace($pattern, $replacement, $ps_sql);
+
+    ////but not too greedy on prefixed
+    $pattern = "~\.`rank`~";
+    $replacement = '.rank';
+    $ps_sql = preg_replace($pattern, $replacement, $ps_sql);
+
+    return $this->opo_db->prepare($this, $ps_sql);
 	}
 
 	/**
@@ -269,7 +282,7 @@ class Db extends DbBase {
 		} else {
 			$o_res = $o_stmt->executeWithParamsAsArray($va_args);
 		}
-		
+
 		if (!$o_res) {
 			// copy errors from statement object to Db object
 			$this->errors = $o_stmt->errors();

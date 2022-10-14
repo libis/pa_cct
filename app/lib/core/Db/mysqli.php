@@ -15,10 +15,10 @@
  * the terms of the provided license as published by Whirl-i-Gig
  *
  * CollectiveAccess is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTIES whatsoever, including any implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * WITHOUT ANY WARRANTIES whatsoever, including any implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * This source code is free and modifiable under the terms of 
+ * This source code is free and modifiable under the terms of
  * GNU General Public License. (http://www.gnu.org/copyleft/gpl.html). See
  * the "license.txt" file for details, or visit the CollectiveAccess web site at
  * http://www.CollectiveAccess.org
@@ -29,7 +29,7 @@
  *
  * ----------------------------------------------------------------------
  */
- 
+
  /**
   *
   */
@@ -108,19 +108,19 @@ class Db_mysqli extends DbDriverBase {
 		global $g_connect;
 		if (!is_array($g_connect)) { $g_connect = array(); }
 		$vs_db_connection_key = $pa_options["host"].'/'.$pa_options["database"];
-		
+
 		if (!($vb_unique_connection = caGetOption('uniqueConnection', $pa_options, false)) && isset($g_connect[$vs_db_connection_key]) && ($g_connect[$vs_db_connection_key])) { $this->opr_db = $g_connect[$vs_db_connection_key]; return true;}
-		
+
 		if (!function_exists("mysqli_connect")) {
 			throw new DatabaseException(_t("Your PHP installation lacks MySQL support. Please add it and retry..."), 200, "Db->mysqli->connect()");
 		}
-		
+
 		$vb_persistent_connections = caGetOption('persistentConnections', $pa_options, false);
 		$this->opr_db = @mysqli_connect(($vb_persistent_connections ? "p:" : "").$pa_options["host"], $pa_options["username"], $pa_options["password"]);
-
 		if (!$this->opr_db) {
 			$po_caller->postError(200, mysqli_connect_error(), "Db->mysqli->connect()");
 			throw new DatabaseException(mysqli_connect_error(), 200, "Db->mysqli->connect()");
+			throw new DatabaseException($pa_options["username"], 200, "Db->mysqli->connect()");
 			return false;
 		}
 
@@ -130,8 +130,8 @@ class Db_mysqli extends DbDriverBase {
 			return false;
 		}
 		mysqli_query($this->opr_db, 'SET NAMES \'utf8\'');
-		mysqli_query($this->opr_db, 'SET character_set_results = NULL');	
-		
+		mysqli_query($this->opr_db, 'SET character_set_results = NULL');
+
 		if (!$vb_unique_connection) { $g_connect[$vs_db_connection_key] = $this->opr_db; }
 		return true;
 	}
@@ -161,21 +161,21 @@ class Db_mysqli extends DbDriverBase {
 	 */
 	public function prepare($po_caller, $ps_sql) {
 		$this->ops_sql = $ps_sql;
-		
+
 		// are there any placeholders at all?
 		if (strpos($ps_sql, '?') === false) {
 			return new DbStatement($this, $this->ops_sql, array('placeholder_map' => array()));
 		}
-		
+
 		global $g_mysql_statement_cache;
-		
+
 		$vs_md5 = md5($ps_sql);
-		
+
 		// is prepared statement cached?
 		if(isset($g_mysql_statement_cache[$vs_md5])) {
 			return new DbStatement($this, $ps_sql, array('placeholder_map' => $g_mysql_statement_cache[$vs_md5]));
 		}
-		
+
 
 		// find placeholders
 		$vn_i = 0;
@@ -184,7 +184,7 @@ class Db_mysqli extends DbDriverBase {
 		$va_placeholder_map = array();
 		$vb_in_quote = '';
 		$vb_is_escaped = false;
-		
+
 		while($vn_i < $vn_l) {
 			$vs_c = $ps_sql{$vn_i};
 
@@ -234,12 +234,12 @@ class Db_mysqli extends DbDriverBase {
 			}
 			$vn_i++;
 		}
-		
-		while (sizeof($g_mysql_statement_cache) >= 2048) { 
-			array_shift($g_mysql_statement_cache); 
+
+		while (sizeof($g_mysql_statement_cache) >= 2048) {
+			array_shift($g_mysql_statement_cache);
 		}	// limit statement cache to 2048 entries, otherwise we'll eat up memory in long running processes
 
-		
+
 		$g_mysql_statement_cache[$vs_md5] = $va_placeholder_map;
 		return new DbStatement($this, $this->ops_sql, array('placeholder_map' => $va_placeholder_map));
 	}
@@ -395,7 +395,7 @@ class Db_mysqli extends DbDriverBase {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * @see DbResult::getAllFieldValues()
 	 * @param mixed $po_caller object representation of the calling class, usually Db
@@ -405,7 +405,7 @@ class Db_mysqli extends DbDriverBase {
 	 */
 	function getAllFieldValues($po_caller, $pr_res, $pa_fields) {
 		$va_vals = array();
-		
+
 		if (is_array($pa_fields)) {
 			$va_row = @mysqli_fetch_assoc($pr_res);
 			foreach($pa_fields as $vs_field) {
@@ -508,15 +508,15 @@ class Db_mysqli extends DbDriverBase {
 		} else {
 			$po_caller->postError(280, mysqli_error($this->opr_db), "Db->mysqli->getTables()");
 			throw new DatabaseException(mysqli_error($this->opr_db), 280, "Db->mysqli->getTables()");
-			
+
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Get database connection handle
 	 *
-	 * @return resource 
+	 * @return resource
 	 */
 	public function getHandle() {
 		return $this->opr_db;
@@ -527,7 +527,7 @@ class Db_mysqli extends DbDriverBase {
 	 */
 	public function __destruct() {
 		// Disconnecting here can affect other classes that need
-		// to clean up by writing to the database so we disabled 
+		// to clean up by writing to the database so we disabled
 		// disconnect-on-destruct
 		//$this->disconnect();
 	}

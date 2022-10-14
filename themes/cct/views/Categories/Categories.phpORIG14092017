@@ -6,7 +6,7 @@
     $qr_result = $o_data->query($sql_labels);
     $labels = array();
     while($qr_result->nextRow()) {
-	$item_labels[$qr_result->get('name_singular')] = $qr_result->get('item_id');
+        $labels[] = $qr_result->get('name_singular');
     }
     $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Search/objects?search=ca_objects.marc690";
 ?>
@@ -17,7 +17,7 @@
         <div class="" id="parent-fieldname-text-6e25d7c040c2428c8cd2b81223a8a35b">
             <table border="1" cellpadding="0" cellspacing="0">
                 <tbody>
-                <?php foreach ($item_labels as $label=>$id) {
+                <?php foreach ($labels as $label) {
                     if (strpos($label, ':') === false){
                         echo "<tr style='height: 50px'><td colspan='2'></td></tr>";
                         echo "<tr style='font-weight: bold;'>";
@@ -25,17 +25,17 @@
                     else
                         echo "<tr>";
 
-                    $values = explode(" ", $label, 2);
-                    $category_number = rtrim(trim($values[0]),".");
-                    echo "<td valign='top' style='white-space: nowrap; padding-right: 150px'> $category_number </td>";
-                    if(isset($values[1])){
-                        $category_text = trim($values[1]);
-                        echo "<td valign='top' style='white-space: nowrap'> <a href='/$base_search_url:$id' style='text-decoration: none'>$category_text</a> </td>";
-                    }
+                            $values = explode(" ", $label, 2);
+                            $category_number = rtrim(trim($values[0]),".");
+                            echo "<td valign='top' style='white-space: nowrap; padding-right: 150px'> $category_number </td>";
+                            if(isset($values[1])){
+                                $category_text = trim($values[1]);
+                                echo "<td valign='top' style='white-space: nowrap'> <a href='/$base_search_url:$category_text' style='text-decoration: none'>$category_text</a> </td>";
+                            }
 
                 }
-                echo "</tr>";
-                ?>
+                    echo "</tr>";
+                 ?>
                 </tbody>
             </table>
         </div>

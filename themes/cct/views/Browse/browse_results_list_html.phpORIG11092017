@@ -92,8 +92,7 @@
                 if ($vs_table == 'ca_objects'){
                     $vs_source_type = $qr_res->get("{$vs_table}.marc900a", array('convertCodesToDisplayText' => true));
                     $vs_printing_year = $qr_res->get("{$vs_table}.yearOfPrinting_sort");                    
-					//$vs_alternative_title = $qr_res->getWithTemplate("<unit relativeTo=\"ca_objects\" delimiter=\" / \">^{$vs_table}.nonpreferred_labels</unit>");
-					$vs_title = $qr_res->getWithTemplate("<unit relativeTo=\"ca_objects\" delimiter=\" / \">^{$vs_table}.marc242a</unit>");
+					$vs_alternative_title = $qr_res->getWithTemplate("<unit relativeTo=\"ca_objects\" delimiter=\" / \">^{$vs_table}.nonpreferred_labels</unit>");
 					                    
                     $vs_author_template = "<unit relativeTo=\"ca_objects_x_entities\" restrictToRelationshipTypes=\"aut\" delimiter=\" /\">
                         ^ca_entities.preferred_labels.displayname 
@@ -108,7 +107,7 @@
                         </unit>";					
                     $vs_authors = $qr_res->getWithTemplate($vs_author_template);
 
-                    $vs_contributors_template = "<unit relativeTo=\"ca_objects_x_entities\" restrictToRelationshipTypes=\"edt,trl\" delimiter=\" /\">
+                    $vs_contributors_template = "<unit relativeTo=\"ca_objects_x_entities\" restrictToRelationshipTypes=\"clb,com,ctb,edt,edc,imp,oth,ppf,trl,nio\" delimiter=\" /\">
                         ^ca_entities.preferred_labels.displayname 
                         <ifdef code=\"ca_entities.preferred_labels.suffix\">[^ca_entities.preferred_labels.suffix]</ifdef> 
                         ^ca_entities.preferred_labels.prefix 
@@ -122,24 +121,24 @@
                     $vs_contributors = $qr_res->getWithTemplate($vs_contributors_template);					
 					
                     $vs_label_detail_link = "<b>{$vs_label_detail_link}</b>";
-					if(!empty($vs_title))
-			$vs_label_detail_link = $vs_label_detail_link . "<div class='data-line'>" . $vs_title."</div>";
+					if(!empty($vs_alternative_title))
+                        $vs_label_detail_link = $vs_label_detail_link . "<br>" . $vs_alternative_title;
 					
                     if(!empty($vs_contributors))
-			$vs_label_detail_link = $vs_contributors . "<div class='data-line'>" . $vs_label_detail_link."</div>";
+                        $vs_label_detail_link = $vs_contributors . "<br>" . $vs_label_detail_link;					
 					
                     if(!empty($vs_authors))
-			$vs_label_detail_link = $vs_authors . "<div class='data-line'>" . $vs_label_detail_link."</div>";
+                        $vs_label_detail_link = $vs_authors . "<br>" . $vs_label_detail_link;
 
                     if(!empty($vs_printing_year))
-			$vs_label_detail_link = $vs_label_detail_link . "<div class='data-line'>" . $vs_printing_year."</div>";
+                        $vs_label_detail_link = $vs_label_detail_link . "<br>" . $vs_printing_year;
 
                     if(!empty($vs_source_type))
-			$vs_label_detail_link = $vs_label_detail_link . "<div class='data-line'>" . $vs_source_type."</div>";
+                        $vs_label_detail_link = $vs_label_detail_link . "<br>" . $vs_source_type;
 
                 }
                 if ($vs_table == 'ca_entities'){
-		    $vs_label_detail_link 	= $vs_label_detail_link . "<div class='data-line'>". $qr_res->get("{$vs_table}.type_id", array('convertCodesToDisplayText' => true))."</div>";
+                    $vs_label_detail_link 	= $vs_label_detail_link . "<br>". $qr_res->get("{$vs_table}.type_id", array('convertCodesToDisplayText' => true));
                 }
 				//libis_end
 				$vs_thumbnail = "";
@@ -171,7 +170,6 @@
 				$vs_expanded_info = $qr_res->getWithTemplate($vs_extended_info_template);
 
 				//lisib: remove $vs_rep_detail_link from the following print statement to remove image
-				$vs_spacer = caGetThemeGraphic($this->request,'spacer.png');
 
                 print "
 	<div class='bResultListItemCol col-xs-{$vn_col_span_xs} col-sm-{$vn_col_span_sm} col-md-{$vn_col_span}'>
@@ -188,7 +186,6 @@
 					{$vs_expanded_info}{$vs_add_to_set_link}
 			</div>--><!-- bResultListItemExpandedInfo -->
 		</div><!-- end bResultListItem -->
-		<div>$vs_spacer</div>
 	</div><!-- end col -->";
 				
 				$vn_c++;
@@ -198,7 +195,7 @@
             // Loding of additional items on result list should only be performed if there are more records than items to be shown per block ($vn_hits_per_block)			
 			//print caNavLink($this->request, _t('Next %1', $vn_hits_per_block), 'jscroll-next', '*', '*', '*', array('s' => $vn_start + $vn_hits_per_block, 'key' => $vs_browse_key, 'view' => $vs_current_view));
 			if($qr_res->numHits() > $vn_hits_per_block)
-			    print caNavLink($this->request, _t('Next %1', $vn_hits_per_block), 'jscroll-next', '*', '*', '*', array('s' => $vn_start + $vn_hits_per_block, 'key' => $vs_browse_key, 'view' => $vs_current_view,  '_advanced' => 1));
+			    print caNavLink($this->request, _t('Next %1', $vn_hits_per_block), 'jscroll-next', '*', '*', '*', array('s' => $vn_start + $vn_hits_per_block, 'key' => $vs_browse_key, 'view' => $vs_current_view));
 			//libis_end			
 		}
 ?>

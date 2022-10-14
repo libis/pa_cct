@@ -42,7 +42,7 @@
 		</div><!-- end detailNavBgLeft -->
 	</div><!-- end col -->
 	<div class='col-xs-12 col-sm-10 col-md-10 col-lg-10'>
-		<div class="row">
+		<div class="container"><div class="row">
 
 			<div class='col-sm-12 col-md-12 col-lg-12 detail-metadata'>
 				<H3>{{{<unit relativeTo="ca_collections" delimiter="<br>"><l>^ca_collections.preferred_labels.name</l></unit>
@@ -276,10 +276,6 @@
                 <p>{{{<unit delimiter="<br>">^ca_objects.marc210a</unit>}}}</p>
             </div>			
 			
-            <!---<div class="detail_field">{{{<ifdef code="ca_objects.documents"><H6>Documents: </H6></ifdef>}}}
-               <p>{{{<unit delimiter="<br>">^ca_objects.documents.document</unit>}}}</p>
-            </div>--->	
-		
             <div class="detail_field">
                 <?php
                 $base_search_url =  basename(__CA_BASE_DIR__)."/index.php/Detail/objects";
@@ -349,7 +345,7 @@
                     </unit>}}}</p>
             </div>
 
-            <div class="detail_field">{{{<ifdef code="ca_objects.marc269.marc269a|ca_objects.marc269.marc269b"><H6>Chinese date: </H6></ifdef>}}}
+            <div class="detail_field">{{{<ifdef code="ca_objects.marc269.marc269a"><H6>Chinesed date: </H6></ifdef>}}}
                 <p>{{{<unit delimiter="<br>">
                         ^ca_objects.marc269.marc269a <ifdef code="ca_objects.marc269.marc269b"> ( ^ca_objects.marc269.marc269b ) </ifdef>
 			<ifdef code="ca_objects.marc269.marc269c"> [ ^ca_objects.marc269.marc269c ] </ifdef>
@@ -366,10 +362,7 @@
             <div class="detail_field">
                 {{{<ifcount code="ca_entities.preferred_labels" restrictToRelationshipTypes="printer" min = "1"><H6>Impressum - printer: </H6></ifcount>}}}
                 <p>{{{<unit relativeTo="ca_entities" restrictToRelationshipTypes="printer" delimiter=" - ">
-                        <l>^ca_entities.preferred_labels</l> <ifdef code="ca_entities.nonpreferred_labels"> (^ca_entities.nonpreferred_labels)</ifdef> 
-	  	      </unit>
-		      <unit relativeTo="ca_objects" delimiter=" - ">
-			<ifdef code="ca_objects.marc260b"> (^ca_objects.marc260b)</ifdef>
+                        <l>^ca_entities.preferred_labels</l> <ifdef code="ca_entities.nonpreferred_labels"> (^ca_entities.nonpreferred_labels)</ifdef>
                     </unit>}}}</p>
             </div>			
 			
@@ -415,8 +408,7 @@
                             if(isset($item['marc250_add']) && strlen($item['marc250_add']) > 0)
                                 $str .= " (".$item['marc250_add'].") ";
                             if(strlen($str) > strlen(" - "))
-                                $strArray[] = $str;
-                                #$strArray[] = $str."<br>";
+                                $strArray[] = $str."<br>";
                         }
                     }
                     $desclibcopy_entity_id = $list['entity_id'];
@@ -481,7 +473,7 @@
                     if(sizeof($strArray) > 0){
                         echo "<br>".implode($strArray);
                     }
-                    #echo "<br>";
+                    echo "<br>";
                     if($counter > sizeof($dtlist))
                         echo "</p>";
                 }
@@ -827,7 +819,7 @@
             </div>
 
 	    <div class="detail_field">{{{<ifdef code="ca_objects.marc792a"><H6>Reprints (other):</H6></ifdef>}}}
-		<p>{{{<unit delimiter="<br>"><ifdef code="ca_objects.marc792a">^ca_objects.marc792a</ifdef></unit>}}}</p>
+                <p>{{{<unit delimiter="<br>">^ca_objects.marc792a</unit>}}}</p>
             </div>
 			
             <!--Anc. translations-->
@@ -1333,7 +1325,7 @@
 						</div><!-- end col -->
 					</div><!-- end row -->
 			</div><!-- end col -->
-		</div><!-- end row --><!-- end container -->
+		</div><!-- end row --></div><!-- end container -->
 	</div><!-- end col -->
 	<div class='navLeftRight col-xs-1 col-sm-1 col-md-1 col-lg-1'>
 		<div class="detailNavBgRight">
